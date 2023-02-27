@@ -52,3 +52,120 @@ display: block
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+.navbar-navigation,
+.footer {
+  padding: 0 7rem;
+  background-color: white;
+  color: gray;
+}
+.navbar-navigation {
+  border-bottom: 1px solid lightgray;
+}
+
+.nav-col {
+  display: flex;
+  
+  padding: 10px 0 0;
+}
+
+.nav-col .form {
+  position: relative;
+  margin-left: 10px;
+  width: 20rem;
+  height: 45px;
+}
+
+
+.linkedin-logo {
+  font-size: 55px;
+  color: rgb(10,102,194);
+}
+
+.input-search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form-ricerca {
+  background-color: #EEF3F8;
+  padding-left: 45px;
+}
+
+.ul-nav {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+.ul-nav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 0.8em;
+}
+.ul-nav li span {
+  display: flex;
+  align-items: center;
+}
+
+.ul-nav li a {
+  color: #282c34;
+}
+.freccia-dropdown {
+  font-size: 22px;
+}
+
+.i-nav {
+  font-size: 25px;
+}
+
+.bordedLi {
+  border-right: 1px solid lightgray;
+}
+
+
+.footer{
+  background-color: #f3f2ef 
+}
+
+.footer-col,
+.footerCopiright {
+  padding: 0;
+}
+.footerCopiright {
+  font-size: 0.8em;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 10px 0;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.footer-linkedIn {
+  color: rgb(10,102,194);
+  margin: 0;
+  padding: 0;
+}
+
+.i-footer {
+  font-size: 25px;
+}
+
+.footer select {
+  width: 100%;
+}
