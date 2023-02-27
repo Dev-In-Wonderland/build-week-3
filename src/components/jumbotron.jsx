@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Card, Button, Image } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import { useEffect } from "react";
