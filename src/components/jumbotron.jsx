@@ -5,8 +5,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const Jumbotron = () => {
-  const dispatch = useDispatch()
-   const profile = useSelector((state)=>{return state})
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => {
+    return state;
+  });
   const fetchme = async () => {
     try {
       const token =
@@ -17,85 +19,87 @@ const Jumbotron = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
-        dispatch({type:'SETPROFILE',payload: data});
+        console.log(data);
+        dispatch({ type: "SETPROFILE", payload: data });
       } else {
         console.log("err if");
       }
     } catch (err) {
       console.log("err catch");
     }
-    
   };
 
   useEffect(() => {
     fetchme();
   }, []);
-  
+
   return (
     <>
       <Row className="jumbotron">
         <Col xs={9}>
-
-
-          <Card className="d-flex flex-column  m-3 ">
-            
+          <Card className="d-flex flex-column  m-3 px-3 ">
             <Card.Body>
-                
-            <img src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" className="background " alt="immagine del background" />
-            <img src={profile.image} className="profilo" alt="immagine del profilo" />
+              <img
+                src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                className="background "
+                alt="immagine del background"
+              />
+              <img
+                src={profile.image}
+                className="profilo"
+                alt="immagine del profilo"
+              />
               <Card.Title className="sopra">
-
-                {profile.name} {profile.surname} 
+                {profile.name} {profile.surname}
               </Card.Title>
               <p className="m-0  p-0">{profile.title}</p>
-              
+
               <div>
-                <Button>Disponibile per</Button>
-                <Button className="ms-2" >
+                <Button className="rounded-pill">Disponibile per</Button>
+                <button className="ms-2  btn rounded-pill border border-primary text-primary">
                   Aggiungi sezione del profilo
-                </Button>
-                <Button className="ms-2" >
+                </button>
+                <button className="ms-2 btn rounded-pill border border-secondary text-secondary">
                   Altro
-                </Button>
+                </button>
               </div>
             </Card.Body>
 
             <Row className="w-100 cols-2 ms-2 pb-3">
-
               <Col className="p-2 w-50 ">
-                
-                <p className="m-0 p-0"><strong>Mostra ai recuiter se sei disponibile a lavorare:</strong> sei tu che decidi che può vedere queste informazioni</p>
-                <a className="text-decoratione-none text-primary" >Inizia</a>
+                {" "}
+                <p className="m-0 p-0">
+                  <strong>
+                    Mostra ai recuiter se sei disponibile a lavorare:
+                  </strong>{" "}
+                  sei tu che decidi che può vedere queste informazioni
+                </p>
+                <a className="text-decoratione-none text-primary">Inizia</a>
               </Col>
-
+              ✖️
               <Col className="p-2 ms-3 w-50 ">
-                
-                <p className="m-0 p-0"><strong>Fai sapere che stai facendo selezione </strong>e attrai candidati qualificati</p>
+                <p className="m-0 p-0">
+                  <strong>Fai sapere che stai facendo selezione </strong>e
+                  attrai candidati qualificati
+                </p>
 
-                <a className="text-decoratione-none"  >Inizia</a>
+                <a className="text-decoratione-none">Inizia</a>
               </Col>
+              ✖️
             </Row>
-
-
           </Card>
-
-
-
 
           <Card className="d-flex m-3 position-relative">
             <Card.Body>
-              <Card.Title><strong>Consigliato per te</strong></Card.Title>
+              <Card.Title>
+                <strong>Consigliato per te</strong>
+              </Card.Title>
               <p className="m-0 p-0 d-flex align-items-center ">
                 <BsFillEyeFill className="me-3" />
                 Solo per te
               </p>
             </Card.Body>
           </Card>
-
-
-
-
         </Col>
       </Row>
     </>
