@@ -41,17 +41,14 @@ const Jumbotron = () => {
           <Card className="d-flex flex-column  m-3 ">
             
             <Card.Body>
-                <Image
-                  
-                  alt="background"
                 
-                />
-            <img src="https://1.bp.blogspot.com/-qxpQhrAf71I/UGLraxbJpRI/AAAAAAAAQF4/jvVGIiOMuEA/s320/facebookanonimo.jpg" className="profilo" alt="immagine del profilo" />
-              <Card.Title className="mt-5  ">
+            <img src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" className="background " alt="immagine del background" />
+            <img src={profile.image} className="profilo" alt="immagine del profilo" />
+              <Card.Title className="sopra">
 
-                {profile.name}
+                {profile.name} {profile.surname} 
               </Card.Title>
-              <p className="m-0 p-0">Web developer</p>
+              <p className="m-0  p-0">{profile.title}</p>
               
               <div>
                 <Button>Disponibile per</Button>
@@ -69,14 +66,14 @@ const Jumbotron = () => {
               <Col className="p-2 w-50 ">
                 
                 <p className="m-0 p-0"><strong>Mostra ai recuiter se sei disponibile a lavorare:</strong> sei tu che decidi che può vedere queste informazioni</p>
-                <a className="text-decoratione-none text-primary" >inizia</a>
+                <a className="text-decoratione-none text-primary" >Inizia</a>
               </Col>
 
               <Col className="p-2 ms-3 w-50 ">
                 
                 <p className="m-0 p-0"><strong>Fai sapere che stai facendo selezione </strong>e attrai candidati qualificati</p>
 
-                <a className="text-decoratione-none"  >inizia</a>
+                <a className="text-decoratione-none"  >Inizia</a>
               </Col>
             </Row>
 

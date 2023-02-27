@@ -17,16 +17,33 @@ body{
   background-color: lightgray;
 }
 
-.jumbotron{
-  padding: 2em;
-  border-radius: 18px;
-  border: 5px solid black;
+.jumbotron a{
+
+  text-decoration: none !important;
+  
+  
 }
 
 .profilo{
-  width:60px;
-height:60px;
-display: block
+  width:80px;
+height:80px;
+display: block;
+border-radius: 30000px;
+position: relative;
+top:140px;
+left: 30px
+}
+
+.sopra{
+margin-top: 200px !important;
+
+}
+.background {
+  width: 97% !important;
+  height: 180px;
+  position: absolute;
+  
+  
 }
 
 .App-header {
