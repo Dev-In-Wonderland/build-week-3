@@ -13,6 +13,22 @@
   }
 }
 
+body{
+  background-color: lightgray;
+}
+
+.jumbotron{
+  padding: 2em;
+  border-radius: 18px;
+  border: 5px solid black;
+}
+
+.profilo{
+  width:60px;
+height:60px;
+display: block
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
