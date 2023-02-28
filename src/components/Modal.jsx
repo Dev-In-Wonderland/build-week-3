@@ -25,6 +25,18 @@ function Example() {
   //le quadre sostituiscono
   }
 
+
+
+
+
+
+
+const handleSubmit = e => {
+  e.preventDefault();
+
+
+
+
   const postData = async() => {
     try {
            const token =
@@ -296,5 +308,10 @@ function Example() {
       </Modal>
     </>
   );
+
+
+                }
+
+
 }
 export default Example
