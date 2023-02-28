@@ -12,7 +12,7 @@ const Side = () => {
 
   const SideFetch = async () => {
     try {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYWY0NWYxOTNlNjAwMTM4MDdmNjYiLCJpYXQiOjE2Nzc1MDQzMjYsImV4cCI6MTY3ODcxMzkyNn0.X4RA6RfalvoQ6D9OyEfbbERzS2BFy05UMcjihgNKKMo";
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
 
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/",
