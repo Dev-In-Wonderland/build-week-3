@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
  import  Modal  from "../components/Modal";
-import StaticExample from '../components/Modal';
 
 
 const Jumbotron = () => {
@@ -41,7 +40,7 @@ const Jumbotron = () => {
 
   function modalModal() {
     return (
-     console.log("modal")
+      <Modal/>
     );
   }
   
@@ -122,7 +121,7 @@ const Jumbotron = () => {
               <Card.Title className='d-flex justify-content-between'>
   
                 <strong>Esperienze</strong>
-                <Button variant="primary" onClick={modalModal}>+</Button>
+                <Button variant="primary" onClick={modalModal}></Button>
                
               </Card.Title>
 
