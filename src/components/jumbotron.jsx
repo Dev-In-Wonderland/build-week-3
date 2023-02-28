@@ -1,14 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Card, Button, Image } from "react-bootstrap";
+import { Row, Col, Card, Button, Image, Form, Modal } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
-import Modal from 'react-bootstrap/Modal';
- import StaticExample from './Modal.jsx';
+import Example from './Modal.jsx';
+
+
 
 const Jumbotron = () => {
+  // const [esperienze, setEsperienze] = useState()
   const dispatch = useDispatch();
   const profile = useSelector((state) => {
     return state;
@@ -36,7 +38,10 @@ const Jumbotron = () => {
   useEffect(() => {
     fetchme();
   }, []);
-
+// const handleChange = function(field, value){
+//   setEsperienze((prev)=>{return {...prev, [field]:value}})
+// //le quadre sostituiscono
+// }
   return (
     <>
       <Row className="jumbotron">
@@ -111,12 +116,58 @@ const Jumbotron = () => {
             <Card.Body>
               <Card.Title className='d-flex justify-content-between'>
   
-                <strong>Esperienze</strong><a onClick={StaticExample} className='btn border border-none'>+</a> 
+                <strong>Esperienze</strong><button className='btn border border-none'><Example/></button>
               </Card.Title>
               
 
+            
+            {/* <Form >
+              <Form.Group className="mb-3">
+                <Form.Label>Nome</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ruolo"
+                  value={esperienze.role}
+
+                  onChange={e => {
+                    console.log(e.target.value);
+
+                    handleChange("name", e.target.value);
+                  }}
+                />
+                <Form.Label>Nome</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ruolo"
+                  value={esperienze.role}
+
+                  onChange={e => {
+                    console.log(e.target.value);
+
+                    handleChange("name", e.target.value);
+                  }}
+                />
+                <Form.Label>Nome</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ruolo"
+                  value={esperienze.role}
+
+                  onChange={e => {
+                    console.log(e.target.value);
+
+                    handleChange("name", e.target.value);
+                  }}
+                />
+              </Form.Group>
 
 
+
+              <Button variant="primary" type="submit" className="d-block mx-auto">
+               Salva
+              </Button>
+            </Form>
+           */}
 
 
 
