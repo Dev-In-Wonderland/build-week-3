@@ -19,13 +19,14 @@ const Side= () => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
-        dispatch({ type: "SETSIDEBAR", payload: data });
+        const datasliced = data.slice(0,6)
+        console.log(datasliced);
+        dispatch({ type: "SETSIDEBAR", payload: datasliced });
       } else {
-        console.log("err if");
+        console.log("err");
       }
     } catch (err) {
-      console.log("err catch");
+      console.log("err");
     }
   };
 
