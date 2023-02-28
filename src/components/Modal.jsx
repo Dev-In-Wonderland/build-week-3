@@ -96,7 +96,6 @@ class Modal extends Component {
                   onChange={e => {
                     console.log(e.target.value);
 
-                    // this.setState({ reservation: { ...this.state.reservation, dateTime: e.target.value } });
                     this.handleChange("Data Inizio", e.target.value);
                   }}
                 />
@@ -109,7 +108,6 @@ class Modal extends Component {
                   onChange={e => {
                     console.log(e.target.value);
 
-                    // this.setState({ reservation: { ...this.state.reservation, dateTime: e.target.value } });
                     this.handleChange("Data Cessazione", e.target.value);
                   }}
                 />
