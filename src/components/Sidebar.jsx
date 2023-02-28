@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Card, Button, Image } from "react-bootstrap";
-import { BsFillEyeFill } from "react-icons/bs";
+import { Row, Col,} from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
