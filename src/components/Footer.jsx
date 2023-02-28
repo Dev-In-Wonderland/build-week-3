@@ -8,7 +8,7 @@ const Footer = () => {
         <>
             
             <Row className="footer w-100">
-            <h3 className="footer-linkedIn">Linkedin</h3>
+            <h3 className="footer-linkedIn">LinkedIn</h3>
                 <Col xs={6} className="footer-col">
                     <ul>
                         <Col xs={4}>
@@ -63,7 +63,7 @@ const Footer = () => {
                         <option value="2">Français - Francese</option>
                     </select>
                 </Col>
-                <span className="footerCopiright">Linkedin Corporation © 2023</span>
+                <span className="footerCopiright">LinkedIn Corporation © 2023</span>
                 
             </Row>
         </>

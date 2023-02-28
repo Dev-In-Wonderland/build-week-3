@@ -5,7 +5,7 @@ import "./App.css";
 import Jumbotron from "./components/jumbotron";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import SideBar from "./components/SideBar";
+// import SideBar from "./components/SideBar";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Routes>
 
         <Route path="/" element={<Jumbotron />}></Route>
-        <SideBar></SideBar>
+        {/* <SideBar></SideBar> */}
         
         </Routes>
         <Footer></Footer>
