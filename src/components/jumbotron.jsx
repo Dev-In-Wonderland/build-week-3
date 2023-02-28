@@ -5,8 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
-import Modal from 'react-bootstrap/Modal';
- import StaticExample from './Modal.jsx';
+ import  Modal  from "../components/Modal";
 
 const Jumbotron = () => {
   const dispatch = useDispatch();
@@ -37,8 +36,17 @@ const Jumbotron = () => {
     fetchme();
   }, []);
 
+
+  function modalModal() {
+    return (
+      console.log("modal")
+    );
+  }
+  
+
   return (
     <>
+    
       <Row className="jumbotron">
         <Col xs={9}>
           <Card className="d-flex flex-column  m-3 px-3 ">
@@ -111,7 +119,9 @@ const Jumbotron = () => {
             <Card.Body>
               <Card.Title className='d-flex justify-content-between'>
   
-                <strong>Esperienze</strong><a onClick={StaticExample} className='btn border border-none'>+</a> 
+                <strong>Esperienze</strong>
+                <Button variant="primary" onClick={modalModal}>+</Button>
+               
               </Card.Title>
               
 
