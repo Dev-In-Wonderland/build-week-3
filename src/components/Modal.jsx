@@ -7,12 +7,9 @@ class Modal extends Component {
   state = {
     esperienze: {
       ruolo: "",
-      company: "",
-
+      azienda: "",
       datacessazione: "",
-
       datainizio: "",
-
     }
   };
 
@@ -78,16 +75,16 @@ class Modal extends Component {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Company</Form.Label>
+                <Form.Label>Azienda</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Ruolo"
-                  value={this.state.esperienze.company}
+                  placeholder="Azienda"
+                  value={this.state.esperienze.azienda}
                 
                   onChange={e => {
                     console.log(e.target.value);
 
-                    this.handleChange("Company", e.target.value);
+                    this.handleChange("Azienda", e.target.value);
                   }}
                 />
               </Form.Group>
