@@ -55,19 +55,59 @@ class Modal extends Component {
       <Container>
         <Row className="justify-content-center  mt-5">
           <Col xs={12} md={6}>
-            <h2 className="text-center">Prenota il tuo tavolo qui:</h2>
+            <h2 className="text-center">Aggiorna i tuoi dati:</h2>
             <Form onSubmit={this.handleSubmit}>
               <Form.Group className="mb-3">
-                <Form.Label>Nome</Form.Label>
+                <Form.Label>Ruolo</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Ruolo"
-                  value={this.state.esperienze.role}
+                  value={this.state.esperienze.ruolo}
                 
                   onChange={e => {
                     console.log(e.target.value);
 
-                    this.handleChange("name", e.target.value);
+                    this.handleChange("Ruolo", e.target.value);
+                  }}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Company</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ruolo"
+                  value={this.state.esperienze.company}
+                
+                  onChange={e => {
+                    console.log(e.target.value);
+
+                    this.handleChange("Company", e.target.value);
+                  }}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Data Inizio</Form.Label>
+                <Form.Control
+                  type="datetime-local"
+                  value={this.state.reservation.datainizio}
+                  onChange={e => {
+                    console.log(e.target.value);
+
+                    // this.setState({ reservation: { ...this.state.reservation, dateTime: e.target.value } });
+                    this.handleChange("Data Inizio", e.target.value);
+                  }}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Data Cessazione</Form.Label>
+                <Form.Control
+                  type="datetime-local"
+                  value={this.state.reservation.datacessazione}
+                  onChange={e => {
+                    console.log(e.target.value);
+
+                    // this.setState({ reservation: { ...this.state.reservation, dateTime: e.target.value } });
+                    this.handleChange("Data Cessazione", e.target.value);
                   }}
                 />
               </Form.Group>

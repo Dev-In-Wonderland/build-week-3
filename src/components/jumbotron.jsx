@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Card, Button, Image } from "react-bootstrap";
+import { Row, Col, Card, Button, Image, Form } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -125,7 +125,9 @@ const Jumbotron = () => {
                 <Button variant="primary" onClick={modalModal}>+</Button>
                
               </Card.Title>
-              
+
+
+
 
 
 
