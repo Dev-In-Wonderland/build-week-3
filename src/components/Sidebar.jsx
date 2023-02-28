@@ -1,0 +1,47 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Row, Col, Card, Button, Image } from "react-bootstrap";
+import { BsFillEyeFill } from "react-icons/bs";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+const Side= () => {
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => {
+    return state;
+  });
+  const fetchme = async () => {
+    try {
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjNjhlMmYxOTNlNjAwMTM4MDdmNTAiLCJpYXQiOjE2Nzc0ODYzMDYsImV4cCI6MTY3ODY5NTkwNn0.zISvpNCnyAT6Gud9asFHNbAGQC8lWmzxECVBhw1xfrM";
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        dispatch({ type: "SETSIDEBAR", payload: data });
+      } else {
+        console.log("err if");
+      }
+    } catch (err) {
+      console.log("err catch");
+    }
+  };
+
+  useEffect(() => {
+    fetchme();
+  }, []);
+
+  return (
+    <>
+      <Row className="Sidebar">
+        <Col xs={3}>
+          
+        </Col>
+      </Row>
+    </>
+  );
+};
+
+export default Side;
