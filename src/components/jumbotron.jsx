@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
  import  Modal  from "../components/Modal";
+import StaticExample from '../components/Modal';
+
 
 const Jumbotron = () => {
   const dispatch = useDispatch();
@@ -39,7 +41,7 @@ const Jumbotron = () => {
 
   function modalModal() {
     return (
-      console.log("modal")
+     console.log("modal")
     );
   }
   
