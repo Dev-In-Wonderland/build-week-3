@@ -5,7 +5,7 @@ import "./App.css";
 import Jumbotron from "./components/jumbotron";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import SideBar from "./components/Sidebar";
+import SideBar from "./components/SideBar";
 
 
 function App() {

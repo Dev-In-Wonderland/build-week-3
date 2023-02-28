@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardPersone from "./CardPersone"
 
-const Side= () => {
+const SideBar= () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => {
     return state;
@@ -47,4 +47,4 @@ const Side= () => {
   );
 };
 
-export default Side;
+export default SideBar;
