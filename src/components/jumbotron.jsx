@@ -4,6 +4,7 @@ import { BsFillEyeFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Side from "../components/RightColumn.jsx";
 
 const Jumbotron = () => {
   const dispatch = useDispatch();
@@ -102,7 +103,11 @@ const Jumbotron = () => {
             </Card.Body>
           </Card>
         </Col>
+        <Col>
+        <Side></Side>
+        </Col>
       </Row>
+      
     </>
   );
 };
