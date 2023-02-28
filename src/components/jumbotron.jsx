@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
 import Example from './Modal.jsx';
+import Esperienze from '../components/Esperienze.jsx';
 
 
 
@@ -119,7 +120,7 @@ const Jumbotron = () => {
                 <strong>Esperienze</strong><button className='btn border border-none'><Example/></button>
               </Card.Title>
               
-
+<Esperienze></Esperienze>
 
 
             </Card.Body>
