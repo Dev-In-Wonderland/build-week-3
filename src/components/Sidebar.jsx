@@ -39,7 +39,7 @@ const SideBar= () => {
       <Row className="Sidebar">
         <Col xs={3}>
         
-    <CardPersone></CardPersone>
+        <CardPersone></CardPersone>
           
         </Col>
       </Row>
