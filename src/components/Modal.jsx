@@ -6,7 +6,13 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 class Modal extends Component {
   state = {
     esperienze: {
-      name: "",
+      ruolo: "",
+      company: "",
+
+      datacessazione: "",
+
+      datainizio: "",
+
     }
   };
 
