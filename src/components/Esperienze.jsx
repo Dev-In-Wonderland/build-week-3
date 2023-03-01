@@ -61,7 +61,7 @@ const [esperienze, setEsperienze] = useState(
         />
         <div>
           <Card.Title className="sopra">
-            <h3> {e.role} </h3>
+            <h3> {e.role} </h3> 
           </Card.Title>
 
           <p className="m-0  p-0">{e.company}</p>
