@@ -13,6 +13,24 @@ const Post = () => {
   //   const profile = useSelector((state) => {
   //     return state;
   //   });
+  const fetchme = async () => {
+    try {
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (response.ok) {
+        const me = await response.json();
+        console.log(me);
+      } else {
+        console.log("err if");
+      }
+    } catch (err) {
+      console.log("err catch");
+    }
+  };
 
   const [post, setPost] = useState([]);
 
@@ -41,6 +59,7 @@ const Post = () => {
   useEffect(() => {
     fetchPost();
   }, []);
+  
 
   // const handleChange = function(field, value){
   //   setEsperienze((prev)=>{return {...prev, [field]:value}})
@@ -87,9 +106,16 @@ const Post = () => {
   return (
 
     <Row className="cols-3 text-center">
+
+
+
+
+
+
+
+
+
       <Col className="col-3">
-
-
       <Card className="d-flex flex-column  m-3 px-3 ">
             <Card.Body>
               <img
@@ -103,7 +129,7 @@ const Post = () => {
                 alt="immagine del profilo"
               />
               <Card.Title className="sopra">
-                ele
+                placeholder nome
               </Card.Title>
             </Card.Body>
           </Card>
@@ -130,10 +156,7 @@ const Post = () => {
                 handleChange("text", e.target.value);
               }}
             />
-           
-            
           </Form.Group>
-
           <Button
             onClick={posttextData}
             variant="primary"
@@ -143,7 +166,6 @@ const Post = () => {
             Invia Post
           </Button>
         </Form>
-     
       </>
       <>
       {post?.map((e, i) => (
@@ -170,7 +192,27 @@ const Post = () => {
       </>
 
       </Col>
-      <Col className="col-3">colsx</Col>
+
+
+
+
+
+
+
+
+
+      <Col className="col-3">
+      <Card className="d-flex flex-column  m-3 px-3 ">
+            <Card.Body>
+              <Card.Title className="sopra">
+              </Card.Title>
+            </Card.Body>
+          </Card>
+        
+
+
+
+      </Col>
       
         </Row>
   );
