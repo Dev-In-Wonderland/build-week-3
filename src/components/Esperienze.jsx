@@ -9,17 +9,15 @@ import Example from "./Modal.jsx";
 
 const Esperienze = () => {
   // const [esperienze, setEsperienze] = useState()
-//   const dispatch = useDispatch();
-//   const profile = useSelector((state) => {
-//     return state;
-//   });
+  //   const dispatch = useDispatch();
+  //   const profile = useSelector((state) => {
+  //     return state;
+  //   });
 
 const [esperienze, setEsperienze] = useState(
   []
     
   );
-
-
 
   const fetchEsperienze = async () => {
     try {
