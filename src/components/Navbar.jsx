@@ -25,7 +25,7 @@ const Navbar = () => {
           </Form>
         </div>
 
-        <ul className="ul-nav">
+        <ul className="ul-nav ms-5">
           <li>
             <MdHome className="i-nav" />
             <Link to="/">

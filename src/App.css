@@ -77,6 +77,8 @@ body {
 }
 .navbar-navigation {
   border-bottom: 1px solid lightgray;
+  text-align: center !important;
+  margin-left: 1px;
 }
 
 .nav-col {

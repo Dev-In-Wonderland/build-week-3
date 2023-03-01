@@ -55,8 +55,14 @@ const Post = () => {
             <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
               <Card.Title className=" m-0">
                 {" "}
-                <p className="m-0  p-2">{e.username}</p>
-                <p className="m-0  p-0">{e.text}</p>
+                <p className="m-0  p-2">
+                  <strong>Nickname: </strong>
+                  {e.username}
+                </p>
+                <p className="m-0  p-0">
+                  <strong>Text: </strong>
+                  {e.text}
+                </p>
               </Card.Title>
 
               {/*<img
