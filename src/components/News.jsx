@@ -71,7 +71,7 @@ const Post = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify( posttext ),
-          Post
+      
         }
       );
       if (response.ok) {
