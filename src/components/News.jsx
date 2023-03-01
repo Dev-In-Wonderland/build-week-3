@@ -87,7 +87,34 @@ const Post = () => {
   return (
 
     <Row className="cols-3 text-center">
-      <Col className="col-3">colsx</Col>
+      <Col className="col-3">
+
+
+      <Card className="d-flex flex-column  m-3 px-3 ">
+            <Card.Body>
+              <img
+                src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                className="background "
+                alt="immagine del background"
+              />
+              <img
+                src="https://res.cloudinary.com/dmqsfltrf/image/upload/v1677324929/linkedin/jgpagosxcxrryalmjchr.jpg"
+                className="profilo"
+                alt="immagine del profilo"
+              />
+              <Card.Title className="sopra">
+                ele
+              </Card.Title>
+            </Card.Body>
+          </Card>
+
+
+
+
+
+
+
+      </Col>
     <Col className="col-6">
     <>
      <>
