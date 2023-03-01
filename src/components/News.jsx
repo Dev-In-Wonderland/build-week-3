@@ -28,7 +28,7 @@ const Post = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setPost(data);
+        setPost(data.slice(0,10));
         console.log(data);
       } else {
         console.log("err if");
@@ -85,7 +85,6 @@ const Post = () => {
   };
   return (
     <>
-
     <>
         <Form>
           <Form.Group className="mb-3">
@@ -114,9 +113,6 @@ const Post = () => {
         </Form>
      
   </>
-
-
-
     <>
       {post?.map((e, i) => (
         <Row className="cols-3">
