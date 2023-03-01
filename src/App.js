@@ -5,6 +5,7 @@ import "./App.css";
 import Jumbotron from "./components/jumbotron";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import News from  "./components/News"
 // import SideBar from "./components/SideBar";
 
 
@@ -14,9 +15,9 @@ function App() {
       <BrowserRouter>
         <Navbar></Navbar>
         <Routes>
-
-        <Route path="/" element={<Jumbotron />}></Route>
-        {/* <SideBar></SideBar> */}
+        <Route path="/" element={<News />}></Route>
+        <Route path="/Me" element={<Jumbotron />}></Route>
+       
         
         </Routes>
         <Footer></Footer>
