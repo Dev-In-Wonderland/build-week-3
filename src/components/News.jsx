@@ -108,7 +108,7 @@ const Post = () => {
             type="submit"
             className="d-block mx-auto "
           >
-            Salva
+            Invia Post
           </Button>
         </Form>
      
