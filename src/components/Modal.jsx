@@ -138,7 +138,7 @@ function Example() {
               type="submit"
               className="d-block mx-auto "
             >
-              Salva
+              Aggiungi
             </Button>
           </Form>
         </Modal.Body>
@@ -146,9 +146,7 @@ function Example() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          
         </Modal.Footer>
       </Modal>
     </>
