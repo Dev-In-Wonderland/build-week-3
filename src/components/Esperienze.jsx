@@ -6,7 +6,7 @@ import { useState } from "react";
 // import { useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
 import Example from "../components/ModalEsp.jsx";
-import ModalMod from "../components/ModalMod.jsx"
+import ModalModEsp from "../components/ModalModEsp.jsx"
 
 
 
@@ -55,23 +55,26 @@ const [esperienze, setEsperienze] = useState(
   return (
     <>
   {esperienze?.map((e, i) => (
-      <Card.Body className="d-flex ">
+      <Card.Body className="d-flex  border-bottom ">
         {/* <img
           src={e.image}
           className="profilo"
           alt="immagine dell'esperienza"
         /> */}
         <div>
-          <Card.Title className="sopra mb-5 d-flex">
-            <h3 className="me-5"> {e.role} </h3> <button className='btn border border-none '><Example/></button>
+          <Card.Title className=" mb-5 d-flex">
+            <h3 className="me-5"> {e.role} </h3> <ModalModEsp></ModalModEsp>
           </Card.Title>
 
           <p className="m-0  p-0">{e.company}</p>
           <p className="m-0  p-0">{e.area}</p>
           <p className="m-0  p-0">{e.description}</p>
-          <ModalMod></ModalMod>
+          
         </div>
+        
+
       </Card.Body>))}
+      
     </>
   );
 };
