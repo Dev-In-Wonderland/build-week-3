@@ -14,14 +14,10 @@ const Esperienze = () => {
 //     return state;
 //   });
 
-const [esperienze, setEsperienze] = useState({
-    role: "",
-    company: "",
-    // startDate: "",
-    // endDate: "",
-    description: "",
-    area: "",
-  });
+const [esperienze, setEsperienze] = useState(
+  []
+    
+  );
 
 
 
@@ -35,6 +31,7 @@ const [esperienze, setEsperienze] = useState({
       );
       if (response.ok) {
         const data = await response.json();
+        setEsperienze(data)
         console.log(data);
         // dispatch({ type: "SETPROFILE", payload: data });
       } else {
@@ -55,22 +52,23 @@ const [esperienze, setEsperienze] = useState({
   // }
   return (
     <>
+  {esperienze?.map((e, i) => (
       <Card.Body className="d-flex ">
         <img
-          src={data.image}
+          src={e.image}
           className="profilo"
           alt="immagine dell'esperienza"
         />
         <div>
           <Card.Title className="sopra">
-            <h3> {data.role} </h3>
+            <h3> {e.role} </h3>
           </Card.Title>
 
-          <p className="m-0  p-0">{data.company}</p>
-          <p className="m-0  p-0">{data.area}</p>
-          <p className="m-0  p-0">{data.description}</p>
+          <p className="m-0  p-0">{e.company}</p>
+          <p className="m-0  p-0">{e.area}</p>
+          <p className="m-0  p-0">{e.description}</p>
         </div>
-      </Card.Body>
+      </Card.Body>))}
     </>
   );
 };
