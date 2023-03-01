@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Card, Image, Container } from "react-bootstrap";
-import { BsFillEyeFill } from "react-icons/bs";
+import { Row, Col, Card,} from "react-bootstrap";
 import { useEffect } from "react";
 import { useState } from "react";
 // import { useSelector } from "react-redux";
-import Side from "../components/RightColumn.jsx";
 import Example from "../components/ModalEsp.jsx";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -28,7 +28,7 @@ const Post = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setPost(data);
+        setPost(data.slice(0,10));
         console.log(data);
       } else {
         console.log("err if");
@@ -46,7 +46,73 @@ const Post = () => {
   //   setEsperienze((prev)=>{return {...prev, [field]:value}})
   // //le quadre sostituiscono
   // }
+
+  const [posttext, setText] = useState({
+    text: "",
+  });
+
+  const handleChange = function (field, value) {
+    setText((prev) => {
+      return { ...prev, [field]: value };
+    });
+    //le quadre sostituiscono
+  };
+  const posttextData = async (e) => {
+    e.preventDefault();
+    try {
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify( posttext ),
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        console.log("err if");
+      }
+    } catch (err) {
+      console.log("err catch");
+    }
+  };
   return (
+    <>
+    <>
+        <Form>
+          <Form.Group className="mb-3">
+            <Form.Control
+              type="text"
+              placeholder="Avvia un post"
+              value={posttext.text}
+              onChange={(e) => {
+                console.log(e.target.value);
+
+                handleChange("text", e.target.value);
+              }}
+            />
+           
+            
+          </Form.Group>
+
+          <Button
+            onClick={posttextData}
+            variant="primary"
+            type="submit"
+            className="d-block mx-auto "
+          >
+            Invia Post
+          </Button>
+        </Form>
+     
+  </>
     <>
       {post?.map((e, i) => (
         <Row className="cols-3 text-center">
@@ -74,6 +140,7 @@ const Post = () => {
           <Col className="col-3">col2</Col>
         </Row>
       ))}
+    </>
     </>
   );
 };
