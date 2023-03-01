@@ -85,8 +85,12 @@ const Post = () => {
     }
   };
   return (
+
+    <Row className="cols-3 text-center">
+      <Col className="col-3">colsx</Col>
+    <Col className="col-6">
     <>
-    <>
+     <>
         <Form>
           <Form.Group className="mb-3">
             <Form.Control
@@ -113,12 +117,9 @@ const Post = () => {
           </Button>
         </Form>
      
-  </>
-    <>
+      </>
+      <>
       {post?.map((e, i) => (
-        <Row className="cols-3 text-center">
-          <Col className="col-3">col1</Col>
-          <Col className="col-6">
             <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
               <Card.Title className=" m-0">
                 {" "}
@@ -137,12 +138,14 @@ const Post = () => {
           className="profilo"
           alt="immagine dell'esperienza" />*/}
             </Card.Body>
-          </Col>
-          <Col className="col-3">col2</Col>
-        </Row>
       ))}
-    </>
-    </>
+      </>
+      </>
+
+      </Col>
+      <Col className="col-3">colsx</Col>
+      
+        </Row>
   );
 };
 
