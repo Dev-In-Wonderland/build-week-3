@@ -28,7 +28,7 @@ const Post = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setPost(data.slice(0,10));
+        setPost(data.reverse());
         console.log(data);
       } else {
         console.log("err if");
@@ -71,9 +71,7 @@ const Post = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify( posttext ),
-          fetchPost
-      
-      
+          
         }
       );
       if (response.ok) {
