@@ -9,12 +9,12 @@ import Example from "./Modal.jsx";
 
 const Esperienze = () => {
   // const [esperienze, setEsperienze] = useState()
-//   const dispatch = useDispatch();
-//   const profile = useSelector((state) => {
-//     return state;
-//   });
+  //   const dispatch = useDispatch();
+  //   const profile = useSelector((state) => {
+  //     return state;
+  //   });
 
-const [esperienze, setEsperienze] = useState({
+  const [esperienze, setEsperienze] = useState({
     role: "",
     company: "",
     // startDate: "",
@@ -22,8 +22,6 @@ const [esperienze, setEsperienze] = useState({
     description: "",
     area: "",
   });
-
-
 
   const fetchEsperienze = async () => {
     try {
@@ -57,18 +55,18 @@ const [esperienze, setEsperienze] = useState({
     <>
       <Card.Body className="d-flex ">
         <img
-          src={data.image}
+          src={esperienze.image}
           className="profilo"
           alt="immagine dell'esperienza"
         />
         <div>
           <Card.Title className="sopra">
-            <h3> {data.role} </h3>
+            <h3> {esperienze.role} </h3>
           </Card.Title>
 
-          <p className="m-0  p-0">{data.company}</p>
-          <p className="m-0  p-0">{data.area}</p>
-          <p className="m-0  p-0">{data.description}</p>
+          <p className="m-0  p-0">{esperienze.company}</p>
+          <p className="m-0  p-0">{esperienze.area}</p>
+          <p className="m-0  p-0">{esperienze.description}</p>
         </div>
       </Card.Body>
     </>
