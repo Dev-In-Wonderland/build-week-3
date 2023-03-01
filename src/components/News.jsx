@@ -49,24 +49,20 @@ const Post = () => {
   return (
     <>
       {post?.map((e, i) => (
-        <Row className="cols-3">
+        <Row className="cols-3 text-center">
           <Col className="col-3">col1</Col>
           <Col className="col-6">
-            <Card.Body className="d-flex border border-danger rounded m-2 bg-light-subtle">
-              <div>
-                <Card.Title className="sopra">
-                  <p className="m-0  p-0">{e.username}</p>{" "}
-                  <button className="btn border border-none bg-secondary">
-                    <Example />
-                  </button>
-                  <p className="m-0  p-0">{e.text}</p>
-                </Card.Title>
-              </div>
+            <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
+              <Card.Title className=" m-0">
+                {" "}
+                <p className="m-0  p-2">{e.username}</p>
+                <p className="m-0  p-0">{e.text}</p>
+              </Card.Title>
+
               {/*<img
           src={e.image}
           className="profilo"
-          alt="immagine dell'esperienza"
-  />*/}
+          alt="immagine dell'esperienza" />*/}
             </Card.Body>
           </Col>
           <Col className="col-3">col2</Col>

@@ -69,10 +69,6 @@ body {
   }
 }
 
-
-
-
-
 .navbar-navigation,
 .footer {
   padding: 0 7rem;
@@ -85,7 +81,7 @@ body {
 
 .nav-col {
   display: flex;
-  
+
   padding: 10px 0 0;
 }
 
@@ -96,10 +92,9 @@ body {
   height: 45px;
 }
 
-
 .linkedin-logo {
   font-size: 55px;
-  color: rgb(10,102,194);
+  color: rgb(10, 102, 194);
 }
 
 .input-search {
@@ -108,7 +103,7 @@ body {
   align-items: center;
 }
 .form-ricerca {
-  background-color: #EEF3F8;
+  background-color: #eef3f8;
   padding-left: 45px;
 }
 
@@ -146,9 +141,8 @@ body {
   border-right: 1px solid lightgray;
 }
 
-
-.footer{
-  background-color: #f3f2ef 
+.footer {
+  background-color: #f3f2ef;
 }
 
 .footer-col,
@@ -173,7 +167,7 @@ body {
 }
 
 .footer-linkedIn {
-  color: rgb(10,102,194);
+  color: rgb(10, 102, 194);
   margin: 0;
   padding: 0;
 }

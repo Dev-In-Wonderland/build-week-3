@@ -4,7 +4,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { MdHome, MdWork, MdNotifications } from "react-icons/md";
 import { BsFillPeopleFill, BsFillPersonFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
-import { Link } from "react-bootstrap/lib/Navbar";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -28,7 +28,10 @@ const Navbar = () => {
         <ul className="ul-nav">
           <li>
             <MdHome className="i-nav" />
-            <span className="d-none d-lg-block">Home</span>
+            <Link to="/">
+              {" "}
+              <span className="d-none d-lg-block">Home</span>
+            </Link>
           </li>
           <li>
             <BsFillPeopleFill className="i-nav" />
