@@ -59,7 +59,7 @@ function Example() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Add Experiences </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

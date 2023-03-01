@@ -117,7 +117,7 @@ const Jumbotron = () => {
             <Card.Body>
               <Card.Title className='d-flex justify-content-between'>
   
-                <strong>Esperienze</strong><button className='btn border border-none'><Example/></button>
+               <h2><strong>Esperienze</strong></h2> <button className='btn border border-none'><Example/></button>
               </Card.Title>
               
 <Esperienze></Esperienze>

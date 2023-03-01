@@ -19,6 +19,7 @@ export function profileReducer(state = initialState, action) {
         ...state, 
         ...action.payload
     }
+    
 
     default:
       return state;
