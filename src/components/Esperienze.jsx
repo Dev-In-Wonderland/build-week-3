@@ -5,7 +5,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 // import { useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
-import Example from "./Modal.jsx";
+import Example from "../components/ModalEsp.jsx";
+
+
+
 
 const Esperienze = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -59,7 +62,7 @@ const [esperienze, setEsperienze] = useState(
         />
         <div>
           <Card.Title className="sopra">
-            <h3> {e.role} </h3> 
+            <h3> {e.role} </h3> <button className='btn border border-none'><Example/></button>
           </Card.Title>
 
           <p className="m-0  p-0">{e.company}</p>
