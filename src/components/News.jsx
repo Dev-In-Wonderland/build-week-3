@@ -105,12 +105,12 @@ const Post = () => {
   };
   return (
     <>
-      <Row className="cols-3 text-center mt-3">
+      <Row className="cols-3 text-center mt-3 p-3">
         <Col className="col-3">
           <LeftColumnNews></LeftColumnNews>
         </Col>
 
-        <Col className="col-6">
+        <Col className="col-6 ">
           <Card className="p-3 mb-3">
           <Form>
             <Form.Group className="mb-3">

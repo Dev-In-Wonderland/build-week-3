@@ -5,9 +5,9 @@ import { Card } from "react-bootstrap";
 
 const LeftColumnNews = () => {
 
-    const annuncio = useSelector((state) => {
-        return state;
-      });
+    const annuncio = useSelector((state) => 
+        state
+      );
 
 
 
