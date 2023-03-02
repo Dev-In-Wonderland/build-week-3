@@ -15,21 +15,21 @@ const LeftColumnNews = () => {
 
 <>
 
-<Card className="d-flex flex-column ">
-            <Card.Body>
+<Card className="d-flex flex-column align-items-center">
+            <Card.Body className="">
               {/* <img
                 src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                 className="background "
                 alt="immagine del background"
               /> */}
-              {/* <img
-                src="https://res.cloudinary.com/dmqsfltrf/image/upload/v1677324929/linkedin/jgpagosxcxrryalmjchr.jpg"
-                className="profilo"
-                alt="immagine del profilo"
-              /> */}
-              <Card.Title className="">
-                Benvenuto a te, {annuncio.name}
-              </Card.Title>
+              <img
+                src={annuncio.image}
+                className="profilo-news"
+                alt="immagine del profilo-news"
+              />
+              <h3 className="">
+                Ti diamo il benvenuto {annuncio.name}! 
+              </h3>
             </Card.Body>
           </Card>
 

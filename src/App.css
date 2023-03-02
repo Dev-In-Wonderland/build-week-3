@@ -36,6 +36,14 @@ body {
   left: 30px;
 }
 
+.profilo-news{
+  width: 60px;
+  height: 60px;
+  
+  border-radius: 30000px;
+  
+}
+
 .sopra {
   margin-top: 200px !important;
 }
