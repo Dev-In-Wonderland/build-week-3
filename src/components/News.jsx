@@ -153,11 +153,12 @@ const Post = () => {
                     {e.text}
                   </p>
                 </Card.Title>
-                <EditImagePost id={e._id}></EditImagePost>
-                {/*<img
+                
+              <EditImagePost id={e._id}></EditImagePost>
+                <img
           src={e.image}
-          className="profilo"
-          alt="immagine dell'esperienza" />*/}
+          className="postimages"
+          alt="immagine del commento" />
               </Card.Body>
             </Card>
           ))}
