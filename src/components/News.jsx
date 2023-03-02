@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Card,} from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import { useEffect } from "react";
 import { useState } from "react";
 // import { useSelector } from "react-redux";
@@ -47,7 +47,7 @@ const Post = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setPost(data.reverse().slice(0,10));
+        setPost(data.reverse().slice(0, 10));
         console.log(data);
       } else {
         console.log("err if");
@@ -60,7 +60,6 @@ const Post = () => {
   useEffect(() => {
     fetchPost();
   }, []);
-  
 
   // const handleChange = function(field, value){
   //   setEsperienze((prev)=>{return {...prev, [field]:value}})
@@ -90,14 +89,13 @@ const Post = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify( posttext ),
-          
+          body: JSON.stringify(posttext),
         }
       );
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        fetchPost()
+        fetchPost();
       } else {
         console.log("err if");
       }
@@ -107,105 +105,101 @@ const Post = () => {
   };
   return (
     <>
+      <Row className="cols-3 text-center mt-3">
+        <Col className="col-3">
+          <LeftColumnNews></LeftColumnNews>
+        </Col>
 
-    <Row className="cols-3 text-center">
+        <Col className="col-6">
+          <Card className="p-3 mb-3">
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Control
+                type="text"
+                placeholder="Avvia un post"
+                value={posttext.text}
+                onChange={(e) => {
+                  console.log(e.target.value);
 
+                  handleChange("text", e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Button
+              onClick={posttextData}
+              variant="primary"
+              type="submit"
+              className="d-block mx-auto "
+            >
+              Invia Post
+            </Button>
+          </Form>
+          </Card>
 
+          {post?.map((e, i) => (
+            <Card>
+              <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
+                <Card.Title className=" m-0">
+                  {" "}
+                  <p className="m-0  p-2">
+                    <strong>Nickname: </strong>
+                    {e.username}
+                  </p>
+                  <p className="m-0  p-0">
+                    <strong>Text: </strong>
+                    {e.text}
+                  </p>
+                </Card.Title>
 
-
-
-
-
-
-
-      <Col className="col-3">
-      
-
-
-<LeftColumnNews ></LeftColumnNews>
-
-
-      </Col>
-
-
-
-    <Col className="col-6">
-    
-     
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Control
-              type="text"
-              placeholder="Avvia un post"
-              value={posttext.text}
-              onChange={(e) => {
-                console.log(e.target.value);
-
-                handleChange("text", e.target.value);
-              }}
-            />
-          </Form.Group>
-          <Button
-            onClick={posttextData}
-            variant="primary"
-            type="submit"
-            className="d-block mx-auto "
-          >
-            Invia Post
-          </Button>
-        </Form>
-      
-      
-      {post?.map((e, i) => (
-        <Card>
-            <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
-              <Card.Title className=" m-0">
-                {" "}
-                <p className="m-0  p-2">
-                  <strong>Nickname: </strong>
-                  {e.username}
-                </p>
-                <p className="m-0  p-0">
-                  <strong>Text: </strong>
-                  {e.text}
-                </p>
-              </Card.Title>
-
-              {/*<img
+                {/*<img
           src={e.image}
           className="profilo"
           alt="immagine dell'esperienza" />*/}
-            </Card.Body>
+              </Card.Body>
             </Card>
-      ))}
-      
-      
+          ))}
+        </Col>
 
-      </Col>
-
-
-
-
-
-
-
-
-
-      <Col className="col-3">
-      <Card className="d-flex flex-column  m-3 px-3 ">
+        <Col className="col-3">
+          <Card className="">
+            <Card.Title>
+              <h3>LinkedIn Notizie</h3>
+            </Card.Title>
             <Card.Body>
-              <Card.Title className="sopra">
-              </Card.Title>
+
+              <ul>
+
+                <li>
+                  <p className="fs-5">Il declino demografico minaccia gli Stati Uniti</p>
+                  <p className="fs-6 text-secondary">un giorno fa - 520 lettori</p>
+                </li>
+
+                <li>
+                  <p className="fs-5">Nuova proroga per lo smart-working</p>
+                  <p className="fs-6 text-secondary">un giorno fa - 124 lettori</p>
+                </li>
+
+                <li>
+                  <p className="fs-5">Oltre il nuovo logo di Nokia</p>
+                  <p className="fs-6 text-secondary">2 giorni fa - 355 lettori</p>
+                </li>
+
+                <li>
+                  <p className="fs-5">L'Ucraina e gli ultimi aggiornamenti</p>
+                  <p className="fs-6 text-secondary">12 ore fa - 679 lettori</p>
+                </li>
+
+                <li>
+                  <p className="fs-5">I giovani occupati stanno diminuendo</p>
+                  <p className="fs-6 text-secondary">3 ore fa - 543 lettori</p>
+                </li>
+               
+              </ul>
             </Card.Body>
           </Card>
-        
-
-
-
-      </Col>
-      
-        </Row>
-        </>
+        </Col>
+      </Row>
+    </>
   );
 };
 
