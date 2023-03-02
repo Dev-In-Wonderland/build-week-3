@@ -157,7 +157,7 @@ const Post = () => {
               <EditImagePost id={e._id}></EditImagePost>
                 <img
           src={e.image}
-          className="postimages"
+          className="postimages w-100"
           alt="immagine del commento" />
               </Card.Body>
             </Card>
