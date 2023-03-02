@@ -11,9 +11,9 @@ function ModalMod() {
     return state;
   });
   const [show, setShow] = useState(false);
-  const [mod, setMod] = useState({
-    bio: modifiche.bio,
-  });
+  const [mod, setMod] = useState(
+    modifiche
+  );
   
   
 
@@ -31,7 +31,7 @@ function ModalMod() {
         `https://striveschool-api.herokuapp.com/api/profile/`,
         {
           method: "PUT",
-          body: JSON.stringify(modifiche),
+          body: JSON.stringify(mod),
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -100,7 +100,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="Name"
-                value={modifiche.name}
+                value={mod.name}
                 onChange={(e) => {
                   console.log(e.target.value);
 

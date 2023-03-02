@@ -63,12 +63,12 @@ const [esperienze, setEsperienze] = useState(
         /> */}
         <div>
           <Card.Title className=" mb-5 d-flex">
-            <h3 className="me-5"> {e.role} </h3> <ModalModEsp></ModalModEsp>
+            <h3 className="me-5"><strong>Impiego: </strong> {e.role} </h3> <ModalModEsp id={e._id}></ModalModEsp>
           </Card.Title>
 
-          <p className="m-0  p-0">{e.company}</p>
-          <p className="m-0  p-0">{e.area}</p>
-          <p className="m-0  p-0">{e.description}</p>
+          <p className="m-0  p-0"><strong>Azienda: </strong>{e.company}</p>
+          <p className="m-0  p-0"><strong>Luogo: </strong>{e.area}</p>
+          <p className="m-0  p-0"><strong>Descrizione: </strong>{e.description}</p>
           
         </div>
         

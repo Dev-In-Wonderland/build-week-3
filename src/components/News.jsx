@@ -6,6 +6,7 @@ import { useState } from "react";
 import Example from "../components/ModalEsp.jsx";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import LeftColumnNews from "./LeftColumnNews.jsx";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -46,7 +47,7 @@ const Post = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setPost(data.reverse());
+        setPost(data.reverse().slice(0,10));
         console.log(data);
       } else {
         console.log("err if");
@@ -96,6 +97,7 @@ const Post = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+        fetchPost()
       } else {
         console.log("err if");
       }
@@ -104,6 +106,7 @@ const Post = () => {
     }
   };
   return (
+    <>
 
     <Row className="cols-3 text-center">
 
@@ -116,34 +119,19 @@ const Post = () => {
 
 
       <Col className="col-3">
-      <Card className="d-flex flex-column  m-3 px-3 ">
-            <Card.Body>
-              <img
-                src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                className="background "
-                alt="immagine del background"
-              />
-              <img
-                src="https://res.cloudinary.com/dmqsfltrf/image/upload/v1677324929/linkedin/jgpagosxcxrryalmjchr.jpg"
-                className="profilo"
-                alt="immagine del profilo"
-              />
-              <Card.Title className="sopra">
-                placeholder nome
-              </Card.Title>
-            </Card.Body>
-          </Card>
+      
 
 
-
-
-
+<LeftColumnNews ></LeftColumnNews>
 
 
       </Col>
+
+
+
     <Col className="col-6">
-    <>
-     <>
+    
+     
         <Form>
           <Form.Group className="mb-3">
             <Form.Control
@@ -166,9 +154,10 @@ const Post = () => {
             Invia Post
           </Button>
         </Form>
-      </>
-      <>
+      
+      
       {post?.map((e, i) => (
+        <Card>
             <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
               <Card.Title className=" m-0">
                 {" "}
@@ -187,9 +176,10 @@ const Post = () => {
           className="profilo"
           alt="immagine dell'esperienza" />*/}
             </Card.Body>
+            </Card>
       ))}
-      </>
-      </>
+      
+      
 
       </Col>
 
@@ -215,6 +205,7 @@ const Post = () => {
       </Col>
       
         </Row>
+        </>
   );
 };
 

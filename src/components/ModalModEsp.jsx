@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 
 
 
-function ModalModEsp() {
+function ModalModEsp(props) {
   const modifiche = useSelector((state) => {
     return state;
   });
   const [show, setShow] = useState(false);
   const [mod, setMod] = useState({
-    bio: modifiche.bio,
+    
   });
   
   
@@ -28,10 +28,10 @@ function ModalModEsp() {
       const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
       ;
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences/63fe29c9579c6300137cf8d8`,
+        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences/`+ props.id,
         {
           method: "PUT",
-          body: JSON.stringify(modifiche),
+          body: JSON.stringify(mod),
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
