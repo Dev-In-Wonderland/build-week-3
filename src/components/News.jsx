@@ -141,7 +141,7 @@ const Post = () => {
 
           {post?.map((e, i) => (
             <Card>
-              <Card.Body className=" d-flex justify-content-center align-items-center border border-light rounded p-5 m-2 bg-light">
+              <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
                 <Card.Title className=" m-0">
                   {" "}
                   <p className="m-0  p-2">
