@@ -7,6 +7,7 @@ import Example from "../components/ModalEsp.jsx";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import LeftColumnNews from "./LeftColumnNews.jsx";
+import EditImagePost from "./Jimmy.jsx";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -124,6 +125,7 @@ const Post = () => {
                   handleChange("text", e.target.value);
                 }}
               />
+              
             </Form.Group>
             <Button
               onClick={posttextData}
@@ -134,6 +136,7 @@ const Post = () => {
               Invia Post
             </Button>
           </Form>
+          
           </Card>
 
           {post?.map((e, i) => (
@@ -150,7 +153,7 @@ const Post = () => {
                     {e.text}
                   </p>
                 </Card.Title>
-
+                <EditImagePost id={e._id}></EditImagePost>
                 {/*<img
           src={e.image}
           className="profilo"

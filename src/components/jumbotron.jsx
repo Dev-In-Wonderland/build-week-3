@@ -8,6 +8,7 @@ import Side from "../components/RightColumn.jsx";
 import Example from './Modal.jsx';
 import Esperienze from '../components/Esperienze.jsx';
 import ModalMod from '../components/ModalMod.jsx'
+import EditImageProfile from './Jimmy.jsx';
 
 
 
@@ -60,6 +61,7 @@ const Jumbotron = () => {
                 className="profilo"
                 alt="immagine del profilo"
               />
+              {/* <EditImageProfile></EditImageProfile> */}
               
               <Card.Title className="sopra ">
                <div className='d-flex justify-content-between'><div> {profile.name} {profile.surname}</div> <ModalMod></ModalMod></div>

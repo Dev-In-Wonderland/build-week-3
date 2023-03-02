@@ -1,4 +1,5 @@
 import { Row, Col, Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CardUtenti = ({ profile }) => {
   return (
@@ -14,7 +15,7 @@ const CardUtenti = ({ profile }) => {
         <Col xs={9}>
           <div>
             <h6 className="mb-0">
-               {profile.name} {profile.surname}
+               <Link to="">{profile.name} {profile.surname}</Link>
               <span className="text-secondary"> - 2°</span>
             </h6>
           </div>
