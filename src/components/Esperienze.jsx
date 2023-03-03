@@ -7,6 +7,7 @@ import { useState } from "react";
 import Side from "../components/RightColumn.jsx";
 import Example from "../components/ModalEsp.jsx";
 import ModalModEsp from "../components/ModalModEsp.jsx"
+import EditImageEsp from "./EditImageEsp.jsx";
 
 
 
@@ -55,20 +56,25 @@ const [esperienze, setEsperienze] = useState(
   return (
     <>
   {esperienze?.map((e, i) => (
-      <Card.Body className="d-flex  border-bottom ">
-        {/* <img
+      <Card.Body className="  border-bottom ">
+        <div className="mb-4 ">
+        <img
           src={e.image}
-          className="profilo"
+          className="w-100"
           alt="immagine dell'esperienza"
-        /> */}
+        />
+        <EditImageEsp id={e._id} userid={e.user._id}></EditImageEsp>
+        </div>
         <div>
-          <Card.Title className=" mb-5 d-flex">
-            <h3 className="me-5"><strong>Impiego: </strong> {e.role} </h3> <ModalModEsp id={e._id}></ModalModEsp>
+          <Card.Title className=" mb-5">
+            <div className=" d-flex"><h3 className="me-5"><strong>Impiego: </strong> {e.role} </h3> <ModalModEsp id={e._id}></ModalModEsp></div>
+            
           </Card.Title>
 
           <p className="m-0  p-0"><strong>Azienda: </strong>{e.company}</p>
           <p className="m-0  p-0"><strong>Luogo: </strong>{e.area}</p>
           <p className="m-0  p-0"><strong>Descrizione: </strong>{e.description}</p>
+          
           
         </div>
         

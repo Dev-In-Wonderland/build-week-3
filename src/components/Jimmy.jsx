@@ -9,14 +9,19 @@
 
 //Component.jsx
 
-import { useState } from "react" //ChangeEvent e FormEvent sono i tipi degli eventi onChange e onSubmit
+import { useEffect, useState } from "react" //ChangeEvent e FormEvent sono i tipi degli eventi onChange e onSubmit
 
-
+import { useSelector } from "react-redux";
 
 
 
 
 export const EditImagePost = (props) => {
+  const profile = useSelector((state) => 
+     state
+  );
+
+  useEffect(()=>{console.log(props.userid, profile._id)})
   const [fd, setFd] = useState(new FormData()) //FormData e' una classe usata per raccogliere dati non stringa dai form
   //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
   const handleSubmit = async (ev) => {
@@ -45,10 +50,10 @@ export const EditImagePost = (props) => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+     {(props.userid === profile._id)?  <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFile} />
         <button className="btn btn-primary">Salva</button>
-      </form>
+      </form>: ''}
     </>
   )
 }

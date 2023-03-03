@@ -2,12 +2,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Card } from "react-bootstrap";
 import { useEffect } from "react";
 import { useState } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
 import Example from "../components/ModalEsp.jsx";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import LeftColumnNews from "./LeftColumnNews.jsx";
 import EditImagePost from "./Jimmy.jsx";
+
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -15,6 +16,10 @@ const Post = () => {
   //   const profile = useSelector((state) => {
   //     return state;
   //   });
+
+
+  const dispatch = useDispatch();
+ 
   const fetchme = async () => {
     try {
       const token =
@@ -24,8 +29,9 @@ const Post = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.ok) {
-        const me = await response.json();
-        console.log(me);
+        const data = await response.json();
+        console.log(data);
+        dispatch({ type: "SETPROFILE", payload: data });
       } else {
         console.log("err if");
       }
@@ -33,6 +39,9 @@ const Post = () => {
       console.log("err catch");
     }
   };
+
+
+
 
   const [post, setPost] = useState([]);
 
@@ -60,8 +69,9 @@ const Post = () => {
 
   useEffect(() => {
     fetchPost();
+    fetchme();
   }, []);
-
+  
   // const handleChange = function(field, value){
   //   setEsperienze((prev)=>{return {...prev, [field]:value}})
   // //le quadre sostituiscono
@@ -143,7 +153,7 @@ const Post = () => {
             <Card>
               <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
                 <Card.Title className=" m-0">
-                  {" "}
+                  
                   <p className="m-0  p-2">
                     <strong>Nickname: </strong>
                     {e.username}
@@ -154,11 +164,11 @@ const Post = () => {
                   </p>
                 </Card.Title>
                 
-              <EditImagePost id={e._id}></EditImagePost>
-                <img
+              <EditImagePost id={e._id} userid={e.user._id}></EditImagePost>
+                {(e.image)&& <img
           src={e.image}
           className="postimages w-100"
-          alt="immagine del commento" />
+          alt="immagine del commento" />}
               </Card.Body>
             </Card>
           ))}

@@ -113,7 +113,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="surname"
-                value={modifiche.surname}
+                value={mod.surname}
                 onChange={(e) => {
                   console.log(e.target.value);
 
@@ -126,7 +126,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="Scrivi email"
-                value={modifiche.email}
+                value={mod.email}
                 onChange={(e) => {
                   console.log(e.target.value);
 
@@ -139,7 +139,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="Scrivi username"
-                value={modifiche.username}
+                value={mod.username}
                 onChange={(e) => {
                   console.log(e.target.value);
 
@@ -152,7 +152,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="Modifica impiego"
-                value={modifiche.title}
+                value={mod.title}
                 onChange={(e) => {
                   console.log(e.target.value);
 
@@ -164,7 +164,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="Scrivi bio"
-                value={modifiche.bio}
+                value={mod.bio}
                 onChange={(e) => {
                   console.log(e.target.value);
 
@@ -175,7 +175,7 @@ function ModalMod() {
               <Form.Control
                 type="text"
                 placeholder="Area"
-                value={modifiche.area}
+                value={mod.area}
                 onChange={(e) => {
                   console.log(e.target.value);
 

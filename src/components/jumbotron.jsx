@@ -8,43 +8,26 @@ import Side from "../components/RightColumn.jsx";
 import Example from './Modal.jsx';
 import Esperienze from '../components/Esperienze.jsx';
 import ModalMod from '../components/ModalMod.jsx'
-import EditImageProfile from './Jimmy.jsx';
+import EditImageProfile from '../components/EditImageProfile.jsx';
 
 
 
 const Jumbotron = () => {
   // const [esperienze, setEsperienze] = useState()
-  const dispatch = useDispatch();
-  const profile = useSelector((state) => {
-    return state;
-  });
-  const fetchme = async () => {
-    try {
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/me`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        dispatch({ type: "SETPROFILE", payload: data });
-      } else {
-        console.log("err if");
-      }
-    } catch (err) {
-      console.log("err catch");
-    }
-  };
 
-  useEffect(() => {
-    fetchme();
-  }, []);
 // const handleChange = function(field, value){
 //   setEsperienze((prev)=>{return {...prev, [field]:value}})
 // //le quadre sostituiscono
 // }
+
+
+
+const profile = useSelector((state) => {
+  return state;
+});
+
+
+
   return (
     <>
       <Row className="jumbotron">
@@ -61,12 +44,17 @@ const Jumbotron = () => {
                 className="profilo"
                 alt="immagine del profilo"
               />
-              {/* <EditImageProfile></EditImageProfile> */}
+              
               
               <Card.Title className="sopra ">
+              <EditImageProfile userid={profile._id} ></EditImageProfile>
                <div className='d-flex justify-content-between'><div> {profile.name} {profile.surname}</div> <ModalMod></ModalMod></div>
               </Card.Title>
+
+              
+
               <p className="m-0  p-0">{profile.title}</p>
+              <p>Bilancia ascendente scorpione ♎♏</p>
 
               <div>
                 <Button className="rounded-pill">Disponibile per</Button>
