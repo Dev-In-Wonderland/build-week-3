@@ -63,7 +63,7 @@ const [esperienze, setEsperienze] = useState(
           className="w-100"
           alt="immagine dell'esperienza"
         />
-        <EditImageEsp id={e._id} userid={e.user._id}></EditImageEsp>
+        <EditImageEsp id={e._id} userid={e.user}></EditImageEsp>
         </div>
         <div>
           <Card.Title className=" mb-5">
