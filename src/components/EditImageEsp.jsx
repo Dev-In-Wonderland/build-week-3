@@ -20,7 +20,7 @@ export const EditImageEsp = (props) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault()
     let res = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/" +  props.id  +  "/experiences/" + props.userid + "/picture" ,
+      "https://striveschool-api.herokuapp.com/api/profile/" +  props.userid  +  "/experiences/" + props.id + "/picture" ,
       {
         //qui l'id andra' sostituito con un id DINAMICO!!!!!
         method: "POST",

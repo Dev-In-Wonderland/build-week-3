@@ -12,6 +12,7 @@ import EditImageProfile from '../components/EditImageProfile.jsx';
 
 
 
+
 const Jumbotron = () => {
   // const [esperienze, setEsperienze] = useState()
 
@@ -21,6 +22,32 @@ const Jumbotron = () => {
 // }
 
 
+const dispatch = useDispatch()
+const fetchme = async () => {
+  try {
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/me`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      dispatch({ type: "SETPROFILE", payload: data });
+    } else {
+      console.log("err if");
+    }
+  } catch (err) {
+    console.log("err catch");
+  }
+};
+
+
+useEffect(() => {
+
+  fetchme();
+}, []);
 
 const profile = useSelector((state) => {
   return state;
