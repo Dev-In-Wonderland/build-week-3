@@ -107,6 +107,7 @@ const Side = () => {
             Persone che potresti conoscere
           </div>
           <div>
+            {spinner && <SpinnerLoad />}
             {utenti &&
               utenti
                 .filter((_, i) => i < 5)
