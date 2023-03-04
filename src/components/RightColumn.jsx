@@ -3,16 +3,17 @@ import { Row, Col, Button, Image } from "react-bootstrap";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 import CardUtenti from "./CardUtenti";
-
+import SpinnerLoad from "./Spinner";
 
 const Side = () => {
   const [utenti, setUtenti] = useState();
-
-
+  const [spinner, setSpinner] = useState();
 
   const SideFetch = async () => {
+    setSpinner(true);
     try {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
 
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/",
@@ -23,20 +24,17 @@ const Side = () => {
         }
       );
 
-
       if (response.ok) {
         const data = await response.json();
         setUtenti(data);
+        setSpinner(false);
       } else {
         console.log("errore nel else di aside");
       }
-
     } catch (err) {
       console.log("errore nel catch di aside", err);
     }
   };
-
-
 
   useEffect(() => {
     SideFetch();
@@ -44,21 +42,8 @@ const Side = () => {
 
   console.log(utenti);
 
-
-
-
-
-
   return (
     <>
-    
-      
-
-
-
-
-
-
       <div
         className="mb-2 p-2 text-secondary rounded bg-white"
         style={{
@@ -74,11 +59,7 @@ const Side = () => {
           </span>
         </div>
 
-
-<hr />
-        
-
-
+        <hr />
 
         <div className=" linkAside">
           Aggiungi il tuo profilo in un'altra lingua
@@ -87,17 +68,6 @@ const Side = () => {
           </span>
         </div>
       </div>
-      
-
-
-
-
-
-
-
-
-
-
 
       <div
         className="mb-2 p-2 text-secondary text-center rounded bg-white"
@@ -107,53 +77,43 @@ const Side = () => {
           border: "1px solid lightgray",
         }}
       >
-
-
-
-        
-      <div
-        className="mb-2 p-2 rounded bg-white"
-        style={{ border: "1px solid lightgray" }}
-      >
-
-
-
-        <div style={{ fontWeight: "600", fontSize: "1.15em" }} className="mb-1">
-          Altre aziende consultate
+        <div
+          className="mb-2 p-2 rounded bg-white"
+          style={{ border: "1px solid lightgray" }}
+        >
+          <div
+            style={{ fontWeight: "600", fontSize: "1.15em" }}
+            className="mb-1"
+          >
+            Altre aziende consultate
+          </div>
+          <div>
+            {spinner && <SpinnerLoad />}
+            {utenti &&
+              utenti
+                .filter((_, i) => i < 5)
+                .map((e) => <CardUtenti profile={e} />)}
+          </div>
         </div>
-<div>
 
-        {utenti &&
-          utenti
-            .filter((_, i) => i < 5)
-            .map((e) => <CardUtenti profile={e} />)}
-      </div>
-
-      </div>
-      
-
-
-
-      <div
-        className="mb-2 p-2 rounded bg-white"
-        style={{ border: "1px solid lightgray" }}
-      >
-
-        <div style={{ fontWeight: "600", fontSize: "1.15em" }} className="mb-1">
-          Persone che potresti conoscere
+        <div
+          className="mb-2 p-2 rounded bg-white"
+          style={{ border: "1px solid lightgray" }}
+        >
+          <div
+            style={{ fontWeight: "600", fontSize: "1.15em" }}
+            className="mb-1"
+          >
+            Persone che potresti conoscere
+          </div>
+          <div>
+            {utenti &&
+              utenti
+                .filter((_, i) => i < 5)
+                .map((e) => <CardUtenti profile={e} />)}
+          </div>
         </div>
-<div>
-        {utenti &&
-          utenti
-            .filter((_, i) => i < 5)
-            .map((e) => <CardUtenti profile={e} />)}
       </div>
-    </div>
-
-
-
-
-    </div>
     </>
   );
 };
