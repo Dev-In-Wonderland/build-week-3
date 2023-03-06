@@ -3,7 +3,7 @@ import { Row, Col, Button, Image } from "react-bootstrap";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 import CardUtenti from "./CardUtenti";
-import SpinnerLoad from "./Spinner";
+import SpinnerLoad2 from "./SpinnerLoad2";
 
 const Side = () => {
   const [utenti, setUtenti] = useState();
@@ -88,7 +88,7 @@ const Side = () => {
             Altre aziende consultate
           </div>
           <div>
-            {spinner && <SpinnerLoad />}
+            {spinner && <SpinnerLoad2 />}
             {utenti &&
               utenti
                 .filter((_, i) => i < 5)
@@ -107,7 +107,7 @@ const Side = () => {
             Persone che potresti conoscere
           </div>
           <div>
-            {spinner && <SpinnerLoad />}
+            {spinner && <SpinnerLoad2 />}
             {utenti &&
               utenti
                 .filter((_, i) => i < 5)
