@@ -3,11 +3,13 @@ import { Row, Col, Card, Image } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useState } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Side from "../components/RightColumn.jsx";
 import Example from "../components/ModalEsp.jsx";
 import ModalModEsp from "../components/ModalModEsp.jsx"
 import EditImageEsp from "./EditImageEsp.jsx";
+import { useParams } from "react-router-dom";
+
 
 
 
@@ -15,9 +17,10 @@ import EditImageEsp from "./EditImageEsp.jsx";
 const Esperienze = () => {
   // const [esperienze, setEsperienze] = useState()
   //   const dispatch = useDispatch();
-  //   const profile = useSelector((state) => {
-  //     return state;
-  //   });
+    const profile = useSelector((state) => {
+      return state;
+    });
+const param = useParams()
 
 const [esperienze, setEsperienze] = useState(
   []
@@ -29,7 +32,7 @@ const [esperienze, setEsperienze] = useState(
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences`,
+        `https://striveschool-api.herokuapp.com/api/profile/${param.id === 'me'? profile._id : param.id }/experiences`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.ok) {
