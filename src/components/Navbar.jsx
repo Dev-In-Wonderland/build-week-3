@@ -1,10 +1,11 @@
 import { Col, Row, Form } from "react-bootstrap";
-import { AiFillLinkedin, AiFillMessage } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdHome, MdWork, MdNotifications } from "react-icons/md";
 import { BsFillPeopleFill, BsFillPersonFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import {TbMessageCircle2Filled} from 'react-icons/tb'
 
 const Navbar = () => {
   return (
@@ -39,10 +40,10 @@ const Navbar = () => {
           </li>
           <li>
             <MdWork className="i-nav" />
-            <span className="d-none d-lg-block">Lavoro</span>
+            <span className="d-none d-lg-block">Job</span>
           </li>
           <li>
-            <AiFillMessage className="i-nav" />
+            <TbMessageCircle2Filled className="i-nav" />
             <span className="d-none d-lg-block">Messaggistica</span>
           </li>
           <li>

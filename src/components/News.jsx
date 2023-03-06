@@ -10,6 +10,7 @@ import LeftColumnNews from "./LeftColumnNews.jsx";
 import EditImagePost from "./Jimmy.jsx";
 import SpinnerLoad from "./Spinner";
 import Commenti from "./Commenti.jsx";
+import {FaRegCommentDots} from "react-icons/fa"
 
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Like from "./Like.jsx";
@@ -179,7 +180,7 @@ const Post = () => {
                   <Col>
                     <Accordion defaultActiveKey={["0"]}>
                       <Accordion.Item eventKey="0">
-                        <Accordion.Header>Commenti</Accordion.Header>
+                        <Accordion.Header><FaRegCommentDots></FaRegCommentDots></Accordion.Header>
                         <Accordion.Body>
                           <Commenti id={e._id}></Commenti>
                         </Accordion.Body>
