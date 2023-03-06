@@ -151,7 +151,8 @@ const Post = () => {
 
                 <EditImagePost id={e._id} userid={e.user._id}></EditImagePost>
                 {e.image && <img src={e.image} className="postimages w-100" alt="immagine del commento" />}
-                <DeletePost></DeletePost>
+
+                <DeletePost id={e._id}></DeletePost>
               </Card.Body>
             </Card>
           ))}
