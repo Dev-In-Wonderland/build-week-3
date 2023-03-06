@@ -47,11 +47,11 @@ body {
 .sopra {
   margin-top: 200px !important;
 }
-.background {
+/* .background {
   width: 92% !important;
-  height: 180px;
+  
   position: absolute;
-}
+} */
 
 .App-header {
   background-color: #282c34;
@@ -188,4 +188,52 @@ body {
 
 .footer select {
   width: 100%;
+}
+
+
+
+/* MEDIA QUERY PER NAVBAR MOBILE */
+
+@media only screen and (max-width: 600px) {
+  
+.i-nav, .premium, .linkedin-logo  {
+  display: none !important;
+
+}
+.home{
+  display: block !important;
+  margin-left: 40px !important;
+
+}
+
+.tu{display: block !important;}
+
+.navbar-navigation {
+  display: flex;
+  justify-content: space-between !important;
+  padding: 0 !important;
+  
+}
+.nav-col{
+  padding: 0 !important;
+  height: 100 px !important;
+  margin-left: 30px !important;
+}
+.ul-nav{
+  text-align: center !important;
+}
+
+}
+
+
+
+
+@media only screen and (min-width: 857px){
+
+  .background{
+    width: 92% !important;
+    background-size: cover !important ;
+    height: 180px !important;
+    position: absolute !important;
+  }
 }

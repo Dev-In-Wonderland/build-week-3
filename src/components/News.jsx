@@ -32,7 +32,8 @@ const Post = () => {
         const data = await response.json();
         console.log(data);
         dispatch({ type: "SETPROFILE", payload: data });
-      } else {
+      } 
+       else {
         console.log("err if");
       }
     } catch (err) {

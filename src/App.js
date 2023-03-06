@@ -16,7 +16,7 @@ function App() {
         <Navbar></Navbar>
         <Routes>
         <Route path="/" element={<News />}></Route>
-        <Route path="/Me" element={<Jumbotron />}></Route>
+        <Route path="/Me/:id" element={<Jumbotron />}></Route>
        
         
         </Routes>

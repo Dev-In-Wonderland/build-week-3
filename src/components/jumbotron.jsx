@@ -9,6 +9,7 @@ import Example from './Modal.jsx';
 import Esperienze from '../components/Esperienze.jsx';
 import ModalMod from '../components/ModalMod.jsx'
 import EditImageProfile from '../components/EditImageProfile.jsx';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -21,20 +22,27 @@ const Jumbotron = () => {
 // //le quadre sostituiscono
 // }
 
-
+const param = useParams();
 const dispatch = useDispatch()
 const fetchme = async () => {
   try {
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
     const response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/profile/me`,
+      `https://striveschool-api.herokuapp.com/api/profile/${param.id}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     if (response.ok) {
       const data = await response.json();
       console.log(data);
-      dispatch({ type: "SETPROFILE", payload: data });
+      if (param.id === "me") {
+        dispatch({ type: "SETPROFILE", payload: data });
+      }
+      else if (param.id !== "me" ) {
+        
+        dispatch({ type: "ADDPROFILE", payload: data });
+      }
+      
     } else {
       console.log("err if");
     }
@@ -47,7 +55,7 @@ const fetchme = async () => {
 useEffect(() => {
 
   fetchme();
-}, []);
+}, [param.id]);
 
 const profile = useSelector((state) => {
   return state;
@@ -63,7 +71,7 @@ const profile = useSelector((state) => {
             <Card.Body>
               <img
                 src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                className="background "
+                className="background img-fluid"
                 alt="immagine del background"
               />
               <img

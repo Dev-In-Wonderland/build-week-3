@@ -13,7 +13,7 @@ const Navbar = () => {
         className="nav-col d-flex justify-content-center align-items-center"
         xs={10}
       >
-        <div className="input-search">
+        <div className="input-search d-flex align-items-center">
           <AiFillLinkedin className="linkedin-logo" />
           <Form className="d-flex form d-none d-lg-block">
             <Form.Control
@@ -27,7 +27,7 @@ const Navbar = () => {
 
         <ul className="ul-nav ms-5">
           <li>
-            <MdHome className="i-nav" />
+            <MdHome className="i-nav home" />
             <Link to="/">
               {" "}
               <span className="d-none d-lg-block">Home</span>
@@ -50,9 +50,9 @@ const Navbar = () => {
             <span className="d-none d-lg-block">Notifiche</span>
           </li>
           <li>
-            <BsFillPersonFill className="i-nav" />
-            <Link to="/Me">
-              {" "}
+            <BsFillPersonFill className="i-nav tu" />
+            <Link to="/Me/me">
+              
               <span className="d-none d-lg-block">
                 Tu <IoMdArrowDropdown className="freccia-dropdown" />
               </span>
@@ -67,7 +67,7 @@ const Navbar = () => {
             </span>
           </li>
           <li>
-            <a href="a">Prova Premium</a>
+            <a className="premium" href="a">Prova Premium</a>
           </li>
         </ul>
       </Col>

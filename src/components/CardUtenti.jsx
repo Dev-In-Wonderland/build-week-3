@@ -15,7 +15,7 @@ const CardUtenti = ({ profile }) => {
         <Col xs={9}>
           <div>
             <h6 className="mb-0">
-               <Link to="">{profile.name} {profile.surname}</Link>
+               <Link to={`/Me/${profile._id}`}>{profile.name} {profile.surname}</Link>
               <span className="text-secondary"> - 2°</span>
             </h6>
           </div>

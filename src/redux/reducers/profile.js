@@ -19,6 +19,11 @@ export function profileReducer(state = initialState, action) {
         ...state, 
         ...action.payload
     }
+    case "ADDPROFILE":
+      return {
+        ...state, 
+        ...action.payload
+    }
     
 
     default:
