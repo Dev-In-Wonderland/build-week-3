@@ -32,7 +32,7 @@ function DeletePost(props) {
     <>
       <>
         <button
-          className="btn-danger"
+          className=" btn btn-danger"
           type="submit"
           onClick={() => {
             dispatch(fetchDelete());
