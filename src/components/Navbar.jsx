@@ -1,6 +1,7 @@
 import { Col, Row, Form } from "react-bootstrap";
 import { AiFillLinkedin } from "react-icons/ai";
 import { IoMdArrowDropdown } from "react-icons/io";
+import{MdAccountCircle} from "react-icons/md"
 import { MdHome, MdWork, MdNotifications } from "react-icons/md";
 import { BsFillPeopleFill, BsFillPersonFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
@@ -30,7 +31,7 @@ const Navbar = () => {
           <li>
             <MdHome className="i-nav home" />
             <Link to="/">
-              {" "}
+              
               <span className="d-none d-lg-block">Home</span>
             </Link>
           </li>
@@ -51,8 +52,8 @@ const Navbar = () => {
             <span className="d-none d-lg-block">Notifiche</span>
           </li>
           <li>
-            <BsFillPersonFill className="i-nav tu" />
-            <Link to="/Me/me">
+            <MdAccountCircle className="i-nav tu" />
+            <Link className="" to="/Me/me">
               
               <span className="d-none d-lg-block">
                 Tu <IoMdArrowDropdown className="freccia-dropdown" />
