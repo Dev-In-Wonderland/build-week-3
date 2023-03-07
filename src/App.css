@@ -417,3 +417,13 @@ DELETE BUTTON */
   opacity: 1;
   top: -160%;
 }
+
+
+
+.text-orange{
+  color:orange !important
+}
+
+.cursor-pointer{
+  cursor: pointer !important ;
+}

@@ -1,40 +1,40 @@
 const initialState = {
-  name: "",
-  surname: "",
-  email: "",
-  bio: "",
-  title: "",
-  area: "",
-  image: "",
-  username: ""
+  profile: {
+    name: "",
+    surname: "",
+    email: "",
+    bio: "",
+    title: "",
+    area: "",
+    image: "",
+    username: "",
+  },
+  comment: [{ _id: "", comment: "", rate: 1, elementId: "", author: "" }],
+  expieriences: [],
 };
-
-
-
 
 export function profileReducer(state = initialState, action) {
   switch (action.type) {
     case "SETPROFILE":
-    return {
-        ...state, 
-        ...action.payload
-    }
+      return {
+        ...state,
+        profile: action.payload,
+      };
     case "ADDPROFILE":
       return {
-        ...state, 
-        ...action.payload
-    }
+        ...state,
+        ...action.payload,
+      };
 
     case "COMMENTPOST":
       return {
-        ...state, 
-        ...action.payload
+        ...state,
 
-      }
+        comment: action.payload,
+      };
 
     // case "DELETEXP":
     //   return { ...state, deletedExperience: action.payload };
-    
 
     default:
       return state;

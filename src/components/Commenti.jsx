@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import CommentPost from "./PostComment";
+
+
+
+
+
 const Commenti = (props) => {
   const [commenti, setCommenti] = useState();
 
@@ -50,6 +56,7 @@ const Commenti = (props) => {
                 <strong>Commento: </strong>
                 {e.comment}
               </p>
+              <CommentPost id={e.elementId} ></CommentPost>
             </Card.Title>
           </Card.Body>
         </div>

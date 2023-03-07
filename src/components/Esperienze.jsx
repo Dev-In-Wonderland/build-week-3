@@ -9,6 +9,7 @@ import Example from "../components/ModalEsp.jsx";
 import ModalModEsp from "../components/ModalModEsp.jsx"
 import EditImageEsp from "./EditImageEsp.jsx";
 import { useParams } from "react-router-dom";
+import ExpDelete from "./ExpDelete.jsx";
 
 
 
