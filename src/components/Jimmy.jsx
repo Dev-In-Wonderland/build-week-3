@@ -39,7 +39,7 @@ export const EditImagePost = (props) => {
     <>
       {props.userid === profile._id ? (
         <form onSubmit={handleSubmit}>
-          <input className="btn" type="file" onChange={handleFile} />
+          <input className="btnu" type="file" onChange={handleFile} />
           <button className="btn btn-primary">Salva</button>
         </form>
       ) : (
