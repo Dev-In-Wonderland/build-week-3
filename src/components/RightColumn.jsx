@@ -76,7 +76,7 @@ const Side = () => {
       >
         <div className="mb-2 p-2 rounded bg-white" style={{ border: "1px solid lightgray" }}>
           <div style={{ fontWeight: "600", fontSize: "1.15em" }} className="mb-1">
-            Altre aziende consultate
+            Persone che potresti conoscere
           </div>
           <div>
             {spinner && <SpinnerLoad2 />}
@@ -90,11 +90,15 @@ const Side = () => {
 
         <div className="mb-2 p-2 rounded bg-white" style={{ border: "1px solid lightgray" }}>
           <div style={{ fontWeight: "600", fontSize: "1.15em" }} className="mb-1">
-            Persone che potresti conoscere
+            Altre aziende consultate
           </div>
           <div>
             {spinner && <SpinnerLoad2 />}
-            {utenti && utenti.filter((_, i) => i < 5).map((e) => <CardUtenti profile={e} />)}
+            {utenti &&
+              utenti
+                .reverse()
+                .slice(5, 10)
+                .map((e) => <CardUtenti profile={e} />)}
           </div>
         </div>
       </div>
