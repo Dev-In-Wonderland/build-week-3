@@ -1,29 +1,26 @@
 
-import { profileReducer } from "./reducers/profile";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-
+import { profileReducer } from "./reducers/profile";
 
 
 const persistConfig = {
   key: "root",
-  storage, 
+  storage, // identico a storage: storage
   transforms: [
     encryptTransform({
-      secretKey: "SUPER_SECRET_KEY",
-      onError: function (error) {
-        console.log(error)
-      },
-    }),
-  ],
-
+      secretKey: process.env.REACT_APP_PERSIST_KEY
+    })
+  ]
 };
 
-
+// cartReducer e userReducer gestiscono la loro porzione di stato più piccola,
+// con combineReducer riportiamo le sezioni (slices) in un'unico macro oggetto globale
+// prima di passarlo allo store
 const rootReducer = combineReducers({
-  profile:profileReducer
+  profile: profileReducer ,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
