@@ -122,20 +122,22 @@ const Post = () => {
 
         <Col className="col-6 ">
           <Card className="p-3 mb-3">
-            <Imgpro />
             <Form>
               <Form.Group className="mb-3 ">
-                <Form.Control
-                  className="rounded-pill"
-                  type="text"
-                  placeholder="Avvia un post"
-                  value={posttext.text}
-                  onChange={(e) => {
-                    console.log(e.target.value);
+                <div className="d-flex">
+                  <Imgpro />
+                  <Form.Control
+                    className="rounded-pill"
+                    type="text"
+                    placeholder="Avvia un post"
+                    value={posttext.text}
+                    onChange={(e) => {
+                      console.log(e.target.value);
 
-                    handleChange("text", e.target.value);
-                  }}
-                />
+                      handleChange("text", e.target.value);
+                    }}
+                  />
+                </div>
               </Form.Group>
               <Button onClick={posttextData} variant="primary" type="submit" className="d-block mx-auto ">
                 Invia Post
