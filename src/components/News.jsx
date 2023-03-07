@@ -30,9 +30,12 @@ const Post = () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/me`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -44,17 +47,21 @@ const Post = () => {
       console.log("err catch");
     }
   };
-
+  const PostInput = useSelector((state) => state);
   const [post, setPost] = useState([]);
 
   const fetchPost = async () => {
     setSpinner(true);
+
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setPost(data.reverse().slice(0, 10));
@@ -93,14 +100,17 @@ const Post = () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(posttext),
-      });
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(posttext),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -134,7 +144,13 @@ const Post = () => {
                   }}
                 />
               </Form.Group>
-              <Button onClick={posttextData} variant="primary" type="submit" className="d-block mx-auto ">
+              <EditImagePost userid={PostInput.user._id}></EditImagePost>
+              <Button
+                onClick={posttextData}
+                variant="primary"
+                type="submit"
+                className="d-block mx-auto "
+              >
                 Invia Post
               </Button>
             </Form>
@@ -154,9 +170,13 @@ const Post = () => {
                   </p>
                 </Card.Title>
 
-                <EditImagePost id={e._id} userid={e.user._id}></EditImagePost>
-
-                {e.image && <img src={e.image} className="postimages w-100" alt="immagine del commento" />}
+                {e.image && (
+                  <img
+                    src={e.image}
+                    className="postimages w-100"
+                    alt="immagine del commento"
+                  />
+                )}
 
                 <Row className="d-flex mt-5">
                   <Col>
@@ -189,18 +209,26 @@ const Post = () => {
             <Card.Body>
               <ul>
                 <li>
-                  <p className="fs-5">Il declino demografico minaccia gli Stati Uniti</p>
-                  <p className="fs-6 text-secondary">un giorno fa - 520 lettori</p>
+                  <p className="fs-5">
+                    Il declino demografico minaccia gli Stati Uniti
+                  </p>
+                  <p className="fs-6 text-secondary">
+                    un giorno fa - 520 lettori
+                  </p>
                 </li>
 
                 <li>
                   <p className="fs-5">Nuova proroga per lo smart-working</p>
-                  <p className="fs-6 text-secondary">un giorno fa - 124 lettori</p>
+                  <p className="fs-6 text-secondary">
+                    un giorno fa - 124 lettori
+                  </p>
                 </li>
 
                 <li>
                   <p className="fs-5">Oltre il nuovo logo di Nokia</p>
-                  <p className="fs-6 text-secondary">2 giorni fa - 355 lettori</p>
+                  <p className="fs-6 text-secondary">
+                    2 giorni fa - 355 lettori
+                  </p>
                 </li>
 
                 <li>
