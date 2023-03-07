@@ -1,5 +1,5 @@
 const initialState = {
-  me:{name: "",
+  profile:{name: "",
   surname: "",
   email: "",
   bio: "",

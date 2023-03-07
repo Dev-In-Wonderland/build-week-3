@@ -16,7 +16,7 @@ const CardUtenti = ({ profile }) => {
               <Link to={`/Me/${profile._id}`}>
                 {profile.name} {profile.surname}
               </Link>
-              <span className="text-secondary"> - 2°</span>
+              <span className="text-secondary"> ···</span>
             </h6>
           </div>
           <div>
@@ -24,7 +24,7 @@ const CardUtenti = ({ profile }) => {
           </div>
           <div className="ms-4">
             <Button
-              //onClick={dispatch({ type: "ADDFRIEND", payload: profile._id })}
+              //onClick={dispatch({ type: "ADDFRIEND", payload:profile._id })}
               variant="outline-dark"
               className="rounded-pill"
             >
