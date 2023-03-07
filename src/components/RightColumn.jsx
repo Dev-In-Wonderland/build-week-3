@@ -15,14 +15,11 @@ const Side = () => {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
 
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -77,41 +74,27 @@ const Side = () => {
           border: "1px solid lightgray",
         }}
       >
-        <div
-          className="mb-2 p-2 rounded bg-white"
-          style={{ border: "1px solid lightgray" }}
-        >
-          <div
-            style={{ fontWeight: "600", fontSize: "1.15em" }}
-            className="mb-1"
-          >
+        <div className="mb-2 p-2 rounded bg-white" style={{ border: "1px solid lightgray" }}>
+          <div style={{ fontWeight: "600", fontSize: "1.15em" }} className="mb-1">
             Altre aziende consultate
           </div>
           <div>
             {spinner && <SpinnerLoad2 />}
             {utenti &&
               utenti
-                .filter((_, i) => i < 5)
+                .reverse()
+                .slice(0, 5)
                 .map((e) => <CardUtenti profile={e} />)}
           </div>
         </div>
 
-        <div
-          className="mb-2 p-2 rounded bg-white"
-          style={{ border: "1px solid lightgray" }}
-        >
-          <div
-            style={{ fontWeight: "600", fontSize: "1.15em" }}
-            className="mb-1"
-          >
+        <div className="mb-2 p-2 rounded bg-white" style={{ border: "1px solid lightgray" }}>
+          <div style={{ fontWeight: "600", fontSize: "1.15em" }} className="mb-1">
             Persone che potresti conoscere
           </div>
           <div>
             {spinner && <SpinnerLoad2 />}
-            {utenti &&
-              utenti
-                .filter((_, i) => i < 5)
-                .map((e) => <CardUtenti profile={e} />)}
+            {utenti && utenti.filter((_, i) => i < 5).map((e) => <CardUtenti profile={e} />)}
           </div>
         </div>
       </div>
