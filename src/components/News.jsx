@@ -15,6 +15,7 @@ import DeletePost from "./deletePost.jsx";
 
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Like from "./Like.jsx";
+import Imgpro from "./img.jsx";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -121,6 +122,7 @@ const Post = () => {
 
         <Col className="col-6 ">
           <Card className="p-3 mb-3">
+            <Imgpro />
             <Form>
               <Form.Group className="mb-3 ">
                 <Form.Control

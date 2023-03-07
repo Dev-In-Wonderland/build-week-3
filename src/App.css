@@ -439,3 +439,10 @@ DELETE BUTTON */
 input.btnu {
   color: transparent;
 }
+
+.profilo-img {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 30000px;
+}
