@@ -24,6 +24,16 @@ export function profileReducer(state = initialState, action) {
         ...state, 
         ...action.payload
     }
+
+    case "COMMENTPOST":
+      return {
+        ...state, 
+        ...action.payload
+
+      }
+
+    // case "DELETEXP":
+    //   return { ...state, deletedExperience: action.payload };
     
 
     default:

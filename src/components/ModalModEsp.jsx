@@ -97,6 +97,18 @@ function ModalModEsp(props) {
 
 
 
+              <Form.Label>Luogo</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Place"
+                value={modifiche.area}
+                onChange={(e) => {
+                  console.log(e.target.value);
+
+                  handleChange("area", e.target.value);
+                }}
+              />
+
               <Form.Label>Descrizione</Form.Label>
               <Form.Control
                 type="text"

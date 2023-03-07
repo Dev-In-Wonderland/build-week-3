@@ -44,7 +44,7 @@ export const EditImageEsp = (props) => {
   return (
     <>
      {(props.userid === profile._id)?  <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFile} />
+        <input className="mt-3" type="file" onChange={handleFile} />
         <button className="btn btn-primary">Cambia immagine dell'esperienza</button>
       </form>: ''}
     </>
