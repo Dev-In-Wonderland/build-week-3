@@ -435,3 +435,7 @@ DELETE BUTTON */
   opacity: 1;
   top: -160%;
 }
+
+input.btn {
+  color: transparent;
+}
