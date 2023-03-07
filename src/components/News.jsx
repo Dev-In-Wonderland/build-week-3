@@ -122,8 +122,9 @@ const Post = () => {
         <Col className="col-6 ">
           <Card className="p-3 mb-3">
             <Form>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3 ">
                 <Form.Control
+                  className="rounded-pill"
                   type="text"
                   placeholder="Avvia un post"
                   value={posttext.text}

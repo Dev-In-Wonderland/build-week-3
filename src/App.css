@@ -46,6 +46,7 @@ body {
 .sopra {
   margin-top: 200px !important;
 }
+
 /* .background {
   width: 92% !important;
   
@@ -71,6 +72,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -82,6 +84,7 @@ body {
   background-color: white;
   color: gray;
 }
+
 .navbar-navigation {
   border-bottom: 1px solid lightgray;
   text-align: center !important;
@@ -111,6 +114,7 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+
 .form-ricerca {
   background-color: #eef3f8;
   padding-left: 45px;
@@ -125,9 +129,10 @@ body {
 }
 
 
-.ul-ul{
+.ul-ul {
   border-left: 1px solid lightgray;
 }
+
 .ul-nav li {
   display: flex;
   flex-direction: column;
@@ -135,6 +140,7 @@ body {
   padding: 0 20px;
   font-size: 0.8em;
 }
+
 .ul-nav li span {
   display: flex;
   align-items: center;
@@ -143,6 +149,7 @@ body {
 .ul-nav li a {
   color: #282c34;
 }
+
 .freccia-dropdown {
   font-size: 22px;
 }
@@ -163,6 +170,7 @@ body {
 .footerCopiright {
   padding: 0;
 }
+
 .footerCopiright {
   font-size: 0.8em;
 }
@@ -197,11 +205,13 @@ body {
 /* MEDIA QUERY PER NAVBAR MOBILE */
 
 @media only screen and (max-width: 600px) {
+
   .i-nav,
   .premium,
   .linkedin-logo {
     display: none !important;
   }
+
   .home {
     display: block !important;
     margin-left: 40px !important;
@@ -216,11 +226,13 @@ body {
     justify-content: space-between !important;
     padding: 0 !important;
   }
+
   .nav-col {
     padding: 0 !important;
     height: 100 px !important;
     margin-left: 30px !important;
   }
+
   .ul-nav {
     text-align: center !important;
   }
@@ -229,7 +241,7 @@ body {
 @media only screen and (min-width: 857px) {
   .background {
     width: 92% !important;
-    background-size: cover !important ;
+    background-size: cover !important;
     height: 180px !important;
     position: absolute !important;
   }
@@ -325,14 +337,14 @@ body {
   animation: dislike_401 400ms ease;
 }
 
-.container input:checked ~ .checkmark path {
+.container input:checked~.checkmark path {
   fill: #1c7dff;
   stroke-width: 1.2;
   stroke: #0b5ed7;
   /*same background color*/
 }
 
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
   animation: like_401 400ms ease;
 }
 
@@ -410,11 +422,11 @@ DELETE BUTTON */
   transition: .2s linear;
 }
 
-.btna:hover > .icona {
+.btna:hover>.icona {
   transform: scale(1.5);
 }
 
-.btna:hover > .icona path {
+.btna:hover>.icona path {
   fill: rgb(168, 7, 7);
 }
 
