@@ -123,6 +123,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+
+.ul-ul{
+  border-left: 1px solid lightgray;
+}
 .ul-nav li {
   display: flex;
   flex-direction: column;

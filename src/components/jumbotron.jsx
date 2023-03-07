@@ -81,17 +81,17 @@ const profile = useSelector((state) => {
               />
               
               
-              <Card.Title className="sopra ">
+              <Card.Title className="sopra  ">
               <EditImageProfile userid={profile._id} ></EditImageProfile>
-               <div className='d-flex justify-content-between'><div> {profile.name} {profile.surname}</div> <ModalMod></ModalMod></div>
+               <div className='d-flex justify-content-between mt-3'><div> {profile.name} {profile.surname}</div> <ModalMod></ModalMod></div>
               </Card.Title>
 
               
 
-              <p className="m-0  p-0">{profile.title}</p>
-              <p>Bilancia ascendente scorpione ♎♏</p>
+              <p className="mt-3  p-0">{profile.title}</p>
+              
 
-              <div>
+              <div className='mt-5'>
                 <Button className="rounded-pill">Disponibile per</Button>
                 <button className="ms-2  btn rounded-pill border border-primary text-primary">
                   Aggiungi sezione del profilo

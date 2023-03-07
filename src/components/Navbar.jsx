@@ -61,7 +61,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <ul className="ul-nav">
+        <ul className="ul-nav ul-ul">
           <li>
             <CgMenuGridR className="i-nav" />
             <span className="d-none d-lg-block">
