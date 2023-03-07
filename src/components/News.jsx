@@ -11,6 +11,7 @@ import EditImagePost from "./Jimmy.jsx";
 import SpinnerLoad from "./Spinner";
 import Commenti from "./Commenti.jsx";
 import {FaRegCommentDots} from "react-icons/fa"
+import DeletePost from "./deletePost.jsx";
 
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Like from "./Like.jsx";
@@ -166,6 +167,7 @@ const Post = () => {
                 </Card.Title>
 
                 <EditImagePost id={e._id} userid={e.user._id}></EditImagePost>
+                
                 {e.image && (
                   <img
                     src={e.image}
@@ -173,6 +175,7 @@ const Post = () => {
                     alt="immagine del commento"
                   />
                 )}
+                
                 <Row className="d-flex mt-5">
                   <Col>
                     <Like />
@@ -190,6 +193,7 @@ const Post = () => {
                   <Col>Condividi ⤴️</Col>
                 </Row>
               </Card.Body>
+              <DeletePost id={e._id}></DeletePost>
             </Card>
           ))}
         </Col>
