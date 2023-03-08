@@ -21,6 +21,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { RiArticleLine } from "react-icons/ri";
 import { BsCardImage } from "react-icons/bs";
 import CommentPost from "./PostComment.jsx";
+import InputImgProfile from "./InputImgProfile.jsx"
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -169,8 +170,11 @@ const Post = () => {
 
         <Col className="col-6 ">
           <Card className="p-3 mb-3">
-            <Form>
-              <Form.Group className="mb-3">
+            
+            <Form className="">
+              <div className="d-flex justify-content-center">
+            <InputImgProfile></InputImgProfile>
+              <Form.Group className="mb-3 w-75">
                 <Form.Control
                   type="text"
                   placeholder="Avvia un post"
@@ -182,6 +186,7 @@ const Post = () => {
                   }}
                 />
               </Form.Group>
+              </div>
               {/* <EditImagePost userid={PostInput.user._id}></EditImagePost> */}
 
               <div className="d-flex w-100 justify-content-around mb-5">
