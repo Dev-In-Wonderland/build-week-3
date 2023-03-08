@@ -3,7 +3,7 @@ import { Card, Col, Row, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteComment from "./CommentDelete";
 
-const CommentPost = ({ id, comment }) => {
+const CommentPost = ({ id }) => {
   const profile = useSelector((state) => state.comment);
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";

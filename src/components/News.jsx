@@ -258,7 +258,7 @@ const Post = () => {
                           <FaRegCommentDots></FaRegCommentDots>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <CommentPost id={e.elementId}></CommentPost>
+                          <CommentPost id={e._id}></CommentPost>
                           <Commenti id={e._id}></Commenti>
                         </Accordion.Body>
                       </Accordion.Item>
