@@ -1,37 +1,26 @@
 const initialState = {
-  profile:{name: "",
-  surname: "",
-  email: "",
-  bio: "",
-  title: "",
-  area: "",
-  image: "",
-  username: ""},
-  _id:[
-   
-  ]
+  profile: { name: "", surname: "", email: "", bio: "", title: "", area: "", image: "", username: "" },
+  currentprofile: { name: "", surname: "", email: "", bio: "", title: "", area: "", image: "", username: "" },
+  friends: [],
 };
-
-
-
 
 export function profileReducer(state = initialState, action) {
   switch (action.type) {
     case "SETPROFILE":
-    return {
-        ...state, 
-        ...action.payload
-    }
+      return {
+        ...state,
+        profile: action.payload,
+      };
     case "ADDPROFILE":
       return {
-        ...state, 
-        ...action.payload
-    }
+        ...state,
+        currentprofile: action.payload,
+      };
     case "ADDFRIEND":
       return {
-        ...state, 
-        ...action.payload
-    }
+        ...state,
+        friends: [...state.friends, action.payload],
+      };
     default:
       return state;
   }

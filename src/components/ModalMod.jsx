@@ -3,19 +3,12 @@ import { Form, Button, Modal } from "react-bootstrap";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useSelector } from "react-redux";
 
-
-
-
 function ModalMod() {
   const modifiche = useSelector((state) => {
-    return state;
+    return state.profile;
   });
   const [show, setShow] = useState(false);
-  const [mod, setMod] = useState(
-    modifiche
-  );
-  
-  
+  const [mod, setMod] = useState(modifiche);
 
   const handleChange = (property, value) => {
     setMod({ ...mod, [property]: value });
@@ -25,19 +18,16 @@ function ModalMod() {
 
   const ModFetch = async () => {
     try {
-      const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      ;
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/`,
-        {
-          method: "PUT",
-          body: JSON.stringify(mod),
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/`, {
+        method: "PUT",
+        body: JSON.stringify(mod),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       if (response.ok) {
       } else {
       }
@@ -61,7 +51,6 @@ function ModalMod() {
         </Modal.Header>
         <Modal.Body className="position-relative">
           <Form onSubmit={handleSubmit}>
-            
             {/* <Form.Group className="mb-3">
 
 
@@ -88,130 +77,98 @@ function ModalMod() {
               </div>
             </Form.Group> */}
 
-
-
-
-
-
-
-
             <Form.Label>Inserisci modifiche Nome</Form.Label>
 
-              <Form.Control
-                type="text"
-                placeholder="Name"
-                value={mod.name}
-                onChange={(e) => {
-                  console.log(e.target.value);
+            <Form.Control
+              type="text"
+              placeholder="Name"
+              value={mod.name}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("name", e.target.value);
-                }}
-              />
+                handleChange("name", e.target.value);
+              }}
+            />
 
-              <Form.Label>Inserisci modifiche Cognome</Form.Label>
+            <Form.Label>Inserisci modifiche Cognome</Form.Label>
 
-              <Form.Control
-                type="text"
-                placeholder="surname"
-                value={mod.surname}
-                onChange={(e) => {
-                  console.log(e.target.value);
+            <Form.Control
+              type="text"
+              placeholder="surname"
+              value={mod.surname}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("surname", e.target.value);
-                }}
-              />
+                handleChange("surname", e.target.value);
+              }}
+            />
 
-              <Form.Label>E-mail</Form.Label>
+            <Form.Label>E-mail</Form.Label>
 
-              <Form.Control
-                type="text"
-                placeholder="Scrivi email"
-                value={mod.email}
-                onChange={(e) => {
-                  console.log(e.target.value);
+            <Form.Control
+              type="text"
+              placeholder="Scrivi email"
+              value={mod.email}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("email", e.target.value);
-                }}
-              />
+                handleChange("email", e.target.value);
+              }}
+            />
 
-              <Form.Label>Inserisci modifiche Username</Form.Label>
+            <Form.Label>Inserisci modifiche Username</Form.Label>
 
-              <Form.Control
-                type="text"
-                placeholder="Scrivi username"
-                value={mod.username}
-                onChange={(e) => {
-                  console.log(e.target.value);
+            <Form.Control
+              type="text"
+              placeholder="Scrivi username"
+              value={mod.username}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("username", e.target.value);
-                }}
-              />
+                handleChange("username", e.target.value);
+              }}
+            />
 
-              <Form.Label>Inserisci modifiche Impiego</Form.Label>
+            <Form.Label>Inserisci modifiche Impiego</Form.Label>
 
-              <Form.Control
-                type="text"
-                placeholder="Modifica impiego"
-                value={mod.title}
-                onChange={(e) => {
-                  console.log(e.target.value);
+            <Form.Control
+              type="text"
+              placeholder="Modifica impiego"
+              value={mod.title}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("title", e.target.value);
-                }}
-              />
+                handleChange("title", e.target.value);
+              }}
+            />
 
-              <Form.Label>Inserisci modifiche Bio</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Scrivi bio"
-                value={mod.bio}
-                onChange={(e) => {
-                  console.log(e.target.value);
+            <Form.Label>Inserisci modifiche Bio</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Scrivi bio"
+              value={mod.bio}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("bio", e.target.value);
-                }}
-              />
-              <Form.Label>Inserisci modifiche Area</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Area"
-                value={mod.area}
-                onChange={(e) => {
-                  console.log(e.target.value);
+                handleChange("bio", e.target.value);
+              }}
+            />
+            <Form.Label>Inserisci modifiche Area</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Area"
+              value={mod.area}
+              onChange={(e) => {
+                console.log(e.target.value);
 
-                  handleChange("area", e.target.value);
-                }}
-              />
-
-            
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
+                handleChange("area", e.target.value);
+              }}
+            />
 
             <Modal.Footer>
-
-
-            <Button
-              onClick={ModFetch}
-              variant="primary"
-              type="submit"
-              className="d-block mx-auto "
-            >
-              Salva modifiche
-            </Button>
-
+              <Button onClick={ModFetch} variant="primary" type="submit" className="d-block mx-auto ">
+                Salva modifiche
+              </Button>
 
               {/* <Button
                 variant="primary"
@@ -231,17 +188,3 @@ function ModalMod() {
 }
 
 export default ModalMod;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

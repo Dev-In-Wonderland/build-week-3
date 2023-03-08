@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const CardUtenti = ({ profile }) => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <>
       <Row className="p-1">
@@ -24,7 +24,7 @@ const CardUtenti = ({ profile }) => {
           </div>
           <div className="ms-4">
             <Button
-              //onClick={dispatch({ type: "ADDFRIEND", payload:profile._id })}
+              onClick={() => dispatch({ type: "ADDFRIEND", payload: profile._id })}
               variant="outline-dark"
               className="rounded-pill"
             >

@@ -3,19 +3,12 @@ import { Form, Button, Modal } from "react-bootstrap";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useSelector } from "react-redux";
 
-
-
-
 function ModalModEsp(props) {
   const modifiche = useSelector((state) => {
-    return state;
+    return state.profile;
   });
   const [show, setShow] = useState(false);
-  const [mod, setMod] = useState({
-    
-  });
-  
-  
+  const [mod, setMod] = useState({});
 
   const handleChange = (property, value) => {
     setMod({ ...mod, [property]: value });
@@ -25,10 +18,10 @@ function ModalModEsp(props) {
 
   const ModFetch = async () => {
     try {
-      const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      ;
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences/`+ props.id,
+        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences/` + props.id,
         {
           method: "PUT",
           body: JSON.stringify(mod),
@@ -61,79 +54,47 @@ function ModalModEsp(props) {
         </Modal.Header>
         <Modal.Body className="position-relative">
           <Form onSubmit={handleSubmit}>
-            
             <Form.Group className="mb-3">
-              <Form.Label>
-                Inserisci altre esperienze
-              </Form.Label>
-
-
-
+              <Form.Label>Inserisci altre esperienze</Form.Label>
 
               <Form.Group className="mb-3">
-              <Form.Label>Ruolo</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Role"
-                value={modifiche.role}
-                onChange={(e) => {
-                  console.log(e.target.value);
+                <Form.Label>Ruolo</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Role"
+                  value={modifiche.role}
+                  onChange={(e) => {
+                    console.log(e.target.value);
 
-                  handleChange("role", e.target.value);
-                }}
-              />
-              <Form.Label>Compagnia</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Company"
-                value={modifiche.company}
-                onChange={(e) => {
-                  console.log(e.target.value);
+                    handleChange("role", e.target.value);
+                  }}
+                />
+                <Form.Label>Compagnia</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Company"
+                  value={modifiche.company}
+                  onChange={(e) => {
+                    console.log(e.target.value);
 
-                  handleChange("company", e.target.value);
-                }}
-              />
+                    handleChange("company", e.target.value);
+                  }}
+                />
 
+                <Form.Label>Descrizione</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Description"
+                  value={modifiche.description}
+                  onChange={(e) => {
+                    console.log(e.target.value);
 
+                    handleChange("description", e.target.value);
+                  }}
+                />
+              </Form.Group>
 
-
-              <Form.Label>Descrizione</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Description"
-                value={modifiche.description}
-                onChange={(e) => {
-                  console.log(e.target.value);
-
-                  handleChange("description", e.target.value);
-                }}
-              />
-              
-            </Form.Group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*               
+              {/*               
               <Form.Control
                 as="textarea"
                 placeholder="Inserisci qui la tua bio"
@@ -145,23 +106,11 @@ function ModalModEsp(props) {
               </div> */}
             </Form.Group>
             <Modal.Footer>
+              <Button onClick={ModFetch} variant="primary" type="submit" className="d-block mx-auto ">
+                Salva modifiche
+              </Button>
 
-
-
-            <Button
-              onClick={ModFetch}
-              variant="primary"
-              type="submit"
-              className="d-block mx-auto "
-            >
-              Salva modifiche
-            </Button>
-
-
-
-
-
-{/* 
+              {/* 
 
               <Button
                 variant="primary"
@@ -173,8 +122,6 @@ function ModalModEsp(props) {
                 Salva modifiche
               </Button>
  */}
-
-
             </Modal.Footer>
           </Form>
         </Modal.Body>
@@ -184,17 +131,3 @@ function ModalModEsp(props) {
 }
 
 export default ModalModEsp;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
