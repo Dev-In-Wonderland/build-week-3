@@ -1,25 +1,24 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col,} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Row, Col } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CardPersone from "./CardPersone"
+import CardPersone from "./CardPersone";
 
-const SideBar= () => {
+const SideBar = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => {
-    return state;
+    return state.profile;
   });
   const fetchme = async () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjNjhlMmYxOTNlNjAwMTM4MDdmNTAiLCJpYXQiOjE2Nzc0ODYzMDYsImV4cCI6MTY3ODY5NTkwNn0.zISvpNCnyAT6Gud9asFHNbAGQC8lWmzxECVBhw1xfrM";
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (response.ok) {
         const data = await response.json();
-        const datasliced = data.slice(0,6)
+        const datasliced = data.slice(0, 6);
         console.log(datasliced);
         dispatch({ type: "SETSIDEBAR", payload: datasliced });
       } else {
@@ -38,9 +37,7 @@ const SideBar= () => {
     <>
       <Row className="Sidebar">
         <Col xs={3}>
-        
-        <CardPersone></CardPersone>
-          
+          <CardPersone></CardPersone>
         </Col>
       </Row>
     </>

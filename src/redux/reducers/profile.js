@@ -1,16 +1,7 @@
 const initialState = {
-  profile: {
-    name: "",
-    surname: "",
-    email: "",
-    bio: "",
-    title: "",
-    area: "",
-    image: "",
-    username: "",
-  },
-  comment: [{ _id: "", comment: "", rate: 1, elementId: "", author: "" }],
-  expieriences: [],
+  profile: { name: "", surname: "", email: "", bio: "", title: "", area: "", image: "", username: "" },
+  currentprofile: { name: "", surname: "", email: "", bio: "", title: "", area: "", image: "", username: "" },
+  friends: [],
 };
 
 export function profileReducer(state = initialState, action) {
@@ -23,19 +14,13 @@ export function profileReducer(state = initialState, action) {
     case "ADDPROFILE":
       return {
         ...state,
-        ...action.payload,
+        currentprofile: action.payload,
       };
-
-    case "COMMENTPOST":
+    case "ADDFRIEND":
       return {
         ...state,
-
-        comment: action.payload,
+        friends: [...state.friends, action.payload],
       };
-
-    // case "DELETEXP":
-    //   return { ...state, deletedExperience: action.payload };
-
     default:
       return state;
   }
