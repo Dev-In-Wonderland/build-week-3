@@ -10,6 +10,7 @@ import ModalModEsp from "../components/ModalModEsp.jsx";
 import EditImageEsp from "./EditImageEsp.jsx";
 import { useParams } from "react-router-dom";
 import ExpDelete from "./ExpDelete.jsx";
+import { BsCardImage } from "react-icons/bs";
 
 const Esperienze = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -31,6 +32,7 @@ const Esperienze = () => {
       );
       if (response.ok) {
         const data = await response.json();
+        handleSubmit(data._id);
         setEsperienze(data);
         console.log(data);
         // dispatch({ type: "SETPROFILE", payload: data });
@@ -50,13 +52,75 @@ const Esperienze = () => {
   //   setEsperienze((prev)=>{return {...prev, [field]:value}})
   // //le quadre sostituiscono
   // }
+
+
+
+
+
+
+
+
+
+  // const profile = useSelector((state) => state.profile);
+
+  // useEffect(() => {
+  //   console.log(props.userid, profile._id);
+  // });
+
+  const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
+  //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
+  const handleSubmit = async (id, userid) => {
+    id.preventDefault();
+    let res = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" + userid + "/experiences/" + id + "/picture",
+      {
+        //qui l'id andra' sostituito con un id DINAMICO!!!!!
+        method: "POST",
+        body: fd, //non serve JSON.stringify
+        headers: {
+          //NON serve ContentType 🙂
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
+        },
+      }
+    );
+  };
+
+
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
+      prev.delete("post"); //ricordatevi di svuotare il FormData prima 🙂
+      prev.append("experience", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
+      return prev;
+    });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       {esperienze?.map((e, i) => (
         <Card.Body className="  border-bottom ">
           <div className="mb-4 ">
             <img src={e.image} className="w-100" alt="immagine dell'esperienza" />
-            <EditImageEsp id={e._id} userid={e.user}></EditImageEsp>
+            {/* <EditImageEsp id={e._id} userid={e.user}></EditImageEsp> */}
+            <div className="mt-3">
+            <input id="file" type="file" onChange={handleFile} className="d-none" />
+          <label htmlFor="file" className="">Foto <BsCardImage className="text-primary cursor-pointer"></BsCardImage></label>
+          </div>
           </div>
           <div>
             <Card.Title className=" mb-5">

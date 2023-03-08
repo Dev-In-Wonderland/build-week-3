@@ -13,19 +13,14 @@ import Commenti from "./Commenti.jsx";
 import { FaRegCommentDots } from "react-icons/fa";
 import DeletePost from "./deletePost.jsx";
 
-
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Like from "./Like.jsx";
 
-
-import {BsFillPlayBtnFill} from 'react-icons/bs'
-import {AiOutlineCalendar} from 'react-icons/ai'
-import {RiArticleLine} from 'react-icons/ri'
-import {BsCardImage} from 'react-icons/bs'
+import { BsFillPlayBtnFill } from "react-icons/bs";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { RiArticleLine } from "react-icons/ri";
+import { BsCardImage } from "react-icons/bs";
 import CommentPost from "./PostComment.jsx";
-
-
-
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -58,7 +53,7 @@ const Post = () => {
       console.log("err catch");
     }
   };
-  
+
   const [post, setPost] = useState([]);
 
   const fetchPost = async () => {
@@ -107,9 +102,8 @@ const Post = () => {
     //le quadre sostituiscono
   };
   const PostInput = useSelector((state) => state);
-  console.log("PostInput", PostInput)
+  console.log("PostInput", PostInput);
   const posttextData = async (e) => {
-    
     e.preventDefault();
     try {
       const token =
@@ -128,7 +122,7 @@ const Post = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        handleSubmit(data._id)
+        handleSubmit(data._id);
         fetchPost();
       } else {
         console.log("err if");
@@ -138,53 +132,33 @@ const Post = () => {
     }
   };
 
+  const profile = useSelector((state) => state);
 
-
-
-    
-    const profile = useSelector((state) => state);
-  
-    
-    const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
-    //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
-    const handleSubmit = async (id) => {
-      
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + id,
-        {
-          //qui l'id andra' sostituito con un id DINAMICO!!!!!
-          method: "POST",
-          body: fd, //non serve JSON.stringify
-          headers: {
-            //NON serve ContentType 🙂
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
-          },
-        }
-      );
-    };
-    const handleFile = (ev) => {
-      setFd((prev) => {
-        //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
-        prev.delete("post"); //ricordatevi di svuotare il FormData prima 🙂
-        prev.append("post", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
-        return prev;
-      });
-    };
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
+  const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
+  //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
+  const handleSubmit = async (id) => {
+    let res = await fetch(
+      "https://striveschool-api.herokuapp.com/api/posts/" + id,
+      {
+        //qui l'id andra' sostituito con un id DINAMICO!!!!!
+        method: "POST",
+        body: fd, //non serve JSON.stringify
+        headers: {
+          //NON serve ContentType 🙂
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
+        },
+      }
+    );
+  };
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
+      prev.delete("post"); //ricordatevi di svuotare il FormData prima 🙂
+      prev.append("post", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
+      return prev;
+    });
+  };
 
   return (
     <>
@@ -209,17 +183,32 @@ const Post = () => {
                 />
               </Form.Group>
               {/* <EditImagePost userid={PostInput.user._id}></EditImagePost> */}
-              
-      <div className="d-flex w-100 justify-content-around mb-5">
-        
-          <input id="file" type="file" onChange={handleFile} className="d-none" />
-          <label htmlFor="file" className="">Foto <BsCardImage className="text-primary cursor-pointer"></BsCardImage></label>
-          <label ><span>Video</span> < BsFillPlayBtnFill className="text-success" ></BsFillPlayBtnFill></label>
-          <label><span>Eventi</span> <AiOutlineCalendar className="text-orange"></AiOutlineCalendar></label>
-          <label><span>Scrivi un articolo</span> <RiArticleLine className="text-danger"></RiArticleLine></label>
-        
-          </div>
-    
+
+              <div className="d-flex w-100 justify-content-around mb-5">
+                <input
+                  id="file"
+                  type="file"
+                  onChange={handleFile}
+                  className="d-none"
+                />
+                <label htmlFor="file" className="">
+                  Foto{" "}
+                  <BsCardImage className="text-primary cursor-pointer"></BsCardImage>
+                </label>
+                <label>
+                  <span>Video</span>{" "}
+                  <BsFillPlayBtnFill className="text-success"></BsFillPlayBtnFill>
+                </label>
+                <label>
+                  <span>Eventi</span>{" "}
+                  <AiOutlineCalendar className="text-orange"></AiOutlineCalendar>
+                </label>
+                <label>
+                  <span>Scrivi un articolo</span>{" "}
+                  <RiArticleLine className="text-danger"></RiArticleLine>
+                </label>
+              </div>
+
               <Button
                 onClick={posttextData}
                 variant="primary"
@@ -264,7 +253,7 @@ const Post = () => {
                           <FaRegCommentDots></FaRegCommentDots>
                         </Accordion.Header>
                         <Accordion.Body>
-                        <CommentPost id={e.elementId} ></CommentPost>
+                          <CommentPost id={e.elementId}></CommentPost>
                           <Commenti id={e._id}></Commenti>
                         </Accordion.Body>
                       </Accordion.Item>
