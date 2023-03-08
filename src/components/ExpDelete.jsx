@@ -20,6 +20,20 @@ function ExpDelete(props) {
       });
       if (response.ok) {
         console.log("if ok");
+
+
+// QUI METTIAMO LA GET
+
+
+
+
+
+
+
+
+
+
+
       } else {
         console.log("err in if");
       }

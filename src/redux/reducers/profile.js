@@ -2,6 +2,7 @@ const initialState = {
   profile: { name: "", surname: "", email: "", bio: "", title: "", area: "", image: "", username: "" },
   currentprofile: { name: "", surname: "", email: "", bio: "", title: "", area: "", image: "", username: "" },
   friends: [],
+  comment: [{ _id: "", comment: "", rate: 1, elementId: "", author: "" }]
 };
 
 export function profileReducer(state = initialState, action) {
@@ -21,6 +22,12 @@ export function profileReducer(state = initialState, action) {
         ...state,
         friends: [...state.friends, action.payload],
       };
+      case "COMMENTPOST":
+        return {
+          ...state,
+  
+          comment: action.payload,
+        };
     default:
       return state;
   }
