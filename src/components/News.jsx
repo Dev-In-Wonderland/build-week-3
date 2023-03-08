@@ -22,7 +22,7 @@ import {BsFillPlayBtnFill} from 'react-icons/bs'
 import {AiOutlineCalendar} from 'react-icons/ai'
 import {RiArticleLine} from 'react-icons/ri'
 import {BsCardImage} from 'react-icons/bs'
-
+import CommentPost from "./PostComment.jsx";
 
 
 
@@ -264,6 +264,7 @@ const Post = () => {
                           <FaRegCommentDots></FaRegCommentDots>
                         </Accordion.Header>
                         <Accordion.Body>
+                        <CommentPost id={e.elementId} ></CommentPost>
                           <Commenti id={e._id}></Commenti>
                         </Accordion.Body>
                       </Accordion.Item>

@@ -55,7 +55,7 @@ const CommentPost = ({ id, comment }) => {
               }}
               className="rounded-pill py-2 px-2"
               type="text"
-              placeholder="Add comment"
+              placeholder="Comment!"
               value={cbody?.comment}
             />
           </Form.Group>
