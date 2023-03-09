@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 import ExpDelete from "./ExpDelete.jsx";
 import { BsCardImage } from "react-icons/bs";
 
-const Esperienze = () => {
+const Esperienze = (id, userid) => {
   // const [esperienze, setEsperienze] = useState()
   //   const dispatch = useDispatch();
   const profile = useSelector((state) => {
@@ -61,7 +61,7 @@ const Esperienze = () => {
 
   const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
   //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
-  const handleSubmit = async (id, userid) => {
+  const handleSubmit = async (ev) => {
     // id.preventDefault()
     let res = await fetch(
       "https://striveschool-api.herokuapp.com/api/profile/" + userid + "/experiences/" + id + "/picture",
@@ -76,6 +76,7 @@ const Esperienze = () => {
         },
       }
     );
+    fetchEsperienze(ev)
   };
 
   const handleFile = (ev) => {
@@ -94,12 +95,31 @@ const Esperienze = () => {
           <div className="mb-4 ">
             <img src={e.image} className="w-100" alt="immagine dell'esperienza" />
             {/* <EditImageEsp id={e._id} userid={e.user}></EditImageEsp> */}
-            <div className="mt-3">
-              <input id="file" type="file" onChange={handleFile} className="d-none" />
-              <label htmlFor="file" className="">
-                Foto <BsCardImage className="text-primary cursor-pointer"></BsCardImage>
-              </label>
-            </div>
+            <div className="d-flex align-items-center">
+            <form className="d-flex align-items-center justift-content-start mt-3" onSubmit={handleSubmit}>
+                <input
+                  id="file"
+                  type="file"
+                  onChange={handleFile}
+                  
+                  className="d-none"
+                />
+                <label htmlFor="file" >
+                  <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
+                  <span className="fls text-secondary ">Foto</span> 
+                </label>
+
+                <button
+                // onClick={fetchEsperienze}
+                variant="primary"
+                type="submit"
+                className="d-block btn btn-primary fsl ms-3 rounded-pill" 
+              >
+                Salva immagine
+              </button>
+              </form>
+            
+              </div>
           </div>
           <div>
             <Card.Title className=" mb-5">

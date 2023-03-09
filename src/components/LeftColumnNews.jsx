@@ -14,7 +14,7 @@ const LeftColumnNews = () => {
                 alt="immagine del background"
               /> */}
           <img src={annuncio.image} className="profilo-news" alt="immagine del profilo-news" />
-          <h3 className="">Ti diamo il benvenuto {annuncio.name}!</h3>
+          <h3 className="fsl mt-3">Ti diamo il benvenuto {annuncio.name}!</h3>
         </Card.Body>
       </Card>
     </>

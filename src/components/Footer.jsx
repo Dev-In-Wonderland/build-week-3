@@ -1,14 +1,15 @@
 import { Col, Row } from "react-bootstrap"
 import { IoMdArrowDropdown, IoMdSettings } from "react-icons/io";
 import { AiFillQuestionCircle } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
     return(
 
         <>
             
-            <Row className="footer w-100">
-            <h3 className="footer-linkedIn">LinkedIn</h3>
+            <Row className="footer w-100 ">
+            <div className="d-flex align-items-center mt-2"><h3 className="footer-linkedIn">Linked</h3><span> <AiFillLinkedin className="linkedin-logo-footer" /> </span></div>
                 <Col xs={6} className="footer-col">
                     <ul>
                         <Col xs={4}>
@@ -63,7 +64,7 @@ const Footer = () => {
                         <option value="2">Français - Francese</option>
                     </select>
                 </Col>
-                <span className="footerCopiright">LinkedIn Corporation © 2023</span>
+                <span className="footerCopiright mb-2">LinkedIn Corporation © 2023</span>
                 
             </Row>
         </>

@@ -42,7 +42,7 @@ const Side = () => {
   return (
     <>
       <div
-        className="mb-2 p-2 text-secondary rounded bg-white"
+        className="mb-2 mt-3 p-2 text-secondary rounded bg-white"
         style={{
           fontSize: "0.95em",
           fontWeight: "500",

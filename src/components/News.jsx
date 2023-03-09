@@ -16,13 +16,13 @@ import DeletePost from "./deletePost.jsx";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Like from "./Like.jsx";
 
-import { BsFillPlayBtnFill } from "react-icons/bs"
-import { AiOutlineCalendar } from "react-icons/ai"
-import { RiArticleLine } from "react-icons/ri"
-import { BsCardImage } from "react-icons/bs"
-import CommentPost from "./PostComment.jsx"
-import InputImgProfile from "./InputImgProfile.jsx"
-import ModalModPost from "./ModPost.jsx"
+import { BsFillPlayBtnFill } from "react-icons/bs";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { RiArticleLine } from "react-icons/ri";
+import { BsCardImage } from "react-icons/bs";
+import CommentPost from "./PostComment.jsx";
+import InputImgProfile from "./InputImgProfile.jsx";
+import ModalModPost from "./ModPost.jsx";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -39,9 +39,12 @@ const Post = () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/me`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -67,9 +70,12 @@ const Post = () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setPost(data.reverse().slice(0, 10));
@@ -110,14 +116,17 @@ const Post = () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(posttext),
-      });
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(posttext),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -136,16 +145,19 @@ const Post = () => {
   const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
   //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
   const handleSubmit = async (id) => {
-    let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + id, {
-      //qui l'id andra' sostituito con un id DINAMICO!!!!!
-      method: "POST",
-      body: fd, //non serve JSON.stringify
-      headers: {
-        //NON serve ContentType 🙂
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
-      },
-    });
+    let res = await fetch(
+      "https://striveschool-api.herokuapp.com/api/posts/" + id,
+      {
+        //qui l'id andra' sostituito con un id DINAMICO!!!!!
+        method: "POST",
+        body: fd, //non serve JSON.stringify
+        headers: {
+          //NON serve ContentType 🙂
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
+        },
+      }
+    );
   };
   const handleFile = (ev) => {
     setFd((prev) => {
@@ -170,6 +182,7 @@ const Post = () => {
                 <InputImgProfile></InputImgProfile>
                 <Form.Group className="mb-3 w-75">
                   <Form.Control
+                  className="rounded-pill ms-2"
                     type="text"
                     placeholder="Avvia un post"
                     value={posttext.text}
@@ -184,22 +197,36 @@ const Post = () => {
               {/* <EditImagePost userid={PostInput.user._id}></EditImagePost> */}
 
               <div className="d-flex w-100 justify-content-around mb-5">
-                <input id="file" type="file" onChange={handleFile} className="d-none" />
-                <label htmlFor="file" className="">
-                  Foto <BsCardImage className="text-primary cursor-pointer"></BsCardImage>
+                <input
+                  id="file"
+                  type="file"
+                  onChange={handleFile}
+                  className="d-none"
+                />
+                <label htmlFor="file" >
+                  <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
+                  <span className="fls text-secondary ">Foto</span> 
                 </label>
                 <label>
-                  <span>Video</span> <BsFillPlayBtnFill className="text-success"></BsFillPlayBtnFill>
+                  <BsFillPlayBtnFill className="text-success fs-5 me-3"></BsFillPlayBtnFill>
+                  <span className="fsl text-secondary">Video</span>{" "}
                 </label>
                 <label>
-                  <span>Eventi</span> <AiOutlineCalendar className="text-orange"></AiOutlineCalendar>
+                  <AiOutlineCalendar className="text-orange fs-5 me-3"></AiOutlineCalendar>
+                  <span className="fsl  text-secondary">Eventi</span>{" "}
                 </label>
                 <label>
-                  <span>Scrivi un articolo</span> <RiArticleLine className="text-danger"></RiArticleLine>
+                  <RiArticleLine className="text-danger fs-5 me-3"></RiArticleLine>
+                  <span className="fsl  text-secondary">Scrivi un articolo</span>{" "}
                 </label>
               </div>
 
-              <Button onClick={posttextData} variant="primary" type="submit" className="d-block mx-auto ">
+              <Button
+                onClick={posttextData}
+                variant="primary"
+                type="submit"
+                className="d-block mx-auto fsl" 
+              >
                 Invia Post
               </Button>
             </Form>
@@ -208,22 +235,42 @@ const Post = () => {
           {post?.map((e, i) => (
             <Card onClick={() => setSelected(e._id)}>
               <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
+                <div className="d-flex w-100 justify-content-between align-items-center">
+                  <DeletePost id={e._id}></DeletePost>
+                  <ModalModPost post={e} refresh={posttextData}></ModalModPost>
+                </div>
                 <Card.Title className=" m-0">
-                  <p className="m-0  p-2">
-                    <strong>Nickname: </strong>
+                  <p className="fsl m-0  p-2">
+                    <span className="fsl">Nickname: </span>
                     {e.username}
                   </p>
-                  <p className="m-0  p-0">
-                    <strong>Text: </strong>
+                  <p className=" fsl m-0  p-0">
+                    <span className="fsl">Text: </span>
                     {e.text}
                   </p>
                 </Card.Title>
 
-                {e.image && <img src={e.image} className="postimages w-100" alt="immagine del commento" />}
+                {e.image && (
+                  <img
+                    src={e.image}
+                    className="postimages w-100"
+                    alt="immagine del commento"
+                  />
+                )}
+
+                {/* PARTE BASSA DEL POST */}
+
+
+
+
 
                 <Row className="d-flex mt-5">
                   <Col>
-                    <Like />
+                  <button className="d-flex align-items-center justify-content-center bg-light border border-none">
+                  <Like className="fs-6"></Like>
+                  <span className="fsl">Consiglia</span>{" "}
+                </button>
+                    {/* <div className="d-flex align-items-center"><p><Like /></p><span>Consiglia</span></div> */}
                   </Col>
                   <Col>
                     <Accordion defaultActiveKey={["0"]}>
@@ -244,42 +291,56 @@ const Post = () => {
                   </Col>
                   <Col>Condividi ⤴️</Col>
                 </Row>
+
+
+
+
+
+
+
+                {/* FINE PARTE BASSA DEL POST */}
               </Card.Body>
-              <DeletePost id={e._id}></DeletePost>
-              <ModalModPost post={e} refresh={posttextData}></ModalModPost>
             </Card>
           ))}
         </Col>
-        <Col className="col-3">
+        <Col className="col-3 ">
           <Card className="">
             <Card.Title>
-              <h3>LinkedIn Notizie</h3>
+              <h3 className="fsl mt-3">LinkedIn Notizie</h3>
             </Card.Title>
             <Card.Body>
               <ul>
                 <li>
-                  <p className="fs-5">Il declino demografico minaccia gli Stati Uniti</p>
-                  <p className="fs-6 text-secondary">un giorno fa - 520 lettori</p>
+                  <p className="fsl">
+                    Il declino demografico minaccia gli Stati Uniti
+                  </p>
+                  <small className="fsl text-secondary">
+                    un giorno fa - 520 lettori
+                  </small>
                 </li>
 
                 <li>
-                  <p className="fs-5">Nuova proroga per lo smart-working</p>
-                  <p className="fs-6 text-secondary">un giorno fa - 124 lettori</p>
+                  <p className="fsl">Nuova proroga per lo smart-working</p>
+                  <small className=" text-secondary">
+                    un giorno fa - 124 lettori
+                  </small>
                 </li>
 
                 <li>
-                  <p className="fs-5">Oltre il nuovo logo di Nokia</p>
-                  <p className="fs-6 text-secondary">2 giorni fa - 355 lettori</p>
+                  <p className="fsl">Oltre il nuovo logo di Nokia</p>
+                  <small className="fs-6 text-secondary">
+                    2 giorni fa - 355 lettori
+                  </small>
                 </li>
 
                 <li>
-                  <p className="fs-5">L'Ucraina e gli ultimi aggiornamenti</p>
-                  <p className="fs-6 text-secondary">12 ore fa - 679 lettori</p>
+                  <p className="fsl">L'Ucraina e gli ultimi aggiornamenti</p>
+                  <small className="fs-6 text-secondary">12 ore fa - 679 lettori</small>
                 </li>
 
                 <li>
-                  <p className="fs-5">I giovani occupati stanno diminuendo</p>
-                  <p className="fs-6 text-secondary">3 ore fa - 543 lettori</p>
+                  <p className="fsl">I giovani occupati stanno diminuendo</p>
+                  <small className="fs-6 text-secondary">3 ore fa - 543 lettori</small>
                 </li>
               </ul>
             </Card.Body>

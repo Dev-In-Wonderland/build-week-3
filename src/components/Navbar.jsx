@@ -7,6 +7,7 @@ import { BsFillPeopleFill, BsFillPersonFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import {TbMessageCircle2Filled} from 'react-icons/tb'
+import ImageNavbar from "./ImageNavbar";
 
 const Navbar = () => {
   return (
@@ -52,7 +53,7 @@ const Navbar = () => {
             <span className="d-none d-lg-block">Notifiche</span>
           </li>
           <li>
-            <MdAccountCircle className="i-nav tu" />
+            <ImageNavbar className="i-nav tu" />
             <Link className="" to="/Me/me">
               
               <span className="d-none d-lg-block">

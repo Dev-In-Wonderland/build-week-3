@@ -4,7 +4,7 @@ function Like() {
       <label class="container">
         <input type="checkbox" />
         <div class="checkmark">
-          <svg fill="none" viewBox="0 0 24 24">
+          <svg className="like-svg" fill="none" viewBox="0 0 24 24">
             <path
               stroke-linejoin="round"
               stroke-linecap="round"
