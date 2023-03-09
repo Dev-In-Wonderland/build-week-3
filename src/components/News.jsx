@@ -16,12 +16,12 @@ import DeletePost from "./deletePost.jsx";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Like from "./Like.jsx";
 
-import { BsFillPlayBtnFill } from "react-icons/bs";
-import { AiOutlineCalendar } from "react-icons/ai";
-import { RiArticleLine } from "react-icons/ri";
-import { BsCardImage } from "react-icons/bs";
-import CommentPost from "./PostComment.jsx";
-import InputImgProfile from "./InputImgProfile.jsx";
+import { BsFillPlayBtnFill } from "react-icons/bs"
+import { RiArticleLine } from "react-icons/ri"
+import { BsCardImage } from "react-icons/bs"
+import CommentPost from "./PostComment.jsx"
+import InputImgProfile from "./InputImgProfile.jsx"
+import ModalModPost from "./ModPost.jsx"
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -245,6 +245,7 @@ const Post = () => {
                 </Row>
               </Card.Body>
               <DeletePost id={e._id}></DeletePost>
+              <ModalModPost post={e} refresh={posttextData}></ModalModPost>
             </Card>
           ))}
         </Col>

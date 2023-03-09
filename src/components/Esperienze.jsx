@@ -124,6 +124,7 @@ const Esperienze = () => {
               {e.description}
             </p>
           </div>
+          <ExpDelete id={e._id} user={e.user}></ExpDelete>
         </Card.Body>
       ))}
     </>

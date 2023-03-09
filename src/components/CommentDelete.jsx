@@ -45,7 +45,7 @@ function DeleteComment(props) {
 
 
 
-<button class="btna" type="submit"
+<button class="btna mt-5" type="submit"
           onClick={() => {
             fetchDelete();
           }}>

@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import CommentPost from "./PostComment.jsx";
+import DeleteComment from "./CommentDelete.jsx";
+
+import ModalModComment from "./CommentMod.jsx";
 
 
 
@@ -45,6 +48,7 @@ const Commenti = (props) => {
     <>
       {commenti?.map((e, i) => (
         <div className="mt-2">
+          <Card>
           {/* <h3>Commenti:</h3> */}
           <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
             <Card.Title className=" m-0">
@@ -56,9 +60,13 @@ const Commenti = (props) => {
                 <strong>Commento: </strong>
                 {e.comment}
               </p>
-              {/* <CommentPost id={e.elementId} ></CommentPost> */}
+              
             </Card.Title>
+
+            <DeleteComment id={e.elementId} ></DeleteComment>
+            <ModalModComment comment={e} refresh={CommentiFetch}></ModalModComment>
           </Card.Body>
+          </Card>
         </div>
       ))}
     </>
