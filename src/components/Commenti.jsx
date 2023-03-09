@@ -8,7 +8,7 @@ import CommentPost from "./PostComment.jsx";
 
 
 const Commenti = (props) => {
-  const [commenti, setCommenti] = useState();
+  const [commenti, setCommenti] = useState([]);
 
   const CommentiFetch = async () => {
     try {

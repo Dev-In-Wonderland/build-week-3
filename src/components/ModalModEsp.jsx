@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import { Form, Button, Modal } from "react-bootstrap";
-import { HiOutlinePencil } from "react-icons/hi";
-import { useSelector } from "react-redux";
+import React, { useState } from "react"
+import { Form, Button, Modal } from "react-bootstrap"
+import { HiOutlinePencil } from "react-icons/hi"
+import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 
 function ModalModEsp(props) {
-  const modifiche = useSelector((state) => {
-    return state.profile;
-  });
-  const [show, setShow] = useState(false);
-  const [mod, setMod] = useState({});
+  const [show, setShow] = useState(false)
+  const [mod, setMod] = useState(props.esperienza)
 
   const handleChange = (property, value) => {
-    setMod({ ...mod, [property]: value });
-  };
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+    setMod({ ...mod, [property]: value })
+  }
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const ModFetch = async () => {
     try {
       const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ"
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences/` + props.id,
+        `https://striveschool-api.herokuapp.com/api/profile/63fe2788579c6300137cf8c3/experiences/` +
+          props.esperienza._id,
         {
           method: "PUT",
           body: JSON.stringify(mod),
@@ -30,19 +29,19 @@ function ModalModEsp(props) {
             "Content-Type": "application/json",
           },
         }
-      );
+      )
       if (response.ok) {
       } else {
       }
     } catch (err) {}
-  };
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    ModFetch();
-  };
+    e.preventDefault()
+    ModFetch()
+  }
 
-  console.log();
+  console.log()
 
   return (
     <>
@@ -62,22 +61,22 @@ function ModalModEsp(props) {
                 <Form.Control
                   type="text"
                   placeholder="Role"
-                  value={modifiche.role}
+                  value={mod.role}
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    console.log(e.target.value)
 
-                    handleChange("role", e.target.value);
+                    handleChange("role", e.target.value)
                   }}
                 />
                 <Form.Label>Compagnia</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Company"
-                  value={modifiche.company}
+                  value={mod.company}
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    console.log(e.target.value)
 
-                    handleChange("company", e.target.value);
+                    handleChange("company", e.target.value)
                   }}
                 />
 
@@ -85,11 +84,11 @@ function ModalModEsp(props) {
                 <Form.Control
                   type="text"
                   placeholder="Place"
-                  value={modifiche.area}
+                  value={mod.area}
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    console.log(e.target.value)
 
-                    handleChange("area", e.target.value);
+                    handleChange("area", e.target.value)
                   }}
                 />
 
@@ -97,11 +96,11 @@ function ModalModEsp(props) {
                 <Form.Control
                   type="text"
                   placeholder="Description"
-                  value={modifiche.description}
+                  value={mod.description}
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    console.log(e.target.value)
 
-                    handleChange("description", e.target.value);
+                    handleChange("description", e.target.value)
                   }}
                 />
               </Form.Group>
@@ -118,7 +117,12 @@ function ModalModEsp(props) {
               </div> */}
             </Form.Group>
             <Modal.Footer>
-              <Button onClick={ModFetch} variant="primary" type="submit" className="d-block mx-auto ">
+              <Button
+                onClick={ModFetch}
+                variant="primary"
+                type="submit"
+                className="d-block mx-auto "
+              >
                 Salva modifiche
               </Button>
 
@@ -139,7 +143,7 @@ function ModalModEsp(props) {
         </Modal.Body>
       </Modal>
     </>
-  );
+  )
 }
 
-export default ModalModEsp;
+export default ModalModEsp
