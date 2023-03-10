@@ -514,3 +514,16 @@ DELETE BUTTON */
 #cardrightcol {
   border-bottom: lightgray !important;
 }
+
+.togglestronzo {
+  background: transparent !important;
+  color: black !important;
+  border: transparent;
+  margin-bottom: 5% !important;
+}
+
+.cartastronza {
+  border-color: transparent !important;
+  margin-left: 30% !important;
+  margin: 0 auto !important;
+}

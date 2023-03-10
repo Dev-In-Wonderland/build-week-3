@@ -1,52 +1,52 @@
-import "bootstrap/dist/css/bootstrap.min.css"
-import { Card } from "react-bootstrap"
-import { useEffect } from "react"
-import { useState } from "react"
-import { useSelector } from "react-redux"
-import ModalModEsp from "../components/ModalModEsp.jsx"
-import { useParams } from "react-router-dom"
-import ExpDelete from "./ExpDelete.jsx"
-import { BsCardImage } from "react-icons/bs"
-import { Dropdown } from "react-bootstrap"
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card } from "react-bootstrap";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import ModalModEsp from "../components/ModalModEsp.jsx";
+import { useParams } from "react-router-dom";
+import ExpDelete from "./ExpDelete.jsx";
+import { BsCardImage } from "react-icons/bs";
+import { Dropdown } from "react-bootstrap";
 
 const Esperienze = () => {
-  const profile = useSelector((state) => state.profile)
-  const params = useParams()
+  const profile = useSelector((state) => state.profile);
+  const params = useParams();
 
-  const [fd, setFd] = useState(new FormData()) //FormData e' una classe usata per raccogliere dati non stringa dai form
-  const [esperienze, setEsperienze] = useState([])
+  const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
+  const [esperienze, setEsperienze] = useState([]);
 
   const fetchEsperienze = async () => {
     try {
       const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ"
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/${
           params.userId === "me" ? profile._id : params.userId
         }/experiences`,
         { headers: { Authorization: `Bearer ${token}` } }
-      )
+      );
       if (response.ok) {
-        const data = await response.json()
+        const data = await response.json();
 
-        setEsperienze(data)
+        setEsperienze(data);
       } else {
-        console.log("err if")
+        console.log("err if");
       }
     } catch (err) {
-      console.log("err catch")
+      console.log("err catch");
     }
-  }
+  };
 
   useEffect(() => {
-    fetchEsperienze()
-  }, [params.userId])
+    fetchEsperienze();
+  }, [params.userId]);
 
   const handleSubmit = async (ev, id) => {
-    ev.preventDefault()
-    console.log("CIASONE")
+    ev.preventDefault();
+    console.log("CIASONE");
     // id.preventDefault()
-    console.log(params)
+    console.log(params);
     await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${
         params.userId === "me" ? profile._id : params.userId
@@ -62,63 +62,51 @@ const Esperienze = () => {
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
         },
       }
-    )
-    fetchEsperienze()
-  }
+    );
+    fetchEsperienze();
+  };
 
   const handleFileExp = (ev) => {
     console.log("helo");
     setFd((prev) => {
       //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
-      prev.delete("experience") //ricordatevi di svuotare il FormData prima 🙂
-      prev.append("experience", ev.target.files[0]) //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
-      return prev
-    })
-  }
+      prev.delete("experience"); //ricordatevi di svuotare il FormData prima 🙂
+      prev.append("experience", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
+      return prev;
+    });
+  };
 
   return (
     <>
       {esperienze?.map((e, i) => (
-        <Card key={`cardExp-${i}`}>
-          <Card.Body className="  border-bottom ">
+        <Card className="cartastronza text-center m-0" key={`cardExp-${i}`}>
+          <Card.Body className=" cartastronza border-bottom ms-4 ">
             <div className="d-flex justify-content-end">
               <Dropdown>
-                <Dropdown.Toggle id={`dropdown-exp-${i}`}>
+                <Dropdown.Toggle className="togglestronzo" id={`dropdown-exp-${i}`}>
                   . . .
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">
-                    <ExpDelete id={e._id} user={e.user}  refresh={fetchEsperienze}  ></ExpDelete> Elimina
+                    <ExpDelete id={e._id} user={e.user} refresh={fetchEsperienze}></ExpDelete> Elimina
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
-                    <ModalModEsp
-                      esperienza={e}
-                      refresh={fetchEsperienze}
-                    ></ModalModEsp>{" "}
+                    <ModalModEsp esperienza={e} refresh={fetchEsperienze}></ModalModEsp>{" "}
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
 
             <div className="mb-4 ">
-              <img
-                src={e.image}
-                className="w-100"
-                alt="immagine dell'esperienza"
-              />
+              <img src={e.image} className="w-100" alt="immagine dell'esperienza" />
               {/* <EditImageEsp id={e._id} userid={e.user}></EditImageEsp> */}
               <div className="d-flex align-items-center">
                 <form
                   className="d-flex align-items-center justift-content-start mt-3"
                   onSubmit={(event) => handleSubmit(event, e._id)}
                 >
-                  <input
-                    id="fileExp"
-                    type="file"
-                    onChange={handleFileExp}
-                    className="d-none"
-                  />
+                  <input id="fileExp" type="file" onChange={handleFileExp} className="d-none" />
                   <label htmlFor="fileExp">
                     <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
                     <span className="fsl text-secondary ">Foto</span>
@@ -158,10 +146,11 @@ const Esperienze = () => {
               </p>
             </div>
           </Card.Body>
+          <hr />
         </Card>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Esperienze
+export default Esperienze;
