@@ -26,6 +26,7 @@ const CommentPost = ({ id }) => {
         }
       );
       if (response.ok) {
+        
         const data = await response.json();
       } else {
         console.log("err in if");

@@ -60,7 +60,7 @@ const Commenti = (props) => {
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">
-                    <DeleteComment id={e._id}></DeleteComment> Elimina
+                    <DeleteComment refresh={CommentiFetch} id={e._id}></DeleteComment> Elimina
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     <ModalModComment

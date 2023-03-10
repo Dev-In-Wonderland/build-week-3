@@ -33,6 +33,8 @@ function ModalModPost(props) {
         }
       )
       if (response.ok) {
+        props.refresh()
+        setShow(false)
       } else {
       }
     } catch (err) {}

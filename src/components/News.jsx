@@ -249,8 +249,8 @@ const Post = () => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1"><DeletePost id={e._id}></DeletePost> Elimina</Dropdown.Item>
-        <Dropdown.Item href="#/action-2"><ModalModPost post={e} refresh={posttextData}></ModalModPost> Modifica</Dropdown.Item>
+        <Dropdown.Item href="#/action-1"><DeletePost refresh={fetchPost} id={e._id}></DeletePost> Elimina</Dropdown.Item>
+        <Dropdown.Item href="#/action-2"><ModalModPost post={e} refresh={fetchPost}></ModalModPost> Modifica</Dropdown.Item>
         
       </Dropdown.Menu>
     </Dropdown>

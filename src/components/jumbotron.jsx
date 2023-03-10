@@ -80,9 +80,13 @@ const Jumbotron = () => {
     <>
       <Row className="jumbotron">
         <Col xs={9}>
-          <Card className="d-flex flex-column  m-3 px-3 ">
+          <Card className="d-flex flex-column  m-3  ">
             <Card.Body>
-              <img src="../ban.png" className="background img-fluid" alt="immagine del background" />
+
+
+            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+
+            <Card.Img src={"https://cdn.discordapp.com/attachments/1079690207714103310/1083419534075117619/Screenshot_2023-03-09_alle_17.00.45.png"} className="background ms-4  img-fluid " alt="immagine del background" />
               <img
                 src={param.userId == "me" ? profile.image : currentprofile.image}
                 className="profilo"

@@ -89,7 +89,7 @@ const Esperienze = () => {
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">
-                    <ExpDelete id={e._id} user={e.user}></ExpDelete> Elimina
+                    <ExpDelete id={e._id} user={e.user}  refresh={fetchEsperienze}  ></ExpDelete> Elimina
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     <ModalModEsp

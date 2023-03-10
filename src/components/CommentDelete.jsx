@@ -19,6 +19,8 @@ function DeleteComment(props) {
         },
       });
       if (response.ok) {
+        props.refresh()
+        
         console.log("if ok");
       } else {
         console.log("err in if");
