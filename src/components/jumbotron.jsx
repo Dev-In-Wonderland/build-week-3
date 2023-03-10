@@ -82,11 +82,15 @@ const Jumbotron = () => {
         <Col xs={9}>
           <Card className="d-flex flex-column  m-3  ">
             <Card.Body>
+              {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
 
-
-            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-
-            <Card.Img src={"https://cdn.discordapp.com/attachments/1079690207714103310/1083419534075117619/Screenshot_2023-03-09_alle_17.00.45.png"} className="background ms-4  img-fluid " alt="immagine del background" />
+              <Card.Img
+                src={
+                  "https://cdn.discordapp.com/attachments/1079690207714103310/1083419534075117619/Screenshot_2023-03-09_alle_17.00.45.png"
+                }
+                className="background ms-4  img-fluid "
+                alt="immagine del background"
+              />
               <img
                 src={param.userId == "me" ? profile.image : currentprofile.image}
                 className="profilo"
@@ -102,7 +106,12 @@ const Jumbotron = () => {
                     <span className="fls text-secondary ">Foto</span>
                   </label>
 
-                  <Button onClick={handleSubmit} variant="primary" type="submit" className="d-block  fsl ms-3 rounded-pill">
+                  <Button
+                    onClick={handleSubmit}
+                    variant="primary"
+                    type="submit"
+                    className="d-block  fsl ms-3 rounded-pill"
+                  >
                     Salva immagine
                   </Button>
                 </div>
@@ -128,25 +137,23 @@ const Jumbotron = () => {
               </div>
             </Card.Body>
 
-            <Row className="w-100 cols-2 ms-2 pb-3">
-              <Col className="p-2 w-50 ">
-                {" "}
+            <div className=" d-flex justify-content-between w-100 cols-2 pb-3">
+              <div className="d-flex p-2 w-50  ">
                 <p className="m-0 p-0">
-                  <strong>Mostra ai recuiter se sei disponibile a lavorare:</strong> sei tu che decidi che può vedere
-                  queste informazioni
+                  <strong>Mostra ai recuiter se sei disponibile a lavorare:</strong>
+                  <br /> sei tu che decidi che può vedere queste informazioni
                 </p>
                 <a className="text-decoratione-none text-primary">Inizia</a>
-              </Col>
-              ✖️
-              <Col className="p-2 ms-3 w-50 ">
-                <p className="m-0 p-0">
-                  <strong>Fai sapere che stai facendo selezione </strong>e attrai candidati qualificati
-                </p>
+              </div>
 
-                <a className="text-decoratione-none">Inizia</a>
-              </Col>
-              ✖️
-            </Row>
+              <div className="d-flex p-2 w-50 ">
+                <p className="m-0 p-0">
+                  <strong>Fai sapere che stai facendo selezione: </strong>
+                  <br /> attrai candidati qualificati
+                </p>
+                <a className="text-decoratione-none text-primary">Inizia</a>
+              </div>
+            </div>
           </Card>
 
           <Card className="d-flex m-3 position-relative">
@@ -172,7 +179,7 @@ const Jumbotron = () => {
                 </div>
               </Card.Title>
 
-             {profile._id && <Esperienze/> }
+              {profile._id && <Esperienze />}
             </Card.Body>
           </Card>
         </Col>
