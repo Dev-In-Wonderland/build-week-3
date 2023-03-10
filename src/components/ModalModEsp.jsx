@@ -31,6 +31,7 @@ function ModalModEsp(props) {
         }
       )
       if (response.ok) {
+        handleClose()
       } else {
       }
     } catch (err) {}
@@ -45,7 +46,10 @@ function ModalModEsp(props) {
 
   return (
     <>
-      <HiOutlinePencil onClick={handleShow}> </HiOutlinePencil>
+    <div onClick={handleShow}>
+      <HiOutlinePencil > </HiOutlinePencil> 
+      Modifica
+    </div>
 
       <Modal show={show} onHide={handleClose} backdrop="static">
         <Modal.Header closeButton>

@@ -112,7 +112,7 @@ body {
   text-align: center !important;
   margin-left: 1px;
   position: sticky !important;
-  z-index: 999999999999999999999;
+  z-index: 9;
   top:0 !important;
   
 }

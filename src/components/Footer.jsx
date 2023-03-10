@@ -58,8 +58,8 @@ const Footer = () => {
                 </Col>
                 <Col xs={3}>
                     <label>Seleziona lingua</label>
-                    <select name="language" id="" >
-                        <option value="0" selected="selected"> Italiano - Italiano</option>
+                    <select name="language" id="" defaultValue={"Italiano - Italiano"} >
+                        <option value="0" > Italiano - Italiano</option>
                         <option value="1">English - Inglese</option>
                         <option value="2">Français - Francese</option>
                     </select>

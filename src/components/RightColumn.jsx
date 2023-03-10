@@ -84,7 +84,7 @@ const Side = () => {
               utenti
                 .reverse()
                 .slice(0, 20)
-                .map((e) => <CardUtenti profile={e} />)}
+                .map((e,i) => <CardUtenti key={`ut-${i}`} profile={e} />)}
           </div>
         </div>
 
@@ -98,7 +98,7 @@ const Side = () => {
               utenti
                 .reverse()
                 .slice(20, 40)
-                .map((e) => <CardUtenti profile={e} />)}
+                .map((e,i) => <CardUtenti key={`ut2-${i}`} profile={e} />)}
           </div>
         </div>
       </div>

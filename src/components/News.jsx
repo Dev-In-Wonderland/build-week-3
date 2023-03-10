@@ -7,7 +7,6 @@ import Example from "../components/ModalEsp.jsx";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import LeftColumnNews from "./LeftColumnNews.jsx";
-import EditImagePost from "./Jimmy.jsx";
 import SpinnerLoad from "./Spinner";
 import Commenti from "./Commenti.jsx";
 import { FaRegCommentDots } from "react-icons/fa";

@@ -13,28 +13,21 @@ import { useParams } from "react-router-dom";
 import { BsCardImage } from "react-icons/bs";
 
 const Jumbotron = () => {
-  // const [esperienze, setEsperienze] = useState()
-
-  // const handleChange = function(field, value){
-  //   setEsperienze((prev)=>{return {...prev, [field]:value}})
-  // //le quadre sostituiscono
-  // }
-
   const param = useParams();
   const dispatch = useDispatch();
   const fetchme = async () => {
     try {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${param.id}`, {
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${param.userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        if (param.id === "me") {
+        if (param.userId === "me") {
           dispatch({ type: "SETPROFILE", payload: data });
-        } else if (param.id !== "me") {
+        } else if (param.userId !== "me") {
           dispatch({ type: "ADDPROFILE", payload: data });
         }
       } else {
@@ -47,11 +40,9 @@ const Jumbotron = () => {
 
   useEffect(() => {
     fetchme();
-  }, [param.id]);
+  }, [param.userId]);
 
-  const profile = useSelector((state) => {
-    return state.profile;
-  });
+  const profile = useSelector((state) => state.profile);
   const currentprofile = useSelector((state) => {
     return state.currentprofile;
   });
@@ -79,7 +70,7 @@ const Jumbotron = () => {
   const handleFile = (ev) => {
     setFd((prev) => {
       //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
-      prev.delete("post"); //ricordatevi di svuotare il FormData prima 🙂
+      prev.delete("profile"); //ricordatevi di svuotare il FormData prima 🙂
       prev.append("profile", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
       return prev;
     });
@@ -93,7 +84,7 @@ const Jumbotron = () => {
             <Card.Body>
               <img src="../ban.png" className="background img-fluid" alt="immagine del background" />
               <img
-                src={param.id == "me" ? profile.image : currentprofile.image}
+                src={param.userId == "me" ? profile.image : currentprofile.image}
                 className="profilo"
                 alt="immagine del profilo"
               />
@@ -107,7 +98,7 @@ const Jumbotron = () => {
                     <span className="fls text-secondary ">Foto</span>
                   </label>
 
-                  <Button onClick={fetchme} variant="primary" type="submit" className="d-block  fsl ms-3 rounded-pill">
+                  <Button onClick={handleSubmit} variant="primary" type="submit" className="d-block  fsl ms-3 rounded-pill">
                     Salva immagine
                   </Button>
                 </div>
@@ -115,14 +106,14 @@ const Jumbotron = () => {
                 <div className="d-flex justify-content-between mt-3">
                   <div>
                     {" "}
-                    {param.id == "me" ? profile.name : currentprofile.name}{" "}
-                    {param.id == "me" ? profile.surname : currentprofile.surname}
+                    {param.userId == "me" ? profile.name : currentprofile.name}{" "}
+                    {param.userId == "me" ? profile.surname : currentprofile.surname}
                   </div>{" "}
                   <ModalMod></ModalMod>
                 </div>
               </Card.Title>
 
-              <p className="mt-3  p-0">{param.id == "me" ? profile.title : currentprofile.title}</p>
+              <p className="mt-3  p-0">{param.userId == "me" ? profile.title : currentprofile.title}</p>
 
               <div className="mt-5">
                 <Button className="rounded-pill">Disponibile per</Button>
@@ -177,7 +168,7 @@ const Jumbotron = () => {
                 </div>
               </Card.Title>
 
-              <Esperienze></Esperienze>
+             {profile._id && <Esperienze/> }
             </Card.Body>
           </Card>
         </Col>
