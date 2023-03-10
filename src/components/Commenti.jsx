@@ -53,7 +53,7 @@ const Commenti = (props) => {
         <div className="mt-2">
           <Card>
             <div className="d-flex justify-content-end">
-              <Dropdown>
+             {e.author === "Elee" && <Dropdown>
                 <Dropdown.Toggle variant="" id="dropdown-basic">
                   . . .
                 </Dropdown.Toggle>
@@ -64,13 +64,13 @@ const Commenti = (props) => {
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     <ModalModComment
-                      comment={e}
                       refresh={CommentiFetch}
-                    ></ModalModComment>{" "}
+                      comment={e}
+                      ></ModalModComment>{" "}
                     Modifica
                   </Dropdown.Item>
                 </Dropdown.Menu>
-              </Dropdown>
+              </Dropdown>}
             </div>
 
             {/* <h3>Commenti:</h3> */}
