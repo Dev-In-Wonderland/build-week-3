@@ -111,12 +111,20 @@ body {
   border-bottom: 1px solid lightgray;
   text-align: center !important;
   margin-left: 1px;
+  position:fixed !important;
+  z-index: 999999999999999999999;
 }
 
 .nav-col {
   display: flex;
 
   padding: 10px 0 0;
+}
+
+
+
+.text-secondary-special {
+  color: gray !important;
 }
 
 .nav-col .form {

@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import News from  "./components/News"
 // import SideBar from "./components/SideBar";
+import Job from './components/Job';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
         <Route path="/" element={<News />}></Route>
         <Route path="/Me/:id" element={<Jumbotron />}></Route>
+        <Route path="/job" element={<Job />}></Route>
        
         
         </Routes>

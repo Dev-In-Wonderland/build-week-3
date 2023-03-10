@@ -41,8 +41,18 @@ const Navbar = () => {
             <span className="d-none d-lg-block">Rete</span>
           </li>
           <li>
-            <MdWork className="i-nav" />
-            <span className="d-none d-lg-block">Job</span>
+
+
+
+          <Link className="" to="/job">
+              
+            <MdWork className="i-nav tu text-secondary-special" />
+              <span className="d-none d-lg-block">
+                Job 
+              </span>
+            </Link>
+
+
           </li>
           <li>
             <TbMessageCircle2Filled className="i-nav" />
