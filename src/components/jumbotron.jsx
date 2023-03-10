@@ -10,7 +10,7 @@ import Esperienze from "../components/Esperienze.jsx";
 import ModalMod from "../components/ModalMod.jsx";
 import EditImageProfile from "../components/EditImageProfile.jsx";
 import { useParams } from "react-router-dom";
-import {BsCardImage } from 'react-icons/bs'
+import { BsCardImage } from "react-icons/bs";
 
 const Jumbotron = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -56,73 +56,34 @@ const Jumbotron = () => {
     return state.currentprofile;
   });
 
+  // const profile = useSelector((state) => state.profile);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    // const profile = useSelector((state) => state.profile);
-  
-    // useEffect(() => {
-    //   console.log(props.userid, profile._id);
-    // });
-    const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
-    //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
-    const handleSubmit = async (ev) => {
-      ev.preventDefault();
-      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + profile._id + "/picture", {
-        //qui l'id andra' sostituito con un id DINAMICO!!!!!
-        method: "POST",
-        body: fd, //non serve JSON.stringify
-        headers: {
-          //NON serve ContentType 🙂
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
-        },
-      });
-    };
-    const handleFile = (ev) => {
-      setFd((prev) => {
-        //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
-        prev.delete("post"); //ricordatevi di svuotare il FormData prima 🙂
-        prev.append("profile", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
-        return prev;
-      });
-    };
-    
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // useEffect(() => {
+  //   console.log(props.userid, profile._id);
+  // });
+  const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
+  //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + profile._id + "/picture", {
+      //qui l'id andra' sostituito con un id DINAMICO!!!!!
+      method: "POST",
+      body: fd, //non serve JSON.stringify
+      headers: {
+        //NON serve ContentType 🙂
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ",
+      },
+    });
+  };
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
+      prev.delete("post"); //ricordatevi di svuotare il FormData prima 🙂
+      prev.append("profile", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
+      return prev;
+    });
+  };
 
   return (
     <>
@@ -130,11 +91,7 @@ const Jumbotron = () => {
         <Col xs={9}>
           <Card className="d-flex flex-column  m-3 px-3 ">
             <Card.Body>
-              <img
-                src="https://images.pexels.com/photos/7134990/pexels-photo-7134990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                className="background img-fluid"
-                alt="immagine del background"
-              />
+              <img src="../ban.png" className="background img-fluid" alt="immagine del background" />
               <img
                 src={param.id == "me" ? profile.image : currentprofile.image}
                 className="profilo"
@@ -142,36 +99,23 @@ const Jumbotron = () => {
               />
 
               <Card.Title className="sopra  ">
-
                 {/* <EditImageProfile userid={profile._id}></EditImageProfile> */}
-<div className="d-flex align-items-center justift-content-start">
-                <input
-                  id="file"
-                  type="file"
-                  onChange={handleFile}
-                  className="d-none"
-                />
-                <label htmlFor="file" >
-                  <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
-                  <span className="fls text-secondary ">Foto</span> 
-                </label>
+                <div className="d-flex align-items-center justift-content-start">
+                  <input id="file" type="file" onChange={handleFile} className="d-none" />
+                  <label htmlFor="file">
+                    <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
+                    <span className="fls text-secondary ">Foto</span>
+                  </label>
 
-                <Button
-                onClick={fetchme}
-                variant="primary"
-                type="submit"
-                className="d-block  fsl ms-3 rounded-pill" 
-              >
-                Salva immagine
-              </Button>
-              </div>
-
-
+                  <Button onClick={fetchme} variant="primary" type="submit" className="d-block  fsl ms-3 rounded-pill">
+                    Salva immagine
+                  </Button>
+                </div>
 
                 <div className="d-flex justify-content-between mt-3">
                   <div>
                     {" "}
-                    {param.id == "me" ? profile.name : currentprofile.name} {" "}
+                    {param.id == "me" ? profile.name : currentprofile.name}{" "}
                     {param.id == "me" ? profile.surname : currentprofile.surname}
                   </div>{" "}
                   <ModalMod></ModalMod>
@@ -233,7 +177,7 @@ const Jumbotron = () => {
                 </div>
               </Card.Title>
 
-              <Esperienze ></Esperienze>
+              <Esperienze></Esperienze>
             </Card.Body>
           </Card>
         </Col>
