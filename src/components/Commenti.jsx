@@ -6,12 +6,19 @@ import DeleteComment from "./CommentDelete.jsx";
 
 import ModalModComment from "./CommentMod.jsx";
 
+import { Dropdown } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
+import {MdAccountCircle} from "react-icons/md"
 
 
 
 const Commenti = (props) => {
   const [commenti, setCommenti] = useState([]);
+
+
+  const profile = useSelector((state)=>  state.profile )
+  
 
   const CommentiFetch = async () => {
     try {
@@ -48,13 +55,39 @@ const Commenti = (props) => {
     <>
       {commenti?.map((e, i) => (
         <div className="mt-2">
+
           <Card>
+
+<div className="d-flex justify-content-end">
+          <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown-basic">
+        . . .
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1"><DeleteComment id={e.elementId} ></DeleteComment> Elimina</Dropdown.Item>
+        <Dropdown.Item href="#/action-2"><ModalModComment comment={e} refresh={CommentiFetch}></ModalModComment> Modifica</Dropdown.Item>
+        
+      </Dropdown.Menu>
+    </Dropdown>
+
+
+    </div>
+
+
+
+
+
+
           {/* <h3>Commenti:</h3> */}
           <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
+{/*             
             <Card.Title className=" m-0">
               <p className="m-0  p-2">
                 <strong>Nickname: </strong>
-                {e.author}
+
+                {profile.user.name}
+                {profile.user.surname}
               </p>
               <p className="m-0  p-0">
                 <strong>Commento: </strong>
@@ -63,8 +96,50 @@ const Commenti = (props) => {
               
             </Card.Title>
 
-            <DeleteComment id={e.elementId} ></DeleteComment>
-            <ModalModComment comment={e} refresh={CommentiFetch}></ModalModComment>
+             */}
+
+
+
+
+
+            <div className="d-flex flex-column align-items-start  w-100">
+
+<p className=" fsl  w-100 p-0">
+  <div className="text-start">
+                  <p className="fs-5 m-0 fw-bold d-flex justify-content-start  align-items-center mb-2">
+                    {/* <img src={profile.image}  className="profilo-news-input me-3" alt="" /> */}
+                    <MdAccountCircle className="fs-3 me-2 "></MdAccountCircle>
+                     {e.author} 
+                     {/* {e.DebugValue.name} */}
+                    
+                  </p>
+                  </div>
+                  <div className="mb-3 text-start">
+                  
+                    {e.comment}
+                    </div>
+                  </p>
+
+                  
+
+                  </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           </Card.Body>
           </Card>
         </div>

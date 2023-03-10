@@ -23,6 +23,9 @@ import { BsCardImage } from "react-icons/bs";
 import CommentPost from "./PostComment.jsx";
 import InputImgProfile from "./InputImgProfile.jsx";
 import ModalModPost from "./ModPost.jsx";
+import { TiArrowSync } from "react-icons/ti";
+import { BsSend } from "react-icons/bs";
+import { Dropdown } from "react-bootstrap";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -182,7 +185,7 @@ const Post = () => {
                 <InputImgProfile></InputImgProfile>
                 <Form.Group className="mb-3 w-75">
                   <Form.Control
-                  className="rounded-pill ms-2"
+                    className="rounded-pill ms-2"
                     type="text"
                     placeholder="Avvia un post"
                     value={posttext.text}
@@ -203,9 +206,9 @@ const Post = () => {
                   onChange={handleFile}
                   className="d-none"
                 />
-                <label htmlFor="file" >
+                <label htmlFor="file">
                   <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
-                  <span className="fls text-secondary ">Foto</span> 
+                  <span className="fls text-secondary ">Foto</span>
                 </label>
                 <label>
                   <BsFillPlayBtnFill className="text-success fs-5 me-3"></BsFillPlayBtnFill>
@@ -217,7 +220,9 @@ const Post = () => {
                 </label>
                 <label>
                   <RiArticleLine className="text-danger fs-5 me-3"></RiArticleLine>
-                  <span className="fsl  text-secondary">Scrivi un articolo</span>{" "}
+                  <span className="fsl  text-secondary">
+                    Scrivi un articolo
+                  </span>{" "}
                 </label>
               </div>
 
@@ -225,7 +230,7 @@ const Post = () => {
                 onClick={posttextData}
                 variant="primary"
                 type="submit"
-                className="d-block mx-auto fsl" 
+                className="d-block mx-auto fsl"
               >
                 Invia Post
               </Button>
@@ -235,48 +240,90 @@ const Post = () => {
           {post?.map((e, i) => (
             <Card onClick={() => setSelected(e._id)}>
               <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
-                <div className="d-flex w-100 justify-content-between align-items-center">
-                  <DeletePost id={e._id}></DeletePost>
-                  <ModalModPost post={e} refresh={posttextData}></ModalModPost>
+                <div className="d-flex w-100 justify-content-end align-items-center">
+
+
+
+                <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown-basic">
+        . . .
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1"><DeletePost id={e._id}></DeletePost> Elimina</Dropdown.Item>
+        <Dropdown.Item href="#/action-2"><ModalModPost post={e} refresh={posttextData}></ModalModPost> Modifica</Dropdown.Item>
+        
+      </Dropdown.Menu>
+    </Dropdown>
+
+                  
                 </div>
-                <Card.Title className=" m-0">
-                  <p className="fsl m-0  p-2">
-                    <span className="fsl">Nickname: </span>
-                    {e.username}
+
+
+
+
+                {/* PARTE CENTRALE DEL POST */}
+
+
+<div className="d-flex flex-column align-items-start  w-100">
+
+<p className=" fsl ms-1 w-100 p-0">
+                  <p className="fs-5 m-0 fw-bold p-2 d-flex align-items-center">
+                    <img src={e.user.image}  className="profilo-news-input me-3" alt="" />
+                    {e.user.name} {e.user.surname}
                   </p>
-                  <p className=" fsl m-0  p-0">
-                    <span className="fsl">Text: </span>
+
+                  <div className="d-flex justify-content-start"><small className="text-secondary text-start">{e.user.title}</small></div>
+                  <div className="mb-3 text-start">
+                    
                     {e.text}
+                    </div>
                   </p>
-                </Card.Title>
+
+
+                  </div>
+                
 
                 {e.image && (
                   <img
-                    src={e.image}
-                    className="postimages w-100"
-                    alt="immagine del commento"
+                  src={e.image}
+                  className="postimages w-100"
+                  alt="immagine del commento/post"
                   />
-                )}
+                  )}
 
-                {/* PARTE BASSA DEL POST */}
-
-
+                  {/* FINE PARTE CENTRALE DEL POST */}
 
 
 
-                <Row className="d-flex mt-5">
+
+
+
+
+
+
+
+
+
+
+
+                <Row className="w-100 d-flex align-items-center justify-content-between mt-5">
                   <Col>
-                  <button className="d-flex align-items-center justify-content-center bg-light border border-none">
-                  <Like className="fs-6"></Like>
-                  <span className="fsl">Consiglia</span>{" "}
-                </button>
+                    <button className="d-flex align-items-center m-0 p-0 justify-content-center bg-light border border-none">
+                      <Like className="fs-6 m-0 p-0"></Like>
+                      <span className="fsl me-4 p-0">Consiglia</span>
+                    </button>
                     {/* <div className="d-flex align-items-center"><p><Like /></p><span>Consiglia</span></div> */}
                   </Col>
-                  <Col>
-                    <Accordion defaultActiveKey={["0"]}>
-                      <Accordion.Item eventKey="0">
-                        <Accordion.Header>
-                          <FaRegCommentDots></FaRegCommentDots>
+                  <Col  target="_blank"
+          rel="noopener noreferrer">
+                    <Accordion defaultActiveKey={"0"}>
+                      <Accordion.Item eventKey="1"  >
+                        <Accordion.Header className="text-secondary " >
+                          <FaRegCommentDots className="me-2 ">
+                            {" "}
+                          </FaRegCommentDots>
+                          <span> Commenta</span>
                         </Accordion.Header>
                         <Accordion.Body>
                           {selected === e._id && (
@@ -289,16 +336,20 @@ const Post = () => {
                       </Accordion.Item>
                     </Accordion>
                   </Col>
-                  <Col>Condividi ⤴️</Col>
+                  <Col className="">
+                    <button className=" border border-none d-flex align-items-center">
+                      <TiArrowSync className="fs-3"></TiArrowSync>
+                      <span className="word-wrap-normal">Diffondi il post</span>
+                    </button>{" "}
+                  </Col>
+                  <Col>
+                    <button className="border border-none d-flex p-3 align-items-center">
+                      <BsSend className="fs-6"></BsSend>
+                      <span>Invia</span>
+                    </button>{" "}
+                  </Col>
                 </Row>
 
-
-
-
-
-
-
-                {/* FINE PARTE BASSA DEL POST */}
               </Card.Body>
             </Card>
           ))}
@@ -335,12 +386,16 @@ const Post = () => {
 
                 <li>
                   <p className="fsl">L'Ucraina e gli ultimi aggiornamenti</p>
-                  <small className="fs-6 text-secondary">12 ore fa - 679 lettori</small>
+                  <small className="fs-6 text-secondary">
+                    12 ore fa - 679 lettori
+                  </small>
                 </li>
 
                 <li>
                   <p className="fsl">I giovani occupati stanno diminuendo</p>
-                  <small className="fs-6 text-secondary">3 ore fa - 543 lettori</small>
+                  <small className="fs-6 text-secondary">
+                    3 ore fa - 543 lettori
+                  </small>
                 </li>
               </ul>
             </Card.Body>

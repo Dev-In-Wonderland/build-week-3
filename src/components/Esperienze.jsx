@@ -11,6 +11,7 @@ import EditImageEsp from "./EditImageEsp.jsx";
 import { useParams } from "react-router-dom";
 import ExpDelete from "./ExpDelete.jsx";
 import { BsCardImage } from "react-icons/bs";
+import { Dropdown } from "react-bootstrap";
 
 const Esperienze = (id, userid) => {
   // const [esperienze, setEsperienze] = useState()
@@ -92,6 +93,24 @@ const Esperienze = (id, userid) => {
     <>
       {esperienze?.map((e, i) => (
         <Card.Body className="  border-bottom ">
+
+<div className="d-flex justify-content-end">
+
+
+                          <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown-basic">
+        . . .
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1"><ExpDelete id={e._id} user={e.user}></ExpDelete> Elimina</Dropdown.Item>
+        <Dropdown.Item href="#/action-2"><ModalModEsp esperienza={e} refresh={fetchEsperienze}></ModalModEsp> Modifica</Dropdown.Item>
+        
+      </Dropdown.Menu>
+    </Dropdown>
+
+    </div>
+
           <div className="mb-4 ">
             <img src={e.image} className="w-100" alt="immagine dell'esperienza" />
             {/* <EditImageEsp id={e._id} userid={e.user}></EditImageEsp> */}
@@ -106,7 +125,7 @@ const Esperienze = (id, userid) => {
                 />
                 <label htmlFor="file" >
                   <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
-                  <span className="fls text-secondary ">Foto</span> 
+                  <span className="fsl text-secondary ">Foto</span> 
                 </label>
 
                 <button
@@ -124,27 +143,38 @@ const Esperienze = (id, userid) => {
           <div>
             <Card.Title className=" mb-5">
               <div className=" d-flex">
-                <h3 className="me-5">
-                  <strong>Impiego: </strong> {e.role}{" "}
+                <h3 className="me-5 fsl">
+                  <strong className="fsl">Impiego: </strong> {e.role}{" "}
                 </h3>{" "}
-                <ModalModEsp esperienza={e} refresh={fetchEsperienze}></ModalModEsp>
+
+
+
+
+
+
+
+
+
+
+
+                
               </div>
             </Card.Title>
 
-            <p className="m-0  p-0">
+            <p className="m-0 fsl p-0">
               <strong>Azienda: </strong>
               {e.company}
             </p>
-            <p className="m-0  p-0">
+            <p className="m-0 fsl p-0">
               <strong>Luogo: </strong>
               {e.area}
             </p>
-            <p className="m-0  p-0">
+            <p className="m-0 fsl p-0">
               <strong>Descrizione: </strong>
               {e.description}
             </p>
           </div>
-          <ExpDelete id={e._id} user={e.user}></ExpDelete>
+          
         </Card.Body>
       ))}
     </>

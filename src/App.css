@@ -135,6 +135,11 @@ body {
   color: rgb(10, 102, 194);
 }
 
+
+.word-wrap {
+  word-wrap: normal !important;
+}
+
 .input-search {
   display: flex;
   justify-content: flex-start;
