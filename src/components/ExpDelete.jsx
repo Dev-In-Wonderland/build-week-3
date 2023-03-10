@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import {AiFillDelete} from "react-icons/ai"
+import { AiFillDelete } from "react-icons/ai";
 
 const RemovePostAction = (i) => ({ type: "REMOVE_POST", payload: i });
 
@@ -27,8 +27,7 @@ function ExpDelete(props) {
       );
       if (response.ok) {
         console.log("if ok");
-
-        // QUI METTIAMO LA GET
+        props.refresh();
       } else {
         console.log("err in if");
       }
@@ -68,16 +67,12 @@ function ExpDelete(props) {
         </button>
  */}
 
-
-
-
-<AiFillDelete onClick={() => {
+        <AiFillDelete
+          onClick={() => {
             fetchDelete();
           }}
- className="m-0 text-start"></AiFillDelete>
-
-
-
+          className="m-0 text-start"
+        ></AiFillDelete>
       </>
     </>
   );

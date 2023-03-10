@@ -25,6 +25,7 @@ import ModalModPost from "./ModPost.jsx";
 import { TiArrowSync } from "react-icons/ti";
 import { BsSend } from "react-icons/bs";
 import { Dropdown } from "react-bootstrap";
+import { TfiThumbUp } from "react-icons/tfi";
 
 const Post = () => {
   // const [esperienze, setEsperienze] = useState()
@@ -178,11 +179,11 @@ const Post = () => {
         </Col>
 
         <Col className="col-6 ">
-          <Card className="p-3 mb-3">
-            <Form className="">
-              <div className="d-flex justify-content-center">
+          <Card className=" mb-3">
+            <Form className=" mt-5">
+              <div className="d-flex justify-content-center align-items-center mb-4">
                 <InputImgProfile></InputImgProfile>
-                <Form.Group className="mb-3 w-75">
+                <Form.Group className=" w-75">
                   <Form.Control
                     className="rounded-pill ms-2"
                     type="text"
@@ -195,6 +196,14 @@ const Post = () => {
                     }}
                   />
                 </Form.Group>
+                <Button
+                  onClick={posttextData}
+                  variant="primary"
+                  type="submit"
+                  className="rounded-circle ms-3"
+                >
+                  <BsSend className="fs-5 text-white"></BsSend>
+                </Button>
               </div>
               {/* <EditImagePost userid={PostInput.user._id}></EditImagePost> */}
 
@@ -224,101 +233,85 @@ const Post = () => {
                   </span>{" "}
                 </label>
               </div>
-
-              <Button
-                onClick={posttextData}
-                variant="primary"
-                type="submit"
-                className="d-block mx-auto fsl"
-              >
-                Invia Post
-              </Button>
             </Form>
           </Card>
           {spinner && <SpinnerLoad />}
           {post?.map((e, i) => (
             <Card className="mb-2" onClick={() => setSelected(e._id)}>
               <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded  bg-light">
-                <div className="d-flex w-100 justify-content-end align-items-center">
-
-
-
-                <Dropdown>
-      <Dropdown.Toggle variant="" id="dropdown-basic">
-        . . .
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1"><DeletePost refresh={fetchPost} id={e._id}></DeletePost> Elimina</Dropdown.Item>
-        <Dropdown.Item href="#/action-2"><ModalModPost post={e} refresh={fetchPost}></ModalModPost> Modifica</Dropdown.Item>
-        
-      </Dropdown.Menu>
-    </Dropdown>
-
-                  
-                </div>
-
-
-
-
                 {/* PARTE CENTRALE DEL POST */}
 
+                <div className="d-flex flex-column align-items-start  w-100">
+                  <p className=" fsl ms-1 w-100 p-0">
+                    <div className="d-flex justify-content-between w-100 align-items-center">
+                      <p className="fs-5 m-0 fw-bold w-50 p-2 d-flex align-items-center">
+                        <img
+                          src={e.user.image}
+                          className="profilo-news-input me-3"
+                          alt=""
+                        />
+                        {e.user.name} {e.user.surname}
+                      </p>
+                      <div className="d-flex w-100 justify-content-end align-items-center">
+                        <Dropdown>
+                          <Dropdown.Toggle variant="" id="dropdown-basic">
+                            . . .
+                          </Dropdown.Toggle>
 
-<div className="d-flex flex-column align-items-start  w-100">
-
-<p className=" fsl ms-1 w-100 p-0">
-                  <p className="fs-5 m-0 fw-bold p-2 d-flex align-items-center">
-                    <img src={e.user.image}  className="profilo-news-input me-3" alt="" />
-                    {e.user.name} {e.user.surname}
-                  </p>
-
-                  <div className="d-flex justify-content-start"><small className="text-secondary text-start">{e.user.title}</small></div>
-                  <div className="mb-3 text-start">
-                    
-                    {e.text}
+                          <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">
+                              <DeletePost
+                                refresh={fetchPost}
+                                id={e._id}
+                              ></DeletePost>{" "}
+                              Elimina
+                            </Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">
+                              <ModalModPost
+                                post={e}
+                                refresh={fetchPost}
+                              ></ModalModPost>{" "}
+                              Modifica
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </div>
                     </div>
+
+                    <div className="d-flex justify-content-start">
+                      <small className="text-secondary text-start">
+                        {e.user.title}
+                      </small>
+                    </div>
+                    <div className="mb-3 text-start">{e.text}</div>
                   </p>
-
-
-                  </div>
-                
+                </div>
 
                 {e.image && (
                   <img
-                  src={e.image}
-                  className="postimages w-100"
-                  alt="immagine del commento/post"
+                    src={e.image}
+                    className="postimages w-100"
+                    alt="immagine del commento/post"
                   />
-                  )}
+                )}
 
-                  {/* FINE PARTE CENTRALE DEL POST */}
+                {/* FINE PARTE CENTRALE DEL POST */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <Row className="w-100 d-flex align-items-center justify-content-between mt-5">
+                <Row className="w-100 d-flex align-items-center justify-content-evenly mt-5 cols-4 ">
+                  <hr />
                   <Col>
-                    <button className="d-flex align-items-center m-0 p-0 justify-content-center text-secondary bg-light border border-none">
-                      <Like className="fs-6 m-0 p-0 text-secondary"></Like>
-                      <span className="fsl me-4 p-0">Consiglia</span>
-                    </button>
+                    <div className="d-flex align-items-center m-0 p-0 justify-content-center text-secondary bg-light ">
+                      <TfiThumbUp className="fs-5 me-2"></TfiThumbUp>
+                      <span className="fsl me-4 p-0 cursor-pointer">
+                        Consiglia
+                      </span>
+                    </div>
                     {/* <div className="d-flex align-items-center"><p><Like /></p><span>Consiglia</span></div> */}
                   </Col>
-                  <Col  target="_blank"
-          rel="noopener noreferrer">
+                  {/* <Col target="_blank" rel="noopener noreferrer">
                     <Accordion defaultActiveKey={"0"}>
-                      <Accordion.Item eventKey="1"  >
-                        <Accordion.Header className="text-secondary " >
+                      <Accordion.Item eventKey="1">
+                        <Accordion.Header className="text-secondary ">
                           <FaRegCommentDots className="me-2 text-secondary">
                             {" "}
                           </FaRegCommentDots>
@@ -334,21 +327,49 @@ const Post = () => {
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
+                  </Col> */}
+                  <Col>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="" id="dropdown-basic">
+                        <FaRegCommentDots className="me-2 text-secondary">
+                          {" "}
+                        </FaRegCommentDots>
+                        <span className="fsl text-secondary"> Commenta</span>
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <div href="#/action-1" className="dropdown-commenti">
+                          <p>
+                            {selected === e._id && (
+                              <>
+                                <Commenti id={e._id}></Commenti>
+                              </>
+                            )}
+                            <CommentPost
+                              refresh={fetchPost}
+                              id={e._id}
+                            ></CommentPost>
+                          </p>
+                        </div>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </Col>
-                  <Col className="">
-                    <button className=" border border-none d-flex align-items-center">
-                      <TiArrowSync className="fs-3 text-secondary"></TiArrowSync>
-                      <span className="word-wrap-normal text-secondary">Diffondi il post</span>
-                    </button>{" "}
+
+                  <Col className="button-post">
+                    <div>
+                      <TiArrowSync className="fs-5 me-2 text-secondary"></TiArrowSync>
+                      <span className="fsl word-wrap-normal text-secondary cursor-pointer">
+                        Diffondi il post
+                      </span>
+                    </div>
                   </Col>
                   <Col>
-                    <button className="border border-none d-flex p-3 align-items-center">
-                      <BsSend className="fs-6 text-secondary"></BsSend>
-                      <span className="text-secondary">Invia</span>
-                    </button>{" "}
+                    <BsSend className="fs-6 me-2 text-secondary"></BsSend>
+                    <span className="fsl text-secondary cursor-pointer">
+                      Invia
+                    </span>
                   </Col>
                 </Row>
-
               </Card.Body>
             </Card>
           ))}

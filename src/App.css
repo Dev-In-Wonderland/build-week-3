@@ -14,15 +14,19 @@
 }
 
 body {
-  background-color: #F3F2EE;
+  background-color: #f3f2ee;
 }
 
-
-.fsl{
-  font-size: 1rem !important;
+.fsl {
+  font-size: 0.8rem !important;
 }
 
+.button-post {
+}
 
+.dropdown-commenti {
+  width: 500px !important;
+}
 
 .jumbotron {
   width: 100% !important;
@@ -62,9 +66,7 @@ body {
   border-radius: 30000px;
 }
 
-
-
-.like-svg{
+.like-svg {
   width: 30px;
 }
 
@@ -113,12 +115,10 @@ body {
   margin-left: 1px;
   position: sticky !important;
   z-index: 9;
-  top:0 !important;
-  
+  top: 0 !important;
 }
 
-
-.link-nav{
+.link-nav {
   text-decoration: none !important;
 }
 
@@ -127,8 +127,6 @@ body {
 
   padding: 10px 0 0;
 }
-
-
 
 .text-secondary-special {
   color: gray !important;
@@ -149,7 +147,6 @@ body {
   font-size: 35px;
   color: rgb(10, 102, 194);
 }
-
 
 .word-wrap {
   word-wrap: normal !important;
@@ -204,7 +201,7 @@ body {
 }
 
 .footer {
-  background-color: #F3F2EE;
+  background-color: #f3f2ee;
 }
 
 .footer-col,
@@ -467,12 +464,10 @@ DELETE BUTTON */
   top: -160%;
 }
 
-
-
-.text-orange{
-  color:orange !important
+.text-orange {
+  color: orange !important;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer !important ;
 }

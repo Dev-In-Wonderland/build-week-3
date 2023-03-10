@@ -8,7 +8,7 @@ const CommentPost = ({ id }) => {
   const foto = useSelector((state) => state.profile);
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ";
-  const [cbody, setcbody] = useState({ comment: "", elementId:id });
+  const [cbody, setcbody] = useState({ comment: "", elementId: id });
   const dispatch = useDispatch();
 
   const CommentsFetch = async () => {
@@ -26,8 +26,8 @@ const CommentPost = ({ id }) => {
         }
       );
       if (response.ok) {
-        
         const data = await response.json();
+        id.refresh();
       } else {
         console.log("err in if");
       }
@@ -51,7 +51,7 @@ const CommentPost = ({ id }) => {
       <Col>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="m-0 d-flex mt-5">
-        <img src={foto.image}  className="profilo-news-input me-2" alt="" />
+            <img src={foto.image} className="profilo-news-input me-2" alt="" />
             <Form.Control
               onChange={(e) => {
                 handleChange(e.target.value);
@@ -63,9 +63,13 @@ const CommentPost = ({ id }) => {
             />
           </Form.Group>
           <div className="text-start">
-          <button className="btn btn-primary mt-3 rounded-pill " type="submit" onClick={CommentsFetch}>
-            Pubblica
-          </button>
+            <button
+              className="btn btn-primary mt-3 rounded-pill "
+              type="submit"
+              onClick={CommentsFetch}
+            >
+              Pubblica
+            </button>
           </div>
           {/* <DeleteComment id={profile.elementId}></DeleteComment> */}
         </Form>
