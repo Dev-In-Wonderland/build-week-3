@@ -23,7 +23,7 @@ function ModalModComment(props) {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZlMjc4ODU3OWM2MzAwMTM3Y2Y4YzMiLCJpYXQiOjE2Nzc2MDA2NDksImV4cCI6MTY3ODgxMDI0OX0.EHJrg1AvvFDXzLcMgar_TjwQaMNKVN_tbGsUktYNUHQ"
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/` +
-          props.comment.elementId,
+          props.comment._id,
         {
           method: "PUT",
           body: JSON.stringify(mod),

@@ -16,7 +16,6 @@ function DeleteComment(props) {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
         },
       });
       if (response.ok) {
