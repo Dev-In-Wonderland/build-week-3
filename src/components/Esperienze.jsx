@@ -125,22 +125,22 @@ const Esperienze = () => {
             </div>
             <div>
               <Card.Title className=" mb-5">
-                <div className=" d-flex">
+                <div className=" d-flex align-items-start">
                   <h3 className="me-5 fsl">
                     <strong className="fsl">Impiego: </strong> {e.role}{" "}
                   </h3>{" "}
                 </div>
               </Card.Title>
 
-              <p className="m-0 fsl p-0">
+              <p className="text-start m-0 fsl p-0">
                 <strong>Azienda: </strong>
                 {e.company}
               </p>
-              <p className="m-0 fsl p-0">
+              <p className="text-start m-0 fsl p-0">
                 <strong>Luogo: </strong>
                 {e.area}
               </p>
-              <p className="m-0 fsl p-0">
+              <p className=" text-start m-0 fsl p-0">
                 <strong>Descrizione: </strong>
                 {e.description}
               </p>

@@ -520,3 +520,9 @@ DELETE BUTTON */
   margin-left: 30% !important;
   margin: 0 auto !important;
 }
+
+.togglestronzo{
+  background: transparent !important;
+  color: black !important;
+  border: none !important;
+}

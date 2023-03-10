@@ -244,13 +244,13 @@ const Post = () => {
                 <div className="d-flex flex-column align-items-start  w-100">
                   <p className=" fsl ms-1 w-100 p-0">
                     <div className="d-flex justify-content-between w-100 align-items-center">
-                      <p className="fs-5 m-0 fw-bold w-50 p-2 d-flex align-items-center">
+                      <p className="fs-5 m-0 fw-bold w-100 p-2 d-flex align-items-center">
                         <img
                           src={e.user.image}
                           className="profilo-news-input me-3"
                           alt=""
                         />
-                        {e.user.name} {e.user.surname}
+                       <p className="fsl ">{e.user.name} {e.user.surname}</p> 
                       </p>
                       <div className="d-flex w-100 justify-content-end align-items-center">
                         <Dropdown>
