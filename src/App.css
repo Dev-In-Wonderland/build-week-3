@@ -111,9 +111,14 @@ body {
   border-bottom: 1px solid lightgray;
   text-align: center !important;
   margin-left: 1px;
-  position:fixed !important;
+  position: sticky !important;
   z-index: 999999999999999999999;
+  top:0 !important;
+  
 }
+
+
+
 
 .nav-col {
   display: flex;

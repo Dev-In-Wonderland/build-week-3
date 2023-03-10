@@ -238,8 +238,8 @@ const Post = () => {
           </Card>
           {spinner && <SpinnerLoad />}
           {post?.map((e, i) => (
-            <Card onClick={() => setSelected(e._id)}>
-              <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded p-5 m-2 bg-light">
+            <Card className="mb-2" onClick={() => setSelected(e._id)}>
+              <Card.Body className=" d-flex justify-content-center flex-column align-items-center border border-light rounded  bg-light">
                 <div className="d-flex w-100 justify-content-end align-items-center">
 
 
@@ -309,8 +309,8 @@ const Post = () => {
 
                 <Row className="w-100 d-flex align-items-center justify-content-between mt-5">
                   <Col>
-                    <button className="d-flex align-items-center m-0 p-0 justify-content-center bg-light border border-none">
-                      <Like className="fs-6 m-0 p-0"></Like>
+                    <button className="d-flex align-items-center m-0 p-0 justify-content-center text-secondary bg-light border border-none">
+                      <Like className="fs-6 m-0 p-0 text-secondary"></Like>
                       <span className="fsl me-4 p-0">Consiglia</span>
                     </button>
                     {/* <div className="d-flex align-items-center"><p><Like /></p><span>Consiglia</span></div> */}
@@ -320,10 +320,10 @@ const Post = () => {
                     <Accordion defaultActiveKey={"0"}>
                       <Accordion.Item eventKey="1"  >
                         <Accordion.Header className="text-secondary " >
-                          <FaRegCommentDots className="me-2 ">
+                          <FaRegCommentDots className="me-2 text-secondary">
                             {" "}
                           </FaRegCommentDots>
-                          <span> Commenta</span>
+                          <span className="text-secondary"> Commenta</span>
                         </Accordion.Header>
                         <Accordion.Body>
                           {selected === e._id && (
@@ -338,13 +338,13 @@ const Post = () => {
                   </Col>
                   <Col className="">
                     <button className=" border border-none d-flex align-items-center">
-                      <TiArrowSync className="fs-3"></TiArrowSync>
-                      <span className="word-wrap-normal">Diffondi il post</span>
+                      <TiArrowSync className="fs-3 text-secondary"></TiArrowSync>
+                      <span className="word-wrap-normal text-secondary">Diffondi il post</span>
                     </button>{" "}
                   </Col>
                   <Col>
                     <button className="border border-none d-flex p-3 align-items-center">
-                      <BsSend className="fs-6"></BsSend>
+                      <BsSend className="fs-6 text-secondary"></BsSend>
                       <span>Invia</span>
                     </button>{" "}
                   </Col>
