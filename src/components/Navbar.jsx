@@ -31,7 +31,7 @@ const Navbar = () => {
         <ul className="ul-nav ms-5">
           <li>
             <MdHome className="i-nav home" />
-            <Link to="/">
+            <Link className="text-secondary link-nav" to="/">
               
               <span className="d-none d-lg-block">Home</span>
             </Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
 
-          <Link className="" to="/job">
+          <Link className="text-secondary link-nav" to="/job">
               
             <MdWork className="i-nav tu text-secondary-special" />
               <span className="d-none d-lg-block">
@@ -64,9 +64,9 @@ const Navbar = () => {
           </li>
           <li>
             <ImageNavbar className="i-nav tu" />
-            <Link className="" to="/Me/me">
+            <Link className="text-secondary link-nav" to="/Me/me">
               
-              <span className="d-none d-lg-block">
+              <span className="d-none text-secondary link-nav d-lg-block">
                 Tu <IoMdArrowDropdown className="freccia-dropdown" />
               </span>
             </Link>
@@ -80,7 +80,7 @@ const Navbar = () => {
             </span>
           </li>
           <li>
-            <a className="premium" href="a">Prova Premium</a>
+            <a className="premium text-secondary " href="a">Prova Premium</a>
           </li>
         </ul>
       </Col>

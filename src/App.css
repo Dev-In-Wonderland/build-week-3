@@ -118,7 +118,9 @@ body {
 }
 
 
-
+.link-nav{
+  text-decoration: none !important;
+}
 
 .nav-col {
   display: flex;
