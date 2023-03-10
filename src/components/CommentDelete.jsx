@@ -1,6 +1,7 @@
 import { useState } from "react";
-// import { RiDeleteBin6Fill } from "react-icons/ri";
+
 import { useDispatch } from "react-redux";
+import {AiFillDelete} from "react-icons/ai"
 
 const RemovePostAction = (i) => ({ type: "REMOVE_POST", payload: i });
 
@@ -38,11 +39,17 @@ function DeleteComment(props) {
 
 
 
+      <AiFillDelete onClick={() => {
+            fetchDelete();
+          }}
+ className="m-0 text-start"></AiFillDelete>
 
 
 
 
 
+
+{/* 
 
 
 <button class="btna mt-5" type="submit"
@@ -53,7 +60,7 @@ function DeleteComment(props) {
   <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
 </svg>
 </button>
-
+ */}
 
 
 

@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import ExpDelete from "./ExpDelete.jsx";
 import { BsCardImage } from "react-icons/bs";
 import { Dropdown } from "react-bootstrap";
+import {AiFillDelete} from "react-icons/ai"
 
 const Esperienze = (id, userid) => {
   // const [esperienze, setEsperienze] = useState()
@@ -102,8 +103,8 @@ const Esperienze = (id, userid) => {
         . . .
       </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1"><ExpDelete id={e._id} user={e.user}></ExpDelete> Elimina</Dropdown.Item>
+      <Dropdown.Menu className="d-flex flex-column align-items-start">
+        <Dropdown.Item href="#/action-1"><ExpDelete  id={e._id} user={e.user}></ExpDelete  > Elimina</Dropdown.Item>
         <Dropdown.Item href="#/action-2"><ModalModEsp esperienza={e} refresh={fetchEsperienze}></ModalModEsp> Modifica</Dropdown.Item>
         
       </Dropdown.Menu>

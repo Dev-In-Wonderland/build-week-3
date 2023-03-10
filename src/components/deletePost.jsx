@@ -1,6 +1,7 @@
 import { useState } from "react";
-// import { RiDeleteBin6Fill } from "react-icons/ri";
+
 import { useDispatch } from "react-redux";
+import {AiFillDelete} from "react-icons/ai"
 
 const RemovePostAction = (i) => ({ type: "REMOVE_POST", payload: i });
 
@@ -37,10 +38,16 @@ function DeletePost(props) {
 
 
 
+      <AiFillDelete onClick={() => {
+            fetchDelete();
+          }}
+ className="m-0 text-start"></AiFillDelete>
 
 
 
 
+
+{/* 
 
 
 
@@ -54,7 +61,7 @@ function DeletePost(props) {
 </svg>
 </button>
 
-
+ */}
 
 
 
