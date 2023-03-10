@@ -502,3 +502,15 @@ DELETE BUTTON */
   background-color: lightgray !important;
 
 }
+
+.button:hover {
+  background-color: lightgray;
+}
+
+#bannercopertina {
+  width: 100% !important;
+}
+
+#cardrightcol {
+  border-bottom: lightgray !important;
+}

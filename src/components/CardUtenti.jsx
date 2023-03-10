@@ -30,6 +30,7 @@ const CardUtenti = ({ profile }) => {
             >
               Segui
             </Button>
+            <hr />
           </div>
         </Col>
       </Row>

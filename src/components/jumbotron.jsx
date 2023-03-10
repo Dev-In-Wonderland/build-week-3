@@ -78,19 +78,20 @@ const Jumbotron = () => {
 
   return (
     <>
-      <div className="d-flex mx-auto">
+      <div className="d-flex">
         <Row className="jumbotron d-flex justify-content-center ms-5">
-          <Col className="d-flex flex-column align-items-center ms-5" xs={9}>
+          <Col className="d-flex flex-column align-items-center " xs={9}>
             <Card className="d-flex flex-column  m-3  ">
-              <Card.Body>
+              <Card.Body className="p-0">
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
 
                 <Card.Img
                   src={
                     "https://cdn.discordapp.com/attachments/1079690207714103310/1083419534075117619/Screenshot_2023-03-09_alle_17.00.45.png"
                   }
-                  className="background ms-4  img-fluid "
+                  className="background"
                   alt="immagine del background"
+                  id="bannercopertina"
                 />
                 <img
                   src={param.userId == "me" ? profile.image : currentprofile.image}
@@ -100,7 +101,7 @@ const Jumbotron = () => {
 
                 <Card.Title className="sopra  ">
                   {/* <EditImageProfile userid={profile._id}></EditImageProfile> */}
-                  <div className="d-flex align-items-center justift-content-start">
+                  <div className="d-flex align-items-center justift-content-start ms-3">
                     <input id="file" type="file" onChange={handleFile} className="d-none" />
                     <label htmlFor="file">
                       <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
@@ -117,7 +118,7 @@ const Jumbotron = () => {
                     </Button>
                   </div>
 
-                  <div className="d-flex justify-content-between mt-3">
+                  <div className="d-flex justify-content-between ms-3 mt-3">
                     <div>
                       {" "}
                       {param.userId == "me" ? profile.name : currentprofile.name}{" "}
@@ -127,14 +128,18 @@ const Jumbotron = () => {
                   </div>
                 </Card.Title>
 
-                <p className="mt-3  p-0">{param.userId == "me" ? profile.title : currentprofile.title}</p>
+                <p className="ms-3 mt-3  p-0">{param.userId == "me" ? profile.title : currentprofile.title}</p>
 
-                <div className="mt-5">
-                  <Button className="rounded-pill">Disponibile per</Button>
-                  <button className="ms-2  btn rounded-pill border border-primary text-primary">
+                <div className=" ms-3 mt-3 mb-3">
+                  <Button id="shadow" className="rounded-pill">
+                    Disponibile per
+                  </Button>
+                  <button id="shadow" className="ms-2  btn rounded-pill border border-primary text-primary">
                     Aggiungi sezione del profilo
                   </button>
-                  <button className="ms-2 btn rounded-pill border border-secondary text-secondary">Altro</button>
+                  <button id="shadow" className="ms-2 btn rounded-pill border border-secondary text-secondary">
+                    Altro
+                  </button>
                 </div>
               </Card.Body>
 
@@ -176,7 +181,7 @@ const Jumbotron = () => {
                   <h2>
                     <strong className="fs-5">Esperienze</strong>
                   </h2>
-                  <div className="">
+                  <div className="mt-2">
                     <Example />
                   </div>
                 </Card.Title>
