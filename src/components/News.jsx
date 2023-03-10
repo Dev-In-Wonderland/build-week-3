@@ -345,7 +345,7 @@ const Post = () => {
                   <Col>
                     <button className="border border-none d-flex p-3 align-items-center">
                       <BsSend className="fs-6 text-secondary"></BsSend>
-                      <span>Invia</span>
+                      <span className="text-secondary">Invia</span>
                     </button>{" "}
                   </Col>
                 </Row>
