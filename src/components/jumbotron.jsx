@@ -78,109 +78,124 @@ const Jumbotron = () => {
 
   return (
     <>
-      <Row className="jumbotron">
-        <Col xs={9}>
-          <Card className="d-flex flex-column  m-3  ">
-            <Card.Body>
+      <div className="d-flex">
+        <Row className="jumbotron d-flex justify-content-center ms-5">
+          <Col className="d-flex flex-column align-items-center " xs={9}>
+            <Card className="d-flex flex-column  m-3  ">
+              <Card.Body className="p-0">
+                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
 
+                <Card.Img
+                  src={
+                    "https://cdn.discordapp.com/attachments/1079690207714103310/1083419534075117619/Screenshot_2023-03-09_alle_17.00.45.png"
+                  }
+                  className="background"
+                  alt="immagine del background"
+                  id="bannercopertina"
+                />
+                <img
+                  src={param.userId == "me" ? profile.image : currentprofile.image}
+                  className="profilo"
+                  alt="immagine del profilo"
+                />
 
-            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                <Card.Title className="sopra  ">
+                  {/* <EditImageProfile userid={profile._id}></EditImageProfile> */}
+                  <div className="d-flex align-items-center justift-content-start ms-3">
+                    <input id="file" type="file" onChange={handleFile} className="d-none" />
+                    <label htmlFor="file">
+                      <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
+                      <span className="fls text-secondary ">Foto</span>
+                    </label>
 
-            <Card.Img src={"https://cdn.discordapp.com/attachments/1079690207714103310/1083419534075117619/Screenshot_2023-03-09_alle_17.00.45.png"} className="background ms-4  img-fluid " alt="immagine del background" />
-              <img
-                src={param.userId == "me" ? profile.image : currentprofile.image}
-                className="profilo"
-                alt="immagine del profilo"
-              />
+                    <Button
+                      onClick={handleSubmit}
+                      variant="primary"
+                      type="submit"
+                      className="d-block  fsl ms-3 rounded-pill"
+                    >
+                      Salva immagine
+                    </Button>
+                  </div>
 
-              <Card.Title className="sopra  ">
-                {/* <EditImageProfile userid={profile._id}></EditImageProfile> */}
-                <div className="d-flex align-items-center justift-content-start">
-                  <input id="file" type="file" onChange={handleFile} className="d-none" />
-                  <label htmlFor="file">
-                    <BsCardImage className="text-primary cursor-pointer fs-5 me-3 "></BsCardImage>
-                    <span className="fls text-secondary ">Foto</span>
-                  </label>
+                  <div className="d-flex justify-content-between ms-3 mt-3">
+                    <div>
+                      {" "}
+                      {param.userId == "me" ? profile.name : currentprofile.name}{" "}
+                      {param.userId == "me" ? profile.surname : currentprofile.surname}
+                    </div>{" "}
+                    <ModalMod></ModalMod>
+                  </div>
+                </Card.Title>
 
-                  <Button onClick={handleSubmit} variant="primary" type="submit" className="d-block  fsl ms-3 rounded-pill">
-                    Salva immagine
+                <p className="ms-3 mt-3  p-0">{param.userId == "me" ? profile.title : currentprofile.title}</p>
+
+                <div className=" ms-3 mt-3 mb-3">
+                  <Button id="shadow" className="rounded-pill">
+                    Disponibile per
                   </Button>
+                  <button id="shadow" className="ms-2  btn rounded-pill border border-primary text-primary">
+                    Aggiungi sezione del profilo
+                  </button>
+                  <button id="shadow" className="ms-2 btn rounded-pill border border-secondary text-secondary">
+                    Altro
+                  </button>
                 </div>
+              </Card.Body>
 
-                <div className="d-flex justify-content-between mt-3">
-                  <div>
-                    {" "}
-                    {param.userId == "me" ? profile.name : currentprofile.name}{" "}
-                    {param.userId == "me" ? profile.surname : currentprofile.surname}
-                  </div>{" "}
-                  <ModalMod></ModalMod>
+              <div className=" d-flex justify-content-evenly w-100 cols-2 pb-3">
+                <div id="cardsss" className="card d-flex p-2 ms-3 ">
+                  <p className="m-0 p-0 w-100">
+                    <strong>Mostra ai recuiter se sei disponibile a lavorare:</strong>
+                    <br /> sei tu che decidi che può vedere queste informazioni
+                  </p>
+                  <a className="text-decoratione-none text-primary ms-3">Inizia</a>
                 </div>
-              </Card.Title>
-
-              <p className="mt-3  p-0">{param.userId == "me" ? profile.title : currentprofile.title}</p>
-
-              <div className="mt-5">
-                <Button className="rounded-pill">Disponibile per</Button>
-                <button className="ms-2  btn rounded-pill border border-primary text-primary">
-                  Aggiungi sezione del profilo
-                </button>
-                <button className="ms-2 btn rounded-pill border border-secondary text-secondary">Altro</button>
+                ✖️
+                <div id="cardsss" className="card d-flex p-2 ">
+                  <p className="m-0 p-0">
+                    <strong>Fai sapere che stai facendo selezione: </strong>
+                    <br /> attrai candidati qualificati
+                  </p>
+                  <a className="text-decoratione-none text-primary ms-3">Inizia</a>
+                </div>
+                ✖️
               </div>
-            </Card.Body>
+            </Card>
 
-            <Row className="w-100 cols-2 ms-2 pb-3">
-              <Col className="p-2 w-50 ">
-                {" "}
-                <p className="m-0 p-0">
-                  <strong>Mostra ai recuiter se sei disponibile a lavorare:</strong> sei tu che decidi che può vedere
-                  queste informazioni
+            <Card className="d-flex m-3 position-relative">
+              <Card.Body>
+                <Card.Title>
+                  <strong>Consigliato per te</strong>
+                </Card.Title>
+                <p className="m-0 p-0 d-flex align-items-center ">
+                  <BsFillEyeFill className="me-3" />
+                  Solo per te
                 </p>
-                <a className="text-decoratione-none text-primary">Inizia</a>
-              </Col>
-              ✖️
-              <Col className="p-2 ms-3 w-50 ">
-                <p className="m-0 p-0">
-                  <strong>Fai sapere che stai facendo selezione </strong>e attrai candidati qualificati
-                </p>
+              </Card.Body>
+            </Card>
 
-                <a className="text-decoratione-none">Inizia</a>
-              </Col>
-              ✖️
-            </Row>
-          </Card>
+            <Card className="d-flex m-3 position-relative">
+              <Card.Body>
+                <Card.Title className="d-flex justify-content-between">
+                  <h2>
+                    <strong className="fs-5">Esperienze</strong>
+                  </h2>
+                  <div className="mt-2">
+                    <Example />
+                  </div>
+                </Card.Title>
 
-          <Card className="d-flex m-3 position-relative">
-            <Card.Body>
-              <Card.Title>
-                <strong>Consigliato per te</strong>
-              </Card.Title>
-              <p className="m-0 p-0 d-flex align-items-center ">
-                <BsFillEyeFill className="me-3" />
-                Solo per te
-              </p>
-            </Card.Body>
-          </Card>
+                {profile._id && <Esperienze />}
+              </Card.Body>
+            </Card>
+          </Col>
 
-          <Card className="d-flex m-3 position-relative">
-            <Card.Body>
-              <Card.Title className="d-flex justify-content-between">
-                <h2>
-                  <strong className="fs-5">Esperienze</strong>
-                </h2>
-                <div className="">
-                  <Example />
-                </div>
-              </Card.Title>
-
-             {profile._id && <Esperienze/> }
-            </Card.Body>
-          </Card>
-        </Col>
-
-        <Col>
-          <Side></Side>
-        </Col>
-      </Row>
+          <Col className="d-flex flex-column justify-content-center me-5">
+            <Side></Side>
+          </Col>
+        </Row>
+      </div>
     </>
   );
 };
