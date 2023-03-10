@@ -34,6 +34,8 @@ function ModalModComment(props) {
         }
       )
       if (response.ok) {
+        props.refresh()
+        setShow(false)
       } else {
       }
     } catch (err) {}
